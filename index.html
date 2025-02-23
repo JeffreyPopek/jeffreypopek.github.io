@@ -3,111 +3,422 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeffrey Popek - Game Programmer</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for icons (free alternative to Lucide) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Jeffrey Popek - Gameplay Programmer</title>
+    <link href="https://unpkg.com/lucide-css@latest" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --purple: #2A0944;
+            --purple-hover: #3B0C5F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #e5e5e5;
+        }
+
+        /* Add to style section */
+        .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            background-color: #00000059;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--purple);
+            color: white;
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-brand h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .nav-brand p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--purple);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.5rem 1rem;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--purple-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: #00000059;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Demo Reel */
+        .demo-reel {
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            background: rgb(24, 24, 24);
+            transition: none;
+        }
+
+        .project-card .image-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card .image-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .project-card:hover .image-hover {
+            opacity: 1;
+        }
+
+        .project-card:hover .image-main {
+            opacity: 0;
+        }
+
+        .project-meta-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            padding: 0.75rem;
+            color: white;
+            display: flex;
+            justify-content: flex-start;
+            gap: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .project-meta-overlay span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .project-meta-overlay i {
+            color: white;
+            width: 18px;
+            height: 18px;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .project-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .project-title h3 {
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        .project-role {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .project-description {
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background: #f8f8f8;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--purple);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-links a:hover {
+            color: var(--purple-hover);
+        }
+    </style>
 </head>
-<body class="dark">
-    <header class="sticky-header">
-        <div class="container header-content">
-            <div class="header-title">
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-brand">
                 <h1>Jeffrey Popek</h1>
-                <p>Game Programmer</p>
+                <p>Gameplay Programmer</p>
             </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-trigger">Projects <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-content">
-                            <li><a href="projects/vr-escape-room.html">VR Escape Room</a></li>
-                            <li><a href="projects/mobile-puzzle-game.html">Mobile Puzzle Game</a></li>
-                            <li><a href="projects/3d-platformer.html">3D Platformer</a></li>
-                            <li><a href="projects/game-engine.html">Game Engine Project</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="path-to-your-resume.pdf" class="resume-link" download><i class="fas fa-file-arrow-down"></i> Resume</a></li>
-                </ul>
-            </nav>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
+                        <a href="liminal-detective.html">Liminal Detective</a>
+                        <a href="suzume-portals.html">Suzume Portals</a>
+                        <a href="holy-jolly-engine.html">Holy Jolly Engine</a>
+                    </div>
+                </div>
+                <a href="about.html">About</a>
+                <a href="resume.pdf" target="_blank">Resume <i class="lucide-download"></i></a>
+            </div>
         </div>
-    </header>
+    </nav>
+    <div class="page-background">
+        <div class="content-wrapper">
+            <section class="hero">
+                <div>
+                    <h1>Jeffrey Popek</h1>
+                    <p>Passionate gameplay programmer crafting interactive experiences</p>
+                </div>
+            </section>
 
-    <main class="container">
-        <section class="hero">
-            <h2>Welcome to My Portfolio</h2>
-            <p>I'm a 4th year game programming student passionate about creating immersive gaming experiences. Currently seeking internships and job opportunities in the game development industry.</p>
-            <div class="video-container">
-                <iframe
-                    src="https://www.youtube.com/embed/your-video-id"
-                    title="Portfolio Video"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    class="youtube-embed"
-                ></iframe>
+            <section class="demo-reel">
+                <h2>Demo Reel</h2>
+                <div class="video-container">
+                    <iframe width="100%" height="450" src="https://www.youtube.com/embed/gNFdCpUHyH4?si=DvnlvN28LDgBiZli" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section class="projects">
+                <h2>Featured Projects</h2>
+                <div class="project-grid">
+    <a href="poly-vinyl-pests.html" class="project-card">
+        <div class="image-container">
+            <img class="image-main" src="/assets/pvpSplashArt.png" alt="Poly-Vinyl Pests">
+            <img class="image-hover" src="/assets/pvpGameplay.gif" alt="Poly-Vinyl Pests Hover">
+            <div class="project-meta-overlay">
+                <span><i class="fa-solid fa-users"></i> Team of 15</span>
+                <span><i class="fa-solid fa-clock"></i> 24 Weeks</span>
+                <span><i class="fa-solid fa-wrench"></i> Unity</span>
             </div>
-        </section>
-
-        <section class="projects">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
-                <!-- VR Escape Room -->
-                <a href="projects/vr-escape-room.html" class="project-card">
-                    <div class="project-image-container">
-                        <img src="images/project1-title.jpg" alt="VR Escape Room Title" class="project-image">
-                        <img src="/assets/pvpGameplay.gif" alt="VR Escape Room Preview" class="project-image-hover">
-                        <div class="project-meta">
-                            <div><i class="fas fa-users"></i> Team of 4</div>
-                            <div><i class="fas fa-clock"></i> 3 months</div>
-                            <div><i class="fas fa-wrench"></i> Unreal Engine 5</div>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <div class="project-header">
-                            <div>
-                                <h3>VR Escape Room</h3>
-                                <p>Gameplay Programmer</p>
-                            </div>
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <p>An immersive VR escape room experience that challenges players to solve puzzles using virtual reality interactions.</p>
-                    </div>
-                </a>
-
-                <!-- Mobile Puzzle Game -->
-                <a href="projects/mobile-puzzle-game.html" class="project-card">
-                    <!-- Similar structure as above -->
-                </a>
-
-                <!-- Add other project cards following the same structure -->
+        </div>
+        <div class="project-content">
+            <div class="project-title">
+                <h3>Poly-Vinyl Pests!</h3>
+                <i class="lucide-arrow-right"></i>
             </div>
-        </section>
+            <p class="project-role">Lead Programmer</p>
+            <p class="project-description">Monsters mutated by microplastics have invaded our realm and it's up to you and your friend to defeat them! Together you’ll defeat deadly decomposers and compete for glory as only one of you can declare yourselves the queen of the anthill.
+            </p>
+        </div>
+    </a>
 
-        <section class="contact">
-            <h2>Contact Me</h2>
-            <div class="contact-links">
-                <a href="mailto:jeffreypopek@gmail.com" class="contact-button">
-                    <i class="fas fa-envelope"></i>
-                    jeffreypopek@gmail.com
-                </a>
-                <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" class="contact-button">
-                    <i class="fab fa-linkedin"></i>
-                    LinkedIn
-                </a>
-                <a href="path-to-your-resume.pdf" download class="contact-button">
-                    <i class="fas fa-file-arrow-down"></i>
-                    Download Resume
-                </a>
+    <a href="liminal-detective.html" class="project-card">
+        <div class="image-container">
+            <img class="image-main" src="/assets/liminalDetective/liminalSplash.webp" alt="Liminal Detective">
+            <img class="image-hover" src="/assets/liminalDetective/liminalDetectiveGameplay.gif" alt="Liminal Detective Hover">
+            <div class="project-meta-overlay">
+                <span><i class="fa-solid fa-users"></i> Team of 10</span>
+                <span><i class="fa-solid fa-clock"></i> 12 Weeks</span>
+                <span><i class="fa-solid fa-wrench"></i> Unreal Engine 5</span>
             </div>
-        </section>
-    </main>
+        </div>
+        <div class="project-content">
+            <div class="project-title">
+                <h3>Liminal Detective</h3>
+                <i class="lucide-arrow-right"></i>
+            </div>
+            <p class="project-role">Gameplay Programmer</p>
+            <p class="project-description">The demon's heir has been murdered, and there's only one person who can solve the case... Play as Maira, a half-demon investigator trying to solve the murder of her estranged brother Joseph in this beautifully rendered, action-packed third-person mystery game.
+            </p>
+        </div>
+    </a>
 
-    <footer>
-        <p>© <script>document.write(new Date().getFullYear())</script> Jeffrey Popek. All rights reserved.</p>
-        <p>Contact: jeffreypopek@gmail.com</p>
-    </footer>
+    <a href="suzume-portals.html" class="project-card">
+        <div class="image-container">
+            <img class="image-main" src="/assets/suzume/suzumePortalsSplashArt.PNG" alt="Suzume Portals">
+            <img class="image-hover" src="/assets/suzume/suzumePortalsDemo.gif" alt="Suzume Portals Hover">
+            <div class="project-meta-overlay">
+                <span><i class="fa-solid fa-users"></i> Team of 2</span>
+                <span><i class="fa-solid fa-clock"></i> 3 Week</span>
+                <span><i class="fa-solid fa-wrench"></i> Unity</span>
+            </div>
+        </div>
+        <div class="project-content">
+            <div class="project-title">
+                <h3>Suzume Portals</h3>
+                <i class="lucide-arrow-right"></i>
+            </div>
+            <p class="project-role">Graphic Programmer</p>
+            <p class="project-description">A re-creation of the portal effect seen in the Makoto Shinkai film Suzume. Utilizing Unity's shader graph tool and techniques involving multiple cameras, we were able to make this effect in Unity.</p>
+        </div>
+    </a>
+
+    <a href="holy-jolly-engine.html" class="project-card">
+        <div class="image-container">
+            <img class="image-main" src="/placeholder.svg?height=300&width=600" alt="Holy Jolly Engine">
+            <img class="image-hover" src="/placeholder.svg?height=300&width=600&text=Hover" alt="Holy Jolly Engine Hover">
+            <div class="project-meta-overlay">
+                <span><i class="fa-solid fa-users"></i> Team of 10</span>
+                <span><i class="fa-solid fa-clock"></i> 12 Weeks</span>
+                <span><i class="fa-solid fa-wrench"></i> Unreal Engine 5</span>
+            </div>
+        </div>
+        <div class="project-content">
+            <div class="project-title">
+                <h3>Holy Jolly Engine</h3>
+                <i class="lucide-arrow-right"></i>
+            </div>
+            <p class="project-role">Engine Developer</p>
+            <p class="project-description">A custom game engine built using raylib. Focusing on 2D game development and level editor tools. Create objects and attach custom components to customize a level.</p>
+        </div>
+    </a>
+</div>
+            </section>
+
+            <section class="contact">
+                <h2>Contact Me</h2>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com"><i class="lucide-mail"></i> Email</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="lucide-linkedin"></i> LinkedIn</a>
+                    <a href="resume.pdf" target="_blank"><i class="lucide-file-text"></i> Resume</a>
+                </div>
+            </section>
+        </div>
+    </div>
 </body>
 </html>
 

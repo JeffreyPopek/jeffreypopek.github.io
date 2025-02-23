@@ -4,49 +4,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Jeffrey Popek</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <style>
+        :root {
+            --purple: #2A0944;
+            --purple-hover: #3B0C5F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        /* Navigation styles (same as index.html) */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--purple);
+            color: white;
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-brand h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .nav-brand p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--purple);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.5rem 1rem;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--purple-hover);
+        }
+
+        /* About page specific styles */
+        .about-header {
+            padding-top: 120px;
+            text-align: center;
+            background: #f8f8f8;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: block;
+        }
+
+        .about-section {
+            margin-bottom: 3rem;
+        }
+
+        .about-section h2 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .about-section p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
-<body class="dark">
-    <!-- Same header as index.html -->
-    <header>...</header>
-
-    <main class="container">
-        <div class="about-content">
-            <h1>About Me</h1>
-            <div class="about-text">
-                <p class="lead">
-                    I'm a passionate game programmer in my 4th year of study. I specialize in [your specialties] and have
-                    experience with [relevant technologies and tools].
-                </p>
-                <p>
-                    Throughout my academic journey, I've developed a strong foundation in [key skills], and I'm always eager to
-                    learn and apply new technologies in game development.
-                </p>
-                <p>
-                    I'm currently seeking internship and job opportunities where I can contribute my skills and grow as a game
-                    developer.
-                </p>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-brand">
+                <h1>Jeffrey Popek</h1>
+                <p>Gameplay Programmer</p>
             </div>
-
-            <div class="about-links">
-                <a href="path-to-your-resume.pdf" download class="button primary">
-                    <i class="fas fa-file-arrow-down"></i>
-                    Download Resume
-                </a>
-                <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" class="button">
-                    <i class="fab fa-github"></i>
-                    GitHub
-                </a>
-                <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" class="button">
-                    <i class="fab fa-linkedin"></i>
-                    LinkedIn
-                </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
+                        <a href="liminal-detective.html">Liminal Detective</a>
+                        <a href="suzume-portals.html">Suzume Portals</a>
+                        <a href="holy-jolly-engine.html">Holy Jolly Engine</a>
+                    </div>
+                </div>
+                <a href="about.html">About</a>
+                <a href="resume.pdf" target="_blank">Resume <i class="lucide-download"></i></a>
             </div>
         </div>
-    </main>
+    </nav>
 
-    <footer>...</footer>
+    <section class="about-header">
+        <h1>About Me</h1>
+    </section>
+
+    <div class="about-content">
+        <img src="/placeholder.svg" alt="Jeffrey Popek" class="profile-image">
+        
+        <div class="about-section">
+            <h2>Background</h2>
+            <p>I'm a passionate gameplay programmer with a focus on creating engaging and innovative gaming experiences. With expertise in multiple game engines and programming languages, I strive to push the boundaries of what's possible in interactive entertainment.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Unity</div>
+                <div class="skill-item">Unreal Engine</div>
+                <div class="skill-item">C++</div>
+                <div class="skill-item">C#</div>
+                <div class="skill-item">Game Design</div>
+                <div class="skill-item">AI Programming</div>
+                <div class="skill-item">Physics Systems</div>
+                <div class="skill-item">Optimization</div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2>Education</h2>
+            <p>Bachelor of Science in Computer Science<br>
+            Game Development Specialization<br>
+            University Name, Class of 20XX</p>
+        </div>
+
+        <div class="about-section">
+            <h2>Interests</h2>
+            <p>Beyond programming, I'm passionate about game design, procedural generation, and creating immersive player experiences. I'm constantly exploring new technologies and methodologies to enhance gameplay mechanics and player engagement.</p>
+        </div>
+    </div>
 </body>
 </html>
 
