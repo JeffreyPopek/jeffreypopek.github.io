@@ -5,17 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poly-Vinyl Pests! - Jeffrey Popek</title>
     <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    <!-- Google Fonts - Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
     <link href="styles.css" rel="stylesheet">
+    
+    
+    
+    
     <style>
+         /* Add to style section */
+         .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            background-color: #000000a8;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+
         .project-header {
             padding-top: 40px;
+            padding-bottom: 0;
             text-align: center;
             background: #f8f8f8;
         }
 
         .project-header h1 {
             font-size: 3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 0rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+        }
+
+        .project-content h2 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: xx-large;
+        }
+
+        .project-content h3 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: x-large;
+        }
+
+        .project-content p {
+            padding-top: 1rem; /* Adds space below "Technical Achievements" */
+            padding-bottom: 1rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            line-height: 1.6; /* Adds space between lines */
+            font-size: large;
+        }
+
+        a {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            text-decoration: none; /* Optional: removes underline from links */
+            font-size: large;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
         }
 
         .project-content {
@@ -23,18 +92,22 @@
             margin: 0 auto;
             padding: 4rem 2rem;
             text-align: center;
+            
+
+            margin-top: 10; /* Ensure no extra spacing */
+            padding-top: 10; /* Remove any padding pushing it down */
         }
 
         .project-image {
             width: 100%;
-            height: 400px;
+            height: 100%;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 2rem;
         }
 
         .project-info-box {
-            background: white;
+            background: rgba(36, 36, 36, 0.671);
             border-radius: 8px;
             padding: 2rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -43,6 +116,9 @@
             flex-direction: column;
             gap: 1rem;
             align-items: center;
+
+            font-family: 'Kanit', sans-serif;
+            font-weight: 300; /* Bold */
         }
 
         .info-item {
@@ -66,6 +142,8 @@
             line-height: 1.6;
             margin-bottom: 1rem;
         }
+
+        
     </style>
 </head>
 <body>
@@ -94,38 +172,216 @@
 
     <div class="page-background">
         <div class="content-wrapper">
-            <section class="project-header">
+            <!-- <section class="project-header">
                 <h1>Poly-Vinyl Pests!</h1>
-            </section>
+            </section> -->
 
             <div class="project-content">
-                <img src="/placeholder.svg" alt="Poly-Vinyl Pests" class="project-image">
-                
+                <img src="/assets/pvp/pvpSplashArt.png" alt="Poly-Vinyl Pests" class="project-image">
                 <div class="project-info-box">
                     <div class="info-item">
-                        <i class="lucide-users"></i>
-                        <span>Team Size: 4 members</span>
+                        <span><i class="fa-solid fa-users"></i> Team Size: 15</span>
                     </div>
                     <div class="info-item">
-                        <i class="lucide-clock"></i>
-                        <span>Duration: 3 months</span>
+                        <span><i class="fa-solid fa-clock"></i> Project Length: 24 Weeks</span>
                     </div>
                     <div class="info-item">
-                        <i class="lucide-wrench"></i>
-                        <span>Engine: Unity</span>
+                        <span><i class="fa-solid fa-wrench"></i> Engine: Unity</span>
                     </div>
                 </div>
 
                 <div class="project-description">
-                    <h2>Project Overview</h2>
-                    <p>Poly-Vinyl Pests! is an innovative pest control game where players must protect precious vinyl records from music-loving insects. As the Lead Programmer, I was responsible for implementing core gameplay mechanics, enemy AI behavior, and sound integration systems.</p>
+                    <h2>Introduction</h2>
+                    <p>Attention ants of the colony, we are under attack! Monsters mutated by microplastics have invaded our realm and it's up to you and your friend to defeat them! Poly-Vinyl Pests, or PVP for short, is an arcade action style game where you and your friend take the roles of the champions from competing ant colonies. Together you’ll defeat deadly decomposers and compete for glory as only one of you can declare yourselves the queen of the anthill.</p>
 
-                    <h2>Technical Achievements</h2>
-                    <p>Developed a dynamic sound reaction system where insects respond to music being played, created an efficient pest spawning system that scales with difficulty, and implemented a physics-based movement system for realistic insect behavior.</p>
+                    <div class="video-container">
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/TUbv2xJPxQ0?si=idyacbXfujKG0i3t" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                   </div>
 
-                    <h2>Challenges & Solutions</h2>
-                    <p>One of the main challenges was optimizing the audio processing system to handle multiple sound sources without impacting performance. This was solved by implementing a custom audio pooling system and utilizing Unity's Job System for parallel processing of audio data.</p>
+
+                <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p>In this project I was tasked with the creation of many systems for our game to function. I mainly focused on the AI and UI of the game while still working in many other areas. I created our two unique boss fights and all the game’s UI in collaboration with our dedicated boss and UI designers respectively. Besides my main focus, I maintained the codebase for our local multiplayer, narrative, and player systems.
+                    </p>
+
+                    <p>My main goal of this project was to get a minimum viable product working for the end of the semester, but also help create a polished product. This project, if our team got through greenlight, would get another semester of development in the spring semester, so showing a core game loop with a lot of polish was the main priority.
+                    </p>
+                
+                    <img src="/assets/pvp/pvpGameplay.gif" alt="Technical Achievements" class="project-image">
                 </div>
+
+
+
+                <div class="project-content">
+                    <h2>What is Poly-Vinly Pests!</h2>
+                    <p>In Poly-Vinyl Pests you and one of your friends take the role as champions of warring ant colonies. You and your friend are tasked with defeating different boss monsters that have fused with various pieces of trash and now use it to their benefit. These monsters are known as decomposers and have the unique ability to break down the plastics that we humans littered throughout the earth. To fight these monsters you must put aside your differences and work together to defeat the bosses, but after the fight is over you will begin pvp combat with your former ally. At the end of the game the winner is determined by the amount of score each player has. Players can gain score by hitting bosses and the other player.</p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div>
+
+
+                <div class="project-content">
+                    <h2>Bullet Hell</h2>
+                    <p>Poly-Vinyl Pests takes heavy inspiration from bullet hell games, so a robust bullet hell system was mandatory. I collaborated with one of our designers to design and implement a bullet hell system that all current and future bosses could use. The bullet hell system uses an object pool to store all gameobjects for efficiency and will spawn them with custom rotation and direction based on the pattern. Using this system our team was able to easily implement new attack patterns in a short amount of time.</p>
+                
+                    <img src="/assets/pvp/pvpGameplay.gif" alt="Technical Achievements" class="project-image">
+                </div>
+
+
+                <div class="project-content">
+                    <h2>Boss AI</h2>
+                    <p>When we were in the early stages of development I needed to quickly create a boss AI that was able to switch between two targets. I wanted to create the boss systems to be accessible to all disciples that would need to work with it so I decided to utilize Unity’s animator as the state machine for the boss. After a lot of experimentation I was able to get the state machine working with easily accessible values to change things about the boss. Another benefit of using the unity animator was that our team’s animator could easily add animations into the boss without having to ask someone else to do it and bottleneck our art pipeline.
+                    </p>
+                
+                    <img src="/assets/pvp/pvp_LSanimator.PNG" alt="Technical Achievements" class="project-image">
+                    
+                    <p>There was definitely some getting used to working with the animator, but after a few weeks of development the entire team was glad to be able to utilize a feature that was built into the engine and have very accessible systems. The way the boss AI is implemented would allow designers and artists with less programming knowledge to easily work with the AI.
+                    </p>
+
+                    <p>The way the Ai works is in a state that determines which attack it will perform based on the game state, then moves to that state. After the attack is done it will move back to the atack decider state and repeat this loop until the boss is dead. This simple implementation allows for a rapid iteration which was necessary due to the amount of balancing and testing we had to do for each boss fight.
+                    </p>
+
+                    <img src="/assets/pvp/pvpAnimatorWorking.gif" alt="Technical Achievements" class="project-image">
+                </div>
+
+                <div class="project-content">
+                    <h3>Bosses</h3>
+                    <p>We were able to implement two unique and fun bosses into our game for this semester. The first one is the laundry snail, a slug that makes a laundry detergent bottle its shell and shoots poisonous laundry detergent and (non-branded) tide pods at the players.</p>
+                    <div class="video-container">
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/F6QIURMGgGY?si=kQbRjZRk658vpFj8" frameborder="0" allowfullscreen></iframe>
+                    </div>
+
+                    <p>Our second boss is the bottle mushrooms, a hivemind of mushrooms that took residence in plastic water bottles that shoot spores at the players. Alone each mushroom isn’t very strong, but when they all work together it can be very challenge to avoid all of their attacks.</p>
+                    <div class="video-container">
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/I4PmqUP8gng?si=9eIWR9Alo2t-hEPG" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                
+                </div>
+
+                <div class="project-content">
+                    <h3>Boss Challenges</h3>
+                    <p>When designing our first boss we had a lot of time left in the semester to work, but when we wanted to add a second one that was when we had to start really thinking about how much time we had left. The way we designed the second boss made use of existing systems to create a unique boss fight without the creation of new massive systems to save time and energy. We made sure to reuse the bullet hell system and designed the second boss to require little to no animations but still feel alive. Our final product was the bottle mushrooms, a hivemind boss that would spawn mushroom enemies that did not move around the arena. This design took care of most of the risks involving implementing a second boss in such a short amount of time.
+                    </p>
+                
+                </div>
+
+                <div class="project-content">
+                    <h2>Score System</h2>
+                    <p>To determine which player is the Poly-Vinyl Best at the end of the game we needed to keep some kind of score. Our team decided on an arcade style of score which would increase whenever a player hit a boss or another player. Players cannot shoot their “teammate” during boss fights, but can during the pvp sections of the game. The score is always displayed on the screen and a final score will be shown at the end of the game. Players will also lose score when they die during a boss fight. If you win a pvp combat round then you will be awarded with a large amount of points. We did this to prevent one player that got ahead in the PvE round running away with the game.</p>
+                
+                    <img src="/assets/pvp/pvp_finalScoreboard.PNG" alt="Technical Achievements" class="project-image">
+                </div>
+
+
+
+                <div class="project-content">
+                    <h2>Pvp</h2>
+                    <p>The other part of Poly-Vinyl Pests is the pvp combat. To make this combat feel more interesting, our team designed and implemented two different arenas with separate environmental mechanics to make combat more dynamic. I implemented both of these arenas with the help of our designers and artists to make sure we stayed on theme.
+                    </p>
+
+                    <p>The first arena was the pvp combat after the laundry snail. To help us make the art scope smaller we used the same environmental assets as the laundry snail’s arena with a few new props added in for the arena’s mechanic. The mechanic of this stage is the sludge that spawns in the four corners and will slowly encroach until the arena is almost completely covered. Walking into this sludge will deal damage to the players and forces the players to get closer to each other. Another mechanic is the red solo cups that players can dash through.
+                    </p>
+                
+                    <img src="/assets/pvp/pvpDrainGang.gif" alt="Technical Achievements" class="project-image">
+
+                    <p>The second arena is after the bottle mushroom fight. Using the same tactic in reusing the boss’s arena assets, we were able to quickly create an arena for the players to fight in. The mechanic of this arena is the destructible trash bags that are scattered throughout the arena. The players can shoot them to destroy them after a varying amount of damage.</p>
+                
+                    <img src="/assets/pvp/pvpgarbageGrotto.gif" alt="Technical Achievements" class="project-image">
+
+                </div>
+
+
+
+                <div class="project-content">
+                    <h2>UI Implementation</h2>
+                    <p>One of my favorite parts of game dev is designing and implementing UI. That is why I was more than happy to take on the role to implement all our game’s UI. I worked with multiple designers to create UI for the different parts of our game which includes but not limited to: narrative systems, boss UI, player UI, end result screens, and more.</p>
+                                </div>
+
+                <div class="project-content">
+                    <h3>Narrative</h3>
+                    <p>One big thing our game is currently lacking is a narrative, so our team made the decision to give the players and bosses unique barks that would play before, during, and after combat rounds. These barks are meant to give more character to each of the bosses and players. To implement the barks I would need two things, the UI itself (speech bubbles and icons) and a UI manager that could play the barks. To accomplish this I created a structure that takes in a speaker and bark that will allow our designers to easily add barks with no programming needed. This approach allowed for rapid prototyping and testing to find out which barks suited our game the best.
+                    </p>
+                
+                    <img src="/assets/pvp/pvp_barkManager.PNG" alt="Technical Achievements" class="project-image">
+                </div>
+
+
+                <div class="project-content">
+                    <h3>Boss Fight</h3>
+                    <p>During an intense boss fight the last thing you want is something in the corner distracting you from the action. To combat this issue our UI designer and I were very deliberate with what information is shown during gameplay. We wanted to show the bare minimum but still convey all the information the players would need to know.</p>
+                
+                    <img src="/assets/pvp/pvp_bossUI.PNG" alt="Technical Achievements" class="project-image">
+
+                    <p>In this example the only information that is shown is the boss’s health bar and the player’s info. The player’s info contains their health and score. All this UI is updated by a boss UI manager and a player UI manager during gameplay.
+                    </p>
+                </div>
+
+
+                <div class="project-content">
+                    <h3>Results</h3>
+                    <p>To really emulate the arcade feeling in Poly-Vinyl Pests our UI designer and I created a scorescreen for the end of each Pve and Pvp round that would display who won and the total score. I spent a lot of time adding animations and transitions to these scorescreens to add polish and character to our game’s UI. We made sure to convey who was the winner of the round by adding in little character portraits of each ant in either a winning or losing state.</p>
+                
+                    <img src="/assets/pvp/pvpScoreboard.PNG" alt="Technical Achievements" class="project-image">
+
+                    <p>We also create a final score screen that will show much more information about who won each round. This final score screen is the end of the game and allows players to play again to contest the winner.</p>
+
+                    <img src="/assets/pvp/pvp_finalScoreboard.PNG" alt="Technical Achievements" class="project-image">
+                </div>
+
+
+                <div class="project-content">
+                    <h3>Highscores</h3>
+                    <p>Another piece of UI I implemented was a high score screen that is right after the final score screen. The UI will allow only the winning player to enter five letters to the high score leaderboards. In the future our team wants to create an arcade cabinet for our game, so adding in leaderboards is essential for making players feel great when getting a good score.</p>
+                
+                    <img src="/assets/pvp/pvp_highscore.PNG" alt="Technical Achievements" class="project-image">
+                </div>
+
+                <div class="project-content">
+                    <h2>Balance</h2>
+                    <p>For our game, a big focus of it was the balance of the players and bosses. With external and internal testing throughout the entirety of the project we were able to balance both players and bosses to make a fair and competitive gameplay experience. I would often attend the game testing lab (GTL) sessions to watch testers play and ask questions relating to what feature we were testing that session.</p>
+                
+                    <img src="/assets/pvp/pvp_tetsingForm.PNG" alt="Technical Achievements" class="project-image">
+
+                    <p>For the entirety of the project, I iterated and managed the balance of the game with the help of other designers. New attacks were developed to combat issues that players were facing. For example, we found that many players would not be moving enough during the laundry snail fight, so to combat this we implemented a homing attack that would chase the player until they shot it down.
+                    </p>
+
+                    <img src="/assets/pvp/pvp_movingExample.gif" alt="Technical Achievements" class="project-image">
+
+                </div>
+
+
+                <div class="project-content">
+                    <h2>QA Testing</h2>
+                    <p>Poly-Vinyl Pests is a game that requires a lot of balancing, which in turn means a whole lot of testing needs to happen. Our team knew that this game would require a lot of testing so we were able to go to the Champlain College game testing lab (GTL) each week to test out any existing or new features that week. With feedback from an outsider’s perspective we were able to change things about the game that players did and didn’t like. Our team also attended multiple smaller testing sessions that only included other students from capstone. These smaller testing sessions gave very focused and important feedback.
+                    </p>
+
+                    <p>Finally, the most important feedback we received was from our industry review from Champlain alumni at Bungie. Having Champlain alum with experience in not only Champlain’s game studio capstone, but also in the game industry was great in terms of feedback. Our most critical and helpful feedback came from the two sessions we had with the alum.
+                    </p>
+                
+                </div>
+
+
+                <div class="project-content">
+                    <h2>Documentation</h2>
+                    <p>As the lead programmer of this project I was in charge of all the programmer documentation. There was only one required document to make, but I created other various documents to help with organization and bug fixing. One of the most important documents in the entire project is the technical plan document. This document is what we would give someone if they were being onboarded onto the project. This document must contain pipelines for implementation of all disciples, all the systems currently in the game, and many more things. I maintained this document throughout the entire project; updating it whenever a new feature was added or an old one was changed.</p>
+                
+                    <a href="/assets/pvp/Poly-Vinyl Pests! Technical Plan Document.pdf" target="_blank"><i class="lucide-file-text"></i> Technical Plan Document</a>
+
+                    <p>Another example of one of these documents is the bug report form. I created a sheet that allowed our game to input the bugs they find during testing for someone to later fix.</p>
+                    <img src="/assets/pvp/pvp_bugReport.PNG" alt="Technical Achievements" class="project-image">
+
+                </div>
+
+                <!-- DO NOT USE OR DELETE -->
+                <!-- <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p></p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div> -->
+
+                   
             </div>
         </div>
     </div>
