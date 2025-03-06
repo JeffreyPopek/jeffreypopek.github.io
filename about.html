@@ -3,143 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Jeffrey Popek</title>
+    <title>Poly-Vinyl Pests! - Jeffrey Popek</title>
     <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    <!-- Google Fonts - Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    
+    
+    
+    
     <style>
-        :root {
-            --purple: #2A0944;
-            --purple-hover: #3B0C5F;
+         /* Add to style section */
+         .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background: #f5f5f5;
-        }
-
-        /* Navigation styles (same as index.html) */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--purple);
-            color: white;
-            padding: 1rem 2rem;
-            z-index: 1000;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
+        .content-wrapper {
+            background-color: #000000a8;
+            max-width: 1400px;
             margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+
+            /* mask-image: radial-gradient(circle, black, black 65%, transparent 85%); */
         }
 
-        .nav-brand h1 {
-            font-size: 1.5rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .nav-brand p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: var(--purple);
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            border-radius: 4px;
-            padding: 0.5rem 0;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            display: block;
-            padding: 0.5rem 1rem;
-        }
-
-        .dropdown-content a:hover {
-            background: var(--purple-hover);
-        }
-
-        /* About page specific styles */
-        .about-header {
-            padding-top: 120px;
+        .project-header {
+            padding-top: 40px;
+            padding-bottom: 0;
             text-align: center;
             background: #f8f8f8;
         }
 
-        .about-content {
-            max-width: 800px;
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+        }
+
+        .project-content h2 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: xx-large;
+        }
+
+        .project-content h3 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            padding-top: 3rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: x-large;
+        }
+
+        .project-content p {
+            padding-top: 1rem; /* Adds space below "Technical Achievements" */
+            padding-bottom: 1rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            line-height: 1.6; /* Adds space between lines */
+            font-size: large;
+        }
+
+        a {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            text-decoration: none; /* Optional: removes underline from links */
+            font-size: large;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .info-item i {
+    color: white !important;
+}
+
+        .project-content {
+            max-width: 1000px;
             margin: 0 auto;
             padding: 4rem 2rem;
             text-align: center;
+            
+
+            margin-top: 10; /* Ensure no extra spacing */
+            padding-top: 10; /* Remove any padding pushing it down */
         }
 
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            display: block;
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
         }
 
-        .about-section {
-            margin-bottom: 3rem;
+        .project-info-box {
+            background: rgba(36, 36, 36, 0.473);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+
+            font-family: 'Lato', sans-serif;
+            font-weight: 300; /* Bold */
         }
 
-        .about-section h2 {
+        /* Apply the font to individual info-items if needed */
+.project-info-box .info-item {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+/* Apply the font to the span text */
+.project-info-box .info-item span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item i {
+            color: var(--purple);
+            width: 20px;
+            height: 20px;
+        }
+
+        .project-description h2 {
             color: var(--purple);
             margin-bottom: 1rem;
         }
 
-        .about-section p {
+        .project-description p {
             line-height: 1.6;
             margin-bottom: 1rem;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+        i {
+    margin-right: 8px; /* Adds space between the icon and text */
         }
 
-        .skill-item {
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+        a i, .fa-itch-io {
+    font-size: 2rem; /* Adjust size */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+a:hover i, a:hover .fa-itch-io {
+    color: purple; /* Change color on hover */
+}
+
+a {
+    font-size: 1.2rem; /* Makes text bigger */
+    text-decoration: none; /* Removes underline */
+}
+
+        
     </style>
 </head>
 <body>
@@ -158,51 +200,96 @@
                         <a href="liminal-detective.html">Liminal Detective</a>
                         <a href="suzume-portals.html">Suzume Portals</a>
                         <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
-                        <a href="command-input.html">Command Input</a>
                     </div>
                 </div>
                 <a href="about.html">About</a>
-                <a href="resume.pdf" target="_blank">Resume <i class="lucide-download"></i></a>
+                <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
+                <a href="https://github.com/JeffreyPopek" target="_blank">Github </a>
             </div>
         </div>
     </nav>
 
-    <section class="about-header">
-        <h1>About Me</h1>
-    </section>
+    <div class="page-background">
+        <div class="content-wrapper">
+            <!-- <section class="project-header">
+                <h1>Poly-Vinyl Pests!</h1>
+            </section> -->
 
-    <div class="about-content">
-        <img src="/placeholder.svg" alt="Jeffrey Popek" class="profile-image">
-        
-        <div class="about-section">
-            <h2>Background</h2>
-            <p>I'm a passionate gameplay programmer with a focus on creating engaging and innovative gaming experiences. With expertise in multiple game engines and programming languages, I strive to push the boundaries of what's possible in interactive entertainment.</p>
-        </div>
+            <div class="project-content">
+                <div class="project-info-box">
+                    <div>
+                        <h2>Jeffrey Popek</h2>
+                    </div>
 
-        <div class="about-section">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">Unity</div>
-                <div class="skill-item">Unreal Engine</div>
-                <div class="skill-item">C++</div>
-                <div class="skill-item">C#</div>
-                <div class="skill-item">Game Design</div>
-                <div class="skill-item">AI Programming</div>
-                <div class="skill-item">Physics Systems</div>
-                <div class="skill-item">Optimization</div>
+                    
+                    <div class="info-item">
+                        <span><i class="fa fa-location-arrow"></i> San Francisco, California </span>
+                    </div>
+
+                    <div class="info-item">
+                        
+                        <span><i class="fa fa-star"></i> Specializations: Gameplay & AI Programming</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-wrench"></i> Main Languages: C# & C++ </span>
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="project-content">
+                    <h2>About Me</h2>
+                    <p>
+                        Hi, I'm Jeffrey! My passion for games began at a young age and only grew stronger over the years. In high school, I took my first steps into game development through Mission Bit, where I learned just how fun—and challenging—creating games could be. From that moment, I knew I wanted to pursue a career in game development.
+                    </p>
+
+                    <p>
+                        That path led me to Champlain College, where I majored in Game Programming. Over the past four years, I’ve worked on a variety of games in collaborative team environments, honing my technical skills and deepening my appreciation for teamwork and strong work ethic. I love bringing games to life with others and look forward to continuing that journey in the industry!
+
+                    </p>
+                                
+                </div>
+
+
+<!--                                 
+                <div class="project-info-box">
+                    <div>
+                        <h2>Socials</h2>
+                    </div>
+
+                    
+                    <div class="info-item">
+                        <span><i class="fa fa-location-arrow"></i> San Francisco, California </span>
+                    </div>
+
+                    <div class="info-item">
+                        
+                        <span><i class="fa fa-star"></i> Specializations: Gameplay & AI Programming</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-wrench"></i> Main Languages: C# & C++ </span>
+                    </div> -->
+
+
+
+                </div>
+
+                
+
+                <!-- DO NOT USE OR DELETE -->
+                <!-- <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p></p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div> -->
+
+                   
             </div>
-        </div>
-
-        <div class="about-section">
-            <h2>Education</h2>
-            <p>Bachelor of Science in Computer Science<br>
-            Game Development Specialization<br>
-            University Name, Class of 20XX</p>
-        </div>
-
-        <div class="about-section">
-            <h2>Interests</h2>
-            <p>Beyond programming, I'm passionate about game design, procedural generation, and creating immersive player experiences. I'm constantly exploring new technologies and methodologies to enhance gameplay mechanics and player engagement.</p>
         </div>
     </div>
 </body>

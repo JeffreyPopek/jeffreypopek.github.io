@@ -88,7 +88,12 @@
 
         body {
             font-family: 'Poppins', sans-serif;
+            color: white;
         }
+
+        .info-item i {
+    color: white !important;
+}
 
         .project-content {
             max-width: 1000px;
@@ -158,7 +163,34 @@
             margin-bottom: 1rem;
         }
 
-        
+
+        i {
+    margin-right: 8px; /* Adds space between the icon and text */
+        }
+
+        a i, .fa-itch-io {
+    font-size: 2rem; /* Adjust size */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+a:hover i, a:hover .fa-itch-io {
+    color: purple; /* Change color on hover */
+}
+
+a {
+    font-size: 1.2rem; /* Makes text bigger */
+    text-decoration: none; /* Removes underline */
+}
+
+@font-face {
+    font-family: 'LiminalFont';
+    src: url('assets/fonts/PlayfairDisplay.ttf') format('truetype');
+}
+
+h2.custom-header {
+    font-family: 'LiminalFont', sans-serif;
+}
+
     </style>
 </head>
 <body>
@@ -177,11 +209,11 @@
                         <a href="liminal-detective.html">Liminal Detective</a>
                         <a href="suzume-portals.html">Suzume Portals</a>
                         <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
-                        <a href="command-input.html">Command Input</a>
                     </div>
                 </div>
                 <a href="about.html">About</a>
-                <a href="resume.pdf" target="_blank">Resume <i class="lucide-download"></i></a>
+                <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
+                <a href="https://github.com/JeffreyPopek" target="_blank">Github </a>
             </div>
         </div>
     </nav>
@@ -196,7 +228,7 @@
                 <img src="/assets/liminalDetective/liminalDetectiveSplashArt.gif" alt="Poly-Vinyl Pests" class="project-image">
                 <div class="project-info-box">
                     <div>
-                        <h2>Liminal Detective</h2>
+                        <h2 class = "custom-header">Liminal Detective</h2>
                     </div>
 
                     <div class="info-item">
@@ -228,6 +260,17 @@
                     <div class="video-container">
                         <iframe width="100%" height="500" src="https://www.youtube.com/embed/j9L2ufLNioI?si=RX4HzZAkcr4A_evE" frameborder="0" allowfullscreen></iframe>
                     </div>
+
+                    <p>
+                        <span>
+                            <i class="fab fa-itch-io"></i>
+                            <a href="https://antennasunite.itch.io/liminal-detective" target="_blank">
+                                <i class="lucide-file-text"></i> Itch.io
+                            </a>
+                        </span>
+    
+                    </p>
+
                    </div>
 
                    <div class="project-content">
