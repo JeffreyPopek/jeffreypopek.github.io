@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poly-Vinyl Pests! - Jeffrey Popek</title>
+    <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    <!-- Google Fonts - Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    
+    
+    
+    
+    <style>
+         /* Add to style section */
+         .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            background-color: #000000a8;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+
+            /* mask-image: radial-gradient(circle, black, black 65%, transparent 85%); */
+        }
+
+        .project-header {
+            padding-top: 40px;
+            padding-bottom: 0;
+            text-align: center;
+            background: #f8f8f8;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+        }
+
+        .project-content h2 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: xx-large;
+        }
+
+        .project-content h3 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            padding-top: 3rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: x-large;
+        }
+
+        .project-content p {
+            padding-top: 1rem; /* Adds space below "Technical Achievements" */
+            padding-bottom: 1rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            line-height: 1.6; /* Adds space between lines */
+            font-size: large;
+        }
+
+        a {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            text-decoration: none; /* Optional: removes underline from links */
+            font-size: large;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            
+
+            margin-top: 10; /* Ensure no extra spacing */
+            padding-top: 10; /* Remove any padding pushing it down */
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .project-info-box {
+            background: rgba(36, 36, 36, 0.473);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+
+            font-family: 'Lato', sans-serif;
+            font-weight: 300; /* Bold */
+        }
+
+        /* Apply the font to individual info-items if needed */
+.project-info-box .info-item {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+/* Apply the font to the span text */
+.project-info-box .info-item span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item i {
+            color: var(--purple);
+            width: 20px;
+            height: 20px;
+        }
+
+        .project-description h2 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .project-description p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-brand">
+                <h1>Jeffrey Popek</h1>
+                <p>Gameplay Programmer</p>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
+                        <a href="liminal-detective.html">Liminal Detective</a>
+                        <a href="suzume-portals.html">Suzume Portals</a>
+                        <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
+                        <a href="command-input.html">Command Input</a>
+                    </div>
+                </div>
+                <a href="about.html">About</a>
+                <a href="resume.pdf" target="_blank">Resume <i class="lucide-download"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-background">
+        <div class="content-wrapper">
+            <!-- <section class="project-header">
+                <h1>Poly-Vinyl Pests!</h1>
+            </section> -->
+
+            <div class="project-content">
+                <img src="/assets/liminalDetective/liminalDetectiveSplashArt.gif" alt="Poly-Vinyl Pests" class="project-image">
+                <div class="project-info-box">
+                    <div>
+                        <h2>Liminal Detective</h2>
+                    </div>
+
+                    <div class="info-item">
+                        
+                        <span><i class="fa-solid fa-user"></i> Role: Gameplay Programmer</span>
+                    </div>
+
+                    
+                    
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-clock"></i> Project Length: 12 Weeks</span>
+                    </div>
+
+                    <div class="info-item">
+                        
+                        <span><i class="fa-solid fa-users"></i> Team Size: 10</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-wrench"></i> Engine: Unreal 5.3</span>
+                    </div>
+                </div>
+
+                <div class="project-description">
+                    <!-- <h2>Introduction</h2> -->
+                    <p>The demon's heir has been murdered, and there's only one person who can solve the case... Play as Maira, a half-demon investigator trying to solve the murder of her estranged brother Joseph in this beautifully rendered, action-packed third-person mystery game.</p>
+
+
+                    <div class="video-container">
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/j9L2ufLNioI?si=RX4HzZAkcr4A_evE" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                   </div>
+
+                   <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p>This project I mainly focused on combat programming which included but not limited to: enemy ai, player abilities, and combat balance. For the duration of this project I collaborated with two dedicated combat designers to implement features.</p>
+                
+                </div>
+
+                <div class="project-content">
+                    <h2>Player Abilities</h2>
+                    <p>As Maira you are the half sibling to a full demon making you a half demon yourself. When designing the player’s abilities we wanted to make the player feel like they were channeling unearthly powers to defeat enemies. The player’s abilities consist of a quick dash that grants you a short duration of invincibility, a ranged attack that marks enemies hit, an attack that consumes all marks and deals damage to all marked enemies while stunning them for a short duration, a grab attack that works on enemies and items scattered around the mansion, and a throw attack that can knock all enemies hit back. These abilities work together to create a dynamic and fluid gameplay experience.
+                    </p>
+                
+                </div>
+
+                <div class="project-content">
+                    <h3>Ranged Attack</h3>
+                    <p>The ranged attack consists of the shooting, marking enemies, and recalling projectiles. The full order of the attack allows the player to shoot 3 projectiles marking any enemies hit. After the player has fired 3 projectiles they need to press the shoot button to recall projectiles from the marked enemies. Doing this will deal additional damage to marked enemies and spawn projectiles from the marked enemies that fly towards the player dealing damage to any enemies hit.</p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+
+                    <h3>Grab and Throw</h3>
+                    <p>The grab and throw allows the player to pick up enemies and furniture to throw around. To grab an object the player first needs to be within a certain range of it. When the player is in range they can pick up that object, if the object is an enemy then the enemy is stunning and cannot move or attack. The player can only hold the object if they have stamina and will drop the held object when they run out.
+                    </p>
+
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+
+                    <h3>Player Ability Challenges</h3>
+
+                    <p>One of the biggest challenges when implementing the player’s abilities was the interactions with the enemy AI. For example, initially when grabbing enemies the held enemy would still attack the player and when thrown/dropped would not continue its behaviors. To combat this I implemented a way for enemies to pause its behaviors when held and continue when thrown/dropped. Another challenge was the complexity of the ranged attack. During the early sprints we had more than one ranged attack which confused many playtesters and teammates alike. We cut and combined the abilities into what the ranged attack is today.</p>
+
+                </div>
+
+
+                <div class="project-content">
+                    <h2>Enemy AI</h2>
+                    <p>The enemy AI was built using Unreal Engine’s blackboards. The AI has 3 simple behaviors that allow it to wander around, chase the player, and attack the player. Although it may seem simple, enemies with just these 3 behaviors can be challenging to fight. The AI will wander around until they spot the player or take damage, when either of these happen the enemy will start chasing the player. When the enemy is within range of the player it will transition to the attack state and deal damage to the player. The attack and chase state will run simultaneously to allow the enemies to move while attacking.</p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+
+
+                    <h3>Boss</h3>
+                    <p>At the end of the game you fight your brother’s killer who takes the form of a giant demon. This boss was created with the base enemy and has all the characteristics of the regular enemy with more abilities. The boss can periodically spawn in more minions/enemies to aid it in its battle against Maira. The boss cannot spawn more than 12 additional enemies to avoid cluttering the battle and making the fight too hard.</p>
+                
+                    <img src="/assets/liminalDetective/LD-boss.avif" alt="Technical Achievements" class="project-image">
+
+                </div>
+
+                <div class="project-content">
+                    <h2>Combat UI</h2>
+                    <p>In addition to combat programming I also implemented the UI needed for all combat features. This includes the player’s HUD, enemy health bars, and tutorial popups. The final UI implementation was greatly influenced by testing feedback from the GTL that allowed us to create a visually pleasing and readable UI.</p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div>
+
+
+
+                <div class="project-content">
+                    <h2>Balancing</h2>
+                    <p>For our project we wanted to hit a sweet spot of challenging and engaging for our combat. To achieve this goal our team went to the game testing lab (GTL), twice a week starting in sprint/week 5. At the GTL we were able to have other students playtest and give feedback on our game build. With this feedback me and our other combat designers were able to iterate on player and enemy stats, enemy ai behaviors, visual clarity, and much more.</p>
+                
+                    <img src="/assets/liminalDetective/LD-testing.png" alt="Technical Achievements" class="project-image">
+                </div>
+
+
+
+
+                <div class="project-content">
+                    <h2>Documentation</h2>
+                    <p>Every good game needs a lot of documentation to stay organized. Our team stayed on top of things by making sure each necessary document was updated each sprint. The main document I managed, along with another programmer, is the technical planning document. This document contains all the information a new developer would need to be onboarded onto our project.</p>
+                
+                    <a href="/assets/liminalDetective/Liminal Detective Technical Plan Document.pdf" target="_blank"><i class="lucide-file-text"></i> Technical Plan Document</a>
+                </div>
+
+                <!-- DO NOT USE OR DELETE -->
+                <!-- <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p></p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div> -->
+
+                   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

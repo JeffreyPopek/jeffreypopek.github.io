@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poly-Vinyl Pests! - Jeffrey Popek</title>
+    <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    <!-- Google Fonts - Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    
+    
+    
+    
+    <style>
+         /* Add to style section */
+         .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            background-color: #000000a8;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+
+            /* mask-image: radial-gradient(circle, black, black 65%, transparent 85%); */
+        }
+
+        .project-header {
+            padding-top: 40px;
+            padding-bottom: 0;
+            text-align: center;
+            background: #f8f8f8;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+        }
+
+        .project-content h2 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: xx-large;
+        }
+
+        .project-content h3 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            padding-top: 3rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: x-large;
+        }
+
+        .project-content p {
+            padding-top: 1rem; /* Adds space below "Technical Achievements" */
+            padding-bottom: 1rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            line-height: 1.6; /* Adds space between lines */
+            font-size: large;
+        }
+
+        a {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            text-decoration: none; /* Optional: removes underline from links */
+            font-size: large;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            
+
+            margin-top: 10; /* Ensure no extra spacing */
+            padding-top: 10; /* Remove any padding pushing it down */
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .project-info-box {
+            background: rgba(36, 36, 36, 0.473);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+
+            font-family: 'Lato', sans-serif;
+            font-weight: 300; /* Bold */
+        }
+
+        /* Apply the font to individual info-items if needed */
+.project-info-box .info-item {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+/* Apply the font to the span text */
+.project-info-box .info-item span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item i {
+            color: var(--purple);
+            width: 20px;
+            height: 20px;
+        }
+
+        .project-description h2 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .project-description p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+
+        @font-face {
+    font-family: 'Monarcha';
+    src: url('/assets/fonts/MonarchaBook.woff') format('woff'),
+         url('/assets/fonts/MonarchaBook.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h2.special-font-header {
+    font-family: 'Monarcha', sans-serif;
+}
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-brand">
+                <h1>Jeffrey Popek</h1>
+                <p>Gameplay Programmer</p>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
+                        <a href="liminal-detective.html">Liminal Detective</a>
+                        <a href="suzume-portals.html">Suzume Portals</a>
+                        <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
+                        <a href="command-input.html">Command Input</a>
+                    </div>
+                </div>
+                <a href="about.html">About</a>
+                <a href="resume.pdf" target="_blank">Resume <i class="lucide-download"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-background">
+        <div class="content-wrapper">
+            <!-- <section class="project-header">
+                <h1>Poly-Vinyl Pests!</h1>
+            </section> -->
+
+            <div class="project-content">
+                <img src="/assets/suzume/suzumePortalsDemo.gif" alt="Poly-Vinyl Pests" class="project-image">
+                <div class="project-info-box">
+                    <div>
+                        <h2 class="special-font-header">Suzume Portals</h2>
+                    </div>
+
+                    <div class="info-item">
+                        
+                        <span><i class="fa-solid fa-user"></i> Role: Graphics Programmer</span>
+                    </div>
+
+                    
+                    
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-clock"></i> Project Length: 3 Weeks</span>
+                    </div>
+
+                    <div class="info-item">
+                        
+                        <span><i class="fa-solid fa-users"></i> Team Size: 2</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-wrench"></i> Engine: Unity</span>
+                    </div>
+                </div>
+
+                <div class="project-description">
+                    <!-- <h2>Introduction</h2> -->
+                    <p>The goal of this project was to recreate an effect seen in the Makoto Shinkai film “Suzume”. In the movie there is a Torii gate that leads to another world. Our desired final product would be a scene with an endless pool of water on one side of the gate while a field of grass would be on the other side of the gate.</p>
+
+
+                    <div class="video-container">
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/j9L2ufLNioI?si=RX4HzZAkcr4A_evE" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                   </div>
+
+
+                   <div class="project-content">
+                    <h2>Technique Breakdown
+                    </h2>
+                    <p>To get our desired outcome, we need to break this effect into multiple smaller parts. This project combines multiple smaller techniques to create one cohesive scene. When looking at the scene from the movie, we can see there reflective water and a portal to another area. The project started with the creation of a water shader and a portal mechanic that allowed the player to move through. Later other techniques were applied to make the scene look more appealing. </p>
+                
+                    <img src="/assets/suzume//suzume_movie.gif" alt="Technical Achievements" class="project-image">
+                </div>
+
+
+                <div class="project-content">
+                    <h2>Portals</h2>
+                    <p>The first technique that was implemented was portals. To implement portals you need to utilize multiple cameras in a scene and display what another camera is seeing onto a material. The way portals were implemented in this project was to have a camera on the other side of the portal and mirror the player’s actions to be looking out through the other side of the portal and apply that view to a material in the portal.</p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+
+                    <p>To show the player being able to look into the portal from any angle, the other portal’s camera needs to mirror the player’s actions. To accomplish this I created a simple script that will take the player’s actions and mirror it on the other camera.</p>
+                    <img src="/assets/suzume/suzume_code1.png" alt="Technical Achievements" class="project-image">
+
+               
+                    <p>Next we need to apply what this other camera is seeing onto a surface. To do this we can put what the camera sees onto a material. We need our material go be applied to a flat surface, so a plane is perfect for this. The code below is what is being used to put the camera’s viewpoint onto a material.
+                    </p>
+
+                    <img src="/assets/suzume/suzume_code2.png" alt="Technical Achievements" class="project-image">
+
+                    <p>Now for the most important part of a portal: actually moving through it. To make a portal teleport a player you need two values: the player’s rotation and position. We can set the player’s position in the portal they move through to the same place in our new portal and manually set the player’s rotation to create a teleporting effect. To trigger this we just need to put a trigger collider on the plane we applied our mirror material onto to create a smooth transition to the other side.</p>
+
+
+                    <h3>Portal Challenges</h3>
+                    <p>One of the main challenges when implementing portals was getting a smooth transition for the player and having the reflection work. It took a lot of trial and error to make both effects work together to create a cohesive and smooth effect.</p>
+               
+                </div>
+
+
+                <div class="project-content">
+                    <h2>Water</h2>
+                    <p>Creating water in games is no easy task, but with the help of unity’s shader graph the process was made much easier. The water in this project had to reflect anything that was above it, so it used a similar technique to portals. Like portals, the water used a second camera that followed the player and put what the second camera saw onto the water plane.</p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+
+                    <P>
+                        The initial setup of the water shader required another camera to follow the player and main camera. To do this the new camera needed to be equal distance from the water plane and inverted to create the water reflection effect.
+                    </P>
+
+                    <img src="/assets/suzume/suzume-0.png" alt="Technical Achievements" class="project-image">
+
+                    <p>To get our reflection we next need to get what the second camera is seeing. To do this we can use shader graph to use the camera as a sample texture for our water plane.</p>
+
+                    <img src="/assets/suzume/1.png" alt="Technical Achievements" class="project-image">
+
+                    <p>To get ripples in our water we get 2 different offsets for different normal maps and combine them to create the ripple effect.
+                    </p>
+
+                    <img src="/assets/suzume/2.png" alt="Technical Achievements" class="project-image">
+
+
+                    <p>Finally to get the water to move we need to adjust the coordinates based on an offset and pass it to the vertex shader.
+                    </p>
+
+                    <img src="/assets/suzume/3.png" alt="Technical Achievements" class="project-image">
+
+
+                    <h3>Water Challenges</h3>
+                    <p>One of the main challenges with creating the water shader was understanding the camera and where it would need to be to reflect things. To gain a better understanding I compared the knowledge from working on the portals and realized they were essentially the same technique applied in a different way.</p>
+
+                </div>
+
+
+                <div class="project-content">
+                    <h2>Day and Night Cycle</h2>
+                    <p>A day and night cycle is one way to make a world feel more alive and that was the goal with its implementation in this project. The cycle is based on an in-game clock that runs much faster than real time and will change to night in only a few minutes. To make this work I applied a skybox to the scene, then was able to change the color values of them in code. In this example I change the sun’s position, the skybox color, and tint based on the time of day.</p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+
+                </div>
+
+                <!-- DO NOT USE OR DELETE -->
+                <!-- <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p></p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div> -->
+
+                   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
