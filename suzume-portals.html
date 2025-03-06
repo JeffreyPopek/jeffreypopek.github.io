@@ -205,7 +205,7 @@ h2.special-font-header {
             </section> -->
 
             <div class="project-content">
-                <img src="/assets/suzume/suzumePortalsDemo.gif" alt="Poly-Vinyl Pests" class="project-image">
+                <img src="/assets/suzume/suzumeA.gif" alt="Poly-Vinyl Pests" class="project-image">
                 <div class="project-info-box">
                     <div>
                         <h2 class="special-font-header">Suzume Portals</h2>
@@ -232,13 +232,14 @@ h2.special-font-header {
                     </div>
                 </div>
 
+
                 <div class="project-description">
                     <!-- <h2>Introduction</h2> -->
                     <p>The goal of this project was to recreate an effect seen in the Makoto Shinkai film “Suzume”. In the movie there is a Torii gate that leads to another world. Our desired final product would be a scene with an endless pool of water on one side of the gate while a field of grass would be on the other side of the gate.</p>
 
 
                     <div class="video-container">
-                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/j9L2ufLNioI?si=RX4HzZAkcr4A_evE" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/GYqKDL9iY7s?si=co9x4di-pYREcTf6" frameborder="0" allowfullscreen></iframe>
                     </div>
                    </div>
 
@@ -256,7 +257,7 @@ h2.special-font-header {
                     <h2>Portals</h2>
                     <p>The first technique that was implemented was portals. To implement portals you need to utilize multiple cameras in a scene and display what another camera is seeing onto a material. The way portals were implemented in this project was to have a camera on the other side of the portal and mirror the player’s actions to be looking out through the other side of the portal and apply that view to a material in the portal.</p>
                 
-                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                    <img src="/assets/suzume/suzume-2Camera.gif" alt="Technical Achievements" class="project-image">
 
                     <p>To show the player being able to look into the portal from any angle, the other portal’s camera needs to mirror the player’s actions. To accomplish this I created a simple script that will take the player’s actions and mirror it on the other camera.</p>
                     <img src="/assets/suzume/suzume_code1.png" alt="Technical Achievements" class="project-image">
@@ -280,7 +281,7 @@ h2.special-font-header {
                     <h2>Water</h2>
                     <p>Creating water in games is no easy task, but with the help of unity’s shader graph the process was made much easier. The water in this project had to reflect anything that was above it, so it used a similar technique to portals. Like portals, the water used a second camera that followed the player and put what the second camera saw onto the water plane.</p>
                 
-                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                    <img src="/assets/suzume/suzume-splashArt.gif" alt="Technical Achievements" class="project-image">
 
                     <P>
                         The initial setup of the water shader required another camera to follow the player and main camera. To do this the new camera needed to be equal distance from the water plane and inverted to create the water reflection effect.
@@ -314,7 +315,7 @@ h2.special-font-header {
                     <h2>Day and Night Cycle</h2>
                     <p>A day and night cycle is one way to make a world feel more alive and that was the goal with its implementation in this project. The cycle is based on an in-game clock that runs much faster than real time and will change to night in only a few minutes. To make this work I applied a skybox to the scene, then was able to change the color values of them in code. In this example I change the sun’s position, the skybox color, and tint based on the time of day.</p>
                 
-                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                    <img src="/assets/suzume/dayNightCycle.gif" alt="Technical Achievements" class="project-image">
 
                 </div>
 
