@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeffrey Popek - Gameplay Programmer</title>
+    <link href="https://unpkg.com/lucide-css@latest" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/favicon.webp">
+    <style>
+        :root {
+            --purple: #2A0944;
+            --purple-hover: #3B0C5F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #e5e5e5;
+        }
+
+        /* Add to style section */
+        .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            background-color: #00000059;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--purple);
+            color: white;
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-brand h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .nav-brand p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--purple);
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.5rem 1rem;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--purple-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: #00000000;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            margin-top: -3rem;
+        }
+
+        /* Demo Reel */
+        .demo-reel {
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+                }
+
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: white;
+            font-size: 30px;
+        }
+
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            background: rgb(24, 24, 24);
+            transition: none;
+        }
+
+        .project-card .image-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card .image-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .project-card:hover .image-hover {
+            opacity: 1;
+        }
+
+        .project-card:hover .image-main {
+            opacity: 0;
+        }
+
+        .project-meta-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            padding: 0.75rem;
+            color: white;
+            display: flex;
+            justify-content: flex-start;
+            gap: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .project-meta-overlay span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .project-meta-overlay i {
+            color: white;
+            width: 18px;
+            height: 18px;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .project-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .project-title h3 {
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        .project-role {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .project-description {
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background: none;
+            text-align: center;
+            color: white;
+            font-size: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            color: white;
+            font-size: 20px;
+        }
+
+        .contact-links a {
+            color: var(--purple);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+        }
+
+        .contact-links a:hover {
+            color: #b847ec; /* Changes text color on hover */
+            text-shadow: 0 0 10px #ffffff00; /* Adds a glow effect */
+        }
+
+        .contact h2 {
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px; /* Space between text and line */
+}
+
+.contact h2::after {
+    content: "";
+    display: block;
+    width: 50%; /* Adjust width as needed */
+    height: 2px; /* Line thickness */
+    background-color: white; /* Adjust color */
+    margin: 10px auto 0; /* Center the line */
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-brand">
+                <h1>Jeffrey Popek</h1>
+                <p>Gameplay Programmer</p>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
+                        <a href="liminal-detective.html">Liminal Detective</a>
+                        <a href="suzume-portals.html">Suzume Portals</a>
+                        <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
+                    </div>
+                </div>
+                <a href="about.html">About</a>
+                <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
+                <a href="https://github.com/JeffreyPopek" target="_blank">Github </a>
+            </div>
+        </div>
+    </nav>
+    <div class="page-background">
+        <div class="content-wrapper">
+
+            <section class="projects">
+                <h2>Blog Posts</h2>
+                <div class="project-grid">
+    <a href="poly-vinyl-pests.html" class="project-card">
+        <div class="image-container">
+            <img class="image-main" src="/assets/pvp/pvpSplashArt.png" alt="Poly-Vinyl Pests">
+            <img class="image-hover" src="/assets/pvp//pvpGameplay.gif" alt="Poly-Vinyl Pests Hover">
+        </div>
+        <div class="project-content">
+            <div class="project-title">
+                <h3>Upgrade Testing!!</h3>
+                <i class="lucide-arrow-right"></i>
+            </div>
+            <p class="project-role">3/8/25</p>
+            <p class="project-description">bark bark bark lorem ipsum
+            </p>
+        </div>
+    </a>
+
+    <a href="liminal-detective.html" class="project-card">
+        <div class="image-container">
+            <img class="image-main" src="/assets/liminalDetective/liminalSplash.webp" alt="Liminal Detective">
+            <img class="image-hover" src="/assets/liminalDetective/LD-gameplay.gif" alt="Liminal Detective Hover">
+            <div class="project-meta-overlay">
+                <span><i class="fa-solid fa-users"></i> Team of 10</span>
+                <span><i class="fa-solid fa-clock"></i> 12 Weeks</span>
+                <span><i class="fa-solid fa-wrench"></i> Unreal Engine 5</span>
+            </div>
+        </div>
+        <div class="project-content">
+            <div class="project-title">
+                <h3>Liminal Detective</h3>
+                <i class="lucide-arrow-right"></i>
+            </div>
+            <p class="project-role">Gameplay Programmer</p>
+            <p class="project-description">The demon's heir has been murdered, and there's only one person who can solve the case... Play as Maira, a half-demon investigator trying to solve the murder of her estranged brother Joseph in this beautifully rendered, action-packed third-person mystery game.
+            </p>
+        </div>
+    </a>
+
+    <a href="suzume-portals.html" class="project-card">
+        <div class="image-container">
+            <img class="image-main" src="/assets/suzume/suzume-splashStill.png" alt="Suzume Portals">
+            <img class="image-hover" src="/assets/suzume/suzumePortalsDemo.gif" alt="Suzume Portals Hover">
+            <div class="project-meta-overlay">
+                <span><i class="fa-solid fa-users"></i> Team of 2</span>
+                <span><i class="fa-solid fa-clock"></i> 3 Weeks</span>
+                <span><i class="fa-solid fa-wrench"></i> Unity</span>
+            </div>
+        </div>
+        <div class="project-content">
+            <div class="project-title">
+                <h3>Suzume Portals</h3>
+                <i class="lucide-arrow-right"></i>
+            </div>
+            <p class="project-role">Graphics Programmer</p>
+            <p class="project-description">A re-creation of the portal effect seen in the Makoto Shinkai film Suzume. Utilizing Unity's shader graph tool and techniques involving multiple cameras, we were able to make this effect in Unity.</p>
+        </div>
+    </a>
+
+    <a href="holly-jolly-engine.html" class="project-card">
+        <div class="image-container">
+            <img class="image-main" src="/assets/holly-jolly-engine/hj-splash.png" alt="Holy Jolly Engine">
+            <img class="image-hover" src="assets/holly-jolly-engine/hj-demo.gif" alt="Holy Jolly Engine Hover">
+            <div class="project-meta-overlay">
+                <span><i class="fa-solid fa-users"></i> Team of 2</span>
+                <span><i class="fa-solid fa-clock"></i> 3 Weeks</span>
+                <span><i class="fa-solid fa-wrench"></i>C++</span>
+            </div>
+        </div>
+        <div class="project-content">
+            <div class="project-title">
+                <h3>Holy Jolly Engine</h3>
+                <i class="lucide-arrow-right"></i>
+            </div>
+            <p class="project-role">Programmer</p>
+            <p class="project-description">A custom game engine built using raylib. Focusing on 2D game development and level editor tools. Create objects and attach custom components to customize a level.</p>
+        </div>
+    </a>
+
+
+
+
+    <a href="suzume-portals.html" class="project-card">
+        <div class="image-container">
+            <img class="image-main" src="/assets/suzume/suzume-splashStill.png" alt="Suzume Portals">
+            <img class="image-hover" src="/assets/suzume/suzumePortalsDemo.gif" alt="Suzume Portals Hover">
+            <div class="project-meta-overlay">
+                <span><i class="fa-solid fa-users"></i> Team of 2</span>
+                <span><i class="fa-solid fa-clock"></i> 3 Weeks</span>
+                <span><i class="fa-solid fa-wrench"></i> Unity</span>
+            </div>
+        </div>
+        <div class="project-content">
+            <div class="project-title">
+                <h3>Suzume Portals</h3>
+                <i class="lucide-arrow-right"></i>
+            </div>
+            <p class="project-role">Graphics Programmer</p>
+            <p class="project-description">A re-creation of the portal effect seen in the Makoto Shinkai film Suzume. Utilizing Unity's shader graph tool and techniques involving multiple cameras, we were able to make this effect in Unity.</p>
+        </div>
+    </a>
+
+    <a href="holly-jolly-engine.html" class="project-card">
+        <div class="image-container">
+            <img class="image-main" src="/assets/holly-jolly-engine/hj-splash.png" alt="Holy Jolly Engine">
+            <img class="image-hover" src="assets/holly-jolly-engine/hj-demo.gif" alt="Holy Jolly Engine Hover">
+            <div class="project-meta-overlay">
+                <span><i class="fa-solid fa-users"></i> Team of 2</span>
+                <span><i class="fa-solid fa-clock"></i> 3 Weeks</span>
+                <span><i class="fa-solid fa-wrench"></i>C++</span>
+            </div>
+        </div>
+        <div class="project-content">
+            <div class="project-title">
+                <h3>Holy Jolly Engine</h3>
+                <i class="lucide-arrow-right"></i>
+            </div>
+            <p class="project-role">Programmer</p>
+            <p class="project-description">A custom game engine built using raylib. Focusing on 2D game development and level editor tools. Create objects and attach custom components to customize a level.</p>
+        </div>
+    </a>
+</div>
+            </section>
+
+            <section class="contact">
+                <h2>Contact Me</h2>
+                <div class="contact-links">
+                    <a href="mailto:jeffreypopek@gmail.com"><i class="lucide-mail"></i> Email</a>
+                    <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank"><i class="lucide-linkedin"></i> LinkedIn</a>
+                    <a href="/assets/JeffreyPopek_Resume.pdf" target="_blank"><i class="lucide-file-text"></i> Resume</a>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
+
