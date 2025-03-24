@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poly-Vinyl Pests! - Jeffrey Popek</title>
+    <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    <!-- Google Fonts - Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    
+    
+    <link rel="icon" type="image/png" href="assets/favicon.webp">
+
+    
+    <style>
+         /* Add to style section */
+         .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            background-color: #000000a8;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+
+            /* mask-image: radial-gradient(circle, black, black 65%, transparent 85%); */
+        }
+
+        .project-header {
+            padding-top: 40px;
+            padding-bottom: 0;
+            text-align: center;
+            background: #f8f8f8;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+        }
+
+        .project-content h2 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: xx-large;
+        }
+
+        .project-content h3 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            padding-top: 3rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: x-large;
+        }
+
+        .project-content p {
+            padding-top: 1rem; /* Adds space below "Technical Achievements" */
+            padding-bottom: 1rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            line-height: 1.6; /* Adds space between lines */
+            font-size: large;
+        }
+
+        a {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            text-decoration: none; /* Optional: removes underline from links */
+            font-size: large;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            
+
+            margin-top: 10; /* Ensure no extra spacing */
+            padding-top: 10; /* Remove any padding pushing it down */
+        }
+
+        .project-image {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-info-box {
+            background: rgba(46, 46, 46, 0.313);
+            border-radius: 8px;
+            padding: 2rem;
+            
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+
+            font-family: 'Lato', sans-serif;
+            font-weight: 300; /* Bold */
+
+            width: 400px;
+            margin: 0 auto; /* Centers it horizontally */
+            margin-top: 2rem;
+        }
+
+        /* Apply the font to individual info-items if needed */
+.project-info-box .info-item {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+/* Apply the font to the span text */
+.project-info-box .info-item span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item i {
+            color: var(--purple);
+            width: 20px;
+            height: 20px;
+        }
+
+        .project-description h2 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .project-content h2 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-description p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .info-item i {
+    color: white !important;
+}
+
+i {
+    margin-right: 8px; /* Adds space between the icon and text */
+        }
+
+        a i, .fa-github {
+    font-size: 2rem; /* Adjust size */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+a:hover i, a:hover .fa-github {
+    color: purple; /* Change color on hover */
+}
+
+a {
+    font-size: 1.2rem; /* Makes text bigger */
+    text-decoration: none; /* Removes underline */
+}
+
+.project-content h3 {
+    padding-bottom: 1rem;
+}
+
+
+
+
+/* pre {
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-family: Consolas, "courier new";
+        }
+        code {
+            font-family: Consolas, "courier new";
+            color: crimson;
+            background-color: #f1f1f1;
+            padding: 2px;
+            font-size: 105%;
+        } */
+
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-brand">
+                <h1>Jeffrey Popek</h1>
+                <p>Game Programmer</p>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
+                        <a href="liminal-detective.html">Liminal Detective</a>
+                        <a href="suzume-portals.html">Suzume Portals</a>
+                        <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
+                    </div>
+                </div>
+                <a href="blog.html">Blog</a>
+                <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
+                <!-- <a href="https://github.com/JeffreyPopek" target="_blank">Github </a> -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-background">
+        <div class="content-wrapper">
+
+
+            <div class="project-content">
+                <h2>Upgrade Selector Tool</h2>
+
+                <div class="project-info-box">
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-clock"></i> March 5, 2025</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-wrench"></i> Tools: Unity</span>
+                    </div>
+                </div>
+
+                <div class="project-description">
+                    <h2>Introduction</h2>
+                    
+                    <p>
+                        In my team’s game, Poly-Vinyl Pests! We have an upgrade system and like all upgrade systems it needs to be balanced over many weeks. Before this the only way to get an upgrade was to go to the upgrade select screen and reroll the current upgrades until you found the one you were looking for. This process is already tedious for acquiring one upgrade, but when trying to test more than one upgrade combination it wastes a ton of time over the development cycle. My goal with this tool was to allow designers to have an easier time picking upgrades upgrades so that they can test faster and more efficiently.
+                    </p>
+
+                </div>
+
+                <div class="project-content">
+                    <h2>Tool Design</h2>
+                    <p>
+                        The first thing I thought when I wanted to implement this tool was: “If I was a designer, what would I want this tool to look like and do?” The answer to this question was simple, I would want a menu that would allow me to add any upgrades in our game to either player at any point in the game. So after a bit of initial brainstorming and asking my designers for a bit of input I started implementation. This is my first draft of the design for the tool in Figma:
+                    </p>
+                    
+                    <img src="/assets/blog-posts/upgrade-tool/uptool_init_design.png" alt="a" class="project-image">
+                    </div>
+
+                <div class="project-content">
+                    <h2>Implementation</h2>
+                
+                    <p>
+                        To start implementing my design for this tool I first needed to make buttons for each upgrade. The upgrade system has 3 tiers of upgrades with 12/15/9 upgrades respectively. This means I needed to make a total of 36 buttons and attach a function to add the corresponding upgrade to them. This was something I was not particularly interested in doing so instead I added the buttons to 3 separate lists, one for each tier. Next I got all 3 upgrade tier lists and loop through each of them to set the button’s text to the upgrade name. Next I added switching between pages to allow designers to see all tiers of upgrades.                    </p>
+
+
+                    <img src="/assets/blog-posts/upgrade-tool/uptool_demo_1.gif" alt="a" class="project-image">
+               
+                    <p>
+                        Next I needed to add functionality to actually gain the upgrade. Since we already have the name of the upgrade of each button we can get the upgrade and add it to the current player based on the name alone. To get the name of the upgrade the player is hovering over I used the IPointerEnterHandle Unity interface which gives me access to the “OnPointerEnter” function. This function will allow me to get the data from game objects that the cursor hovers over. With this I was able to get the name and create a function to gain the upgrade. All that was left was to add the function to the buttons
+
+                    </p>
+
+                    <img src="/assets/blog-posts/upgrade-tool/uptool_demo_2.gif" alt="a" class="project-image">
+
+               
+                    <p>
+                        Now that we got picking upgrades working we want to be able to switch between who gets the upgrades. To do this we just need a default player at the start, in our case it will be player 1, and add a button that switches the player. When gaining an upgrade we just need to check who is the current player and apply the upgrade to that player.
+                    </p>
+
+                    <img src="/assets/blog-posts/upgrade-tool/uptool_pick.png" alt="a" class="project-image">
+
+                    <p>
+                        Finally I wanted to add the upgrade card UI we have in our upgrade select screen. The upgrade cards were made up of 3 parts, the name, description, and art. Since we already have references to all the upgrades I just grabbed the upgrade variables and applied them onto the card UI when the player hovered over an upgrade. I put all this functionality into one function and called it each time a new upgrade button was hovered over. This is what the final tool looks like in action:
+                    </p>
+
+                    <h3>Demo of the tool</h3>
+                    <div class="video-container">
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/dP_3xwY3tUs?si=xmPgryv4kaOYBMeC" frameborder="0" allowfullscreen></iframe>
+                    </div>
+          
+            
+                    </div>
+
+                <!-- DO NOT USE OR DELETE -->
+                <!-- <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p></p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div> -->
+
+                   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -3,310 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeffrey Popek - Gameplay Programmer</title>
-    <link href="https://unpkg.com/lucide-css@latest" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Jeffrey Popek Blog</title>
+    <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/favicon.webp">
+
+
     <style>
-        :root {
-            --purple: #2A0944;
-            --purple-hover: #3B0C5F;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        body {
-            background: #e5e5e5;
-        }
-
-        /* Add to style section */
+        /* Add this for a subtle background pattern */
         .page-background {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
-            background-color: #2c2c2c;
+            background-color: #e5e5e5;
+            background-image: url(/assets/ds_background.png);
             min-height: 100vh;
-            padding-top: 60px;
-        }
-
-        .content-wrapper {
-            background-color: #00000059;
-            max-width: 1400px;
-            margin: 0 auto;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            min-height: 100vh;
-        }
-
-        /* Navigation */
-        nav {
+            padding: 60px 0 0 0;
             position: fixed;
             top: 0;
-            width: 100%;
-            background: var(--purple);
-            color: white;
-            padding: 1rem 2rem;
-            z-index: 1000;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-brand h1 {
-            font-size: 1.5rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .nav-brand p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background: var(--purple);
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            border-radius: 4px;
-            padding: 0.5rem 0;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            display: block;
-            padding: 0.5rem 1rem;
-        }
-
-        .dropdown-content a:hover {
-            background: var(--purple-hover);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: #00000000;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding-top: 60px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            margin-top: -3rem;
-        }
-
-        /* Demo Reel */
-        .demo-reel {
-            padding: 4rem 2rem;
-            text-align: center;
-            color: white;
-        }
-
-        .video-container {
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-                }
-
-        .projects h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: white;
-            font-size: 30px;
-        }
-
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            background: rgb(24, 24, 24);
-            transition: none;
-        }
-
-        .project-card .image-container {
-            position: relative;
-            height: 300px;
-            overflow: hidden;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card .image-hover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-        }
-
-        .project-card:hover .image-hover {
-            opacity: 1;
-        }
-
-        .project-card:hover .image-main {
-            opacity: 0;
-        }
-
-        .project-meta-overlay {
-            position: absolute;
-            bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,0.7);
-            padding: 0.75rem;
-            color: white;
-            display: flex;
-            justify-content: flex-start;
-            gap: 2rem;
-            padding-left: 1.5rem;
+            bottom: 0;
+            overflow-y: auto;
         }
 
-        .project-meta-overlay span {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
+        /* You might want to add a slight shadow to content for better contrast */
+        .content-wrapper {
+            background-color: rgba(0, 0, 0, 0.7);
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            min-height: 100vh;
+            position: relative;
         }
 
-        .project-meta-overlay i {
-            color: white;
-            width: 18px;
-            height: 18px;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-            text-align: left;
-        }
-
-        .project-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .project-title h3 {
-            font-size: 1.25rem;
-            color: white;
-        }
-
-        .project-role {
-            color: #ffffff;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .project-description {
-            color: #ffffff;
-            line-height: 1.5;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 4rem 2rem;
-            background: none;
+        /* Updated header text to white */
+        .blog-header {
+            padding: 6rem 2rem 2rem;
             text-align: center;
-            color: white;
-            font-size: 30px;
         }
 
-        .contact-links {
+        .blog-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .blog-header p {
+            color: #ffffff;
+        }
+
+        /* Dark mode filter section with grey outlines */
+        .filter-section {
+            background-color: #1818187e; 
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            margin: 0 auto 2rem;
+            max-width: 500px;
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-top: 2rem;
-            color: white;
-            font-size: 20px;
+            flex-wrap: wrap;
         }
 
-        .contact-links a {
-            color: var(--purple);
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: #e0e0e0;
+            font-size: 0.9rem;
+        }
+
+        .filter-group select {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border: 1px solid #666666; /* Grey outline */
+            background-color: #242424;
+            color: #e0e0e0;
+            min-width: 200px;
+            font-size: 0.9rem;
+        }
+
+        .filter-group select:focus {
+            outline: none;
+            border-color: #999999; /* Lighter grey on focus */
+        }
+
+        .filter-group select option {
+            background-color: #242424;
+            color: #e0e0e0;
+        }
+
+        .blog-posts {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Dark mode blog post cards */
+        .blog-post {
+            background: #181818;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease;
             text-decoration: none;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-post-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .blog-post-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-post-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        /* Inverted type badges */
+        .blog-post-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .blog-post-type.programming {
+            background-color: #003366;
+            color: #66b2ff;
+        }
+
+        .blog-post-type.tools {
+            background-color: #6302b3;
+            color: #cc99ff;
+        }
+
+        .blog-post-type.ui {
+            background-color: #330066;
+            color: #cc99ff;
+        }
+
+        .blog-post-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .blog-post-excerpt {
+            color: #cccccc;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        /* Lighter Read More text */
+        .blog-post-link {
+            margin-top: auto;
+            color: #b3b3ff; /* Lighter purple-blue */
+            font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: white;
+            gap: 0.25rem;
         }
 
-        .contact-links a:hover {
-            color: #b847ec; /* Changes text color on hover */
-            text-shadow: 0 0 10px #ffffff00; /* Adds a glow effect */
+        .blog-post-link i {
+            transition: transform 0.2s ease;
         }
 
-        .contact h2 {
-    text-align: center;
-    position: relative;
-    padding-bottom: 10px; /* Space between text and line */
+        .blog-post:hover .blog-post-link i {
+            transform: translateX(3px);
+        }
+
+        .blog-post {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.contact h2::after {
-    content: "";
-    display: block;
-    width: 50%; /* Adjust width as needed */
-    height: 2px; /* Line thickness */
-    background-color: white; /* Adjust color */
-    margin: 10px auto 0; /* Center the line */
-}
 
+
+.blog-post:hover .blog-post-link {
+    color: #b300ff; /* Highlight Read More text in purple */
+}
     </style>
 </head>
 <body>
@@ -314,7 +215,7 @@
         <div class="nav-content">
             <div class="nav-brand">
                 <h1>Jeffrey Popek</h1>
-                <p>Gameplay Programmer</p>
+                <p>Game Programmer</p>
             </div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -327,150 +228,179 @@
                         <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
                     </div>
                 </div>
-                <a href="about.html">About</a>
+                <a href="blog.html">Blog</a>
                 <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
-                <a href="https://github.com/JeffreyPopek" target="_blank">Github </a>
+                <!-- <a href="https://github.com/JeffreyPopek" target="_blank">Github </a> -->
             </div>
         </div>
     </nav>
+
     <div class="page-background">
         <div class="content-wrapper">
-
-            <section class="projects">
-                <h2>Blog Posts</h2>
-                <div class="project-grid">
-    <a href="poly-vinyl-pests.html" class="project-card">
-        <div class="image-container">
-            <img class="image-main" src="/assets/pvp/pvpSplashArt.png" alt="Poly-Vinyl Pests">
-            <img class="image-hover" src="/assets/pvp//pvpGameplay.gif" alt="Poly-Vinyl Pests Hover">
-        </div>
-        <div class="project-content">
-            <div class="project-title">
-                <h3>Upgrade Testing!!</h3>
-                <i class="lucide-arrow-right"></i>
-            </div>
-            <p class="project-role">3/8/25</p>
-            <p class="project-description">bark bark bark lorem ipsum
-            </p>
-        </div>
-    </a>
-
-    <a href="liminal-detective.html" class="project-card">
-        <div class="image-container">
-            <img class="image-main" src="/assets/liminalDetective/liminalSplash.webp" alt="Liminal Detective">
-            <img class="image-hover" src="/assets/liminalDetective/LD-gameplay.gif" alt="Liminal Detective Hover">
-            <div class="project-meta-overlay">
-                <span><i class="fa-solid fa-users"></i> Team of 10</span>
-                <span><i class="fa-solid fa-clock"></i> 12 Weeks</span>
-                <span><i class="fa-solid fa-wrench"></i> Unreal Engine 5</span>
-            </div>
-        </div>
-        <div class="project-content">
-            <div class="project-title">
-                <h3>Liminal Detective</h3>
-                <i class="lucide-arrow-right"></i>
-            </div>
-            <p class="project-role">Gameplay Programmer</p>
-            <p class="project-description">The demon's heir has been murdered, and there's only one person who can solve the case... Play as Maira, a half-demon investigator trying to solve the murder of her estranged brother Joseph in this beautifully rendered, action-packed third-person mystery game.
-            </p>
-        </div>
-    </a>
-
-    <a href="suzume-portals.html" class="project-card">
-        <div class="image-container">
-            <img class="image-main" src="/assets/suzume/suzume-splashStill.png" alt="Suzume Portals">
-            <img class="image-hover" src="/assets/suzume/suzumePortalsDemo.gif" alt="Suzume Portals Hover">
-            <div class="project-meta-overlay">
-                <span><i class="fa-solid fa-users"></i> Team of 2</span>
-                <span><i class="fa-solid fa-clock"></i> 3 Weeks</span>
-                <span><i class="fa-solid fa-wrench"></i> Unity</span>
-            </div>
-        </div>
-        <div class="project-content">
-            <div class="project-title">
-                <h3>Suzume Portals</h3>
-                <i class="lucide-arrow-right"></i>
-            </div>
-            <p class="project-role">Graphics Programmer</p>
-            <p class="project-description">A re-creation of the portal effect seen in the Makoto Shinkai film Suzume. Utilizing Unity's shader graph tool and techniques involving multiple cameras, we were able to make this effect in Unity.</p>
-        </div>
-    </a>
-
-    <a href="holly-jolly-engine.html" class="project-card">
-        <div class="image-container">
-            <img class="image-main" src="/assets/holly-jolly-engine/hj-splash.png" alt="Holy Jolly Engine">
-            <img class="image-hover" src="assets/holly-jolly-engine/hj-demo.gif" alt="Holy Jolly Engine Hover">
-            <div class="project-meta-overlay">
-                <span><i class="fa-solid fa-users"></i> Team of 2</span>
-                <span><i class="fa-solid fa-clock"></i> 3 Weeks</span>
-                <span><i class="fa-solid fa-wrench"></i>C++</span>
-            </div>
-        </div>
-        <div class="project-content">
-            <div class="project-title">
-                <h3>Holy Jolly Engine</h3>
-                <i class="lucide-arrow-right"></i>
-            </div>
-            <p class="project-role">Programmer</p>
-            <p class="project-description">A custom game engine built using raylib. Focusing on 2D game development and level editor tools. Create objects and attach custom components to customize a level.</p>
-        </div>
-    </a>
-
-
-
-
-    <a href="suzume-portals.html" class="project-card">
-        <div class="image-container">
-            <img class="image-main" src="/assets/suzume/suzume-splashStill.png" alt="Suzume Portals">
-            <img class="image-hover" src="/assets/suzume/suzumePortalsDemo.gif" alt="Suzume Portals Hover">
-            <div class="project-meta-overlay">
-                <span><i class="fa-solid fa-users"></i> Team of 2</span>
-                <span><i class="fa-solid fa-clock"></i> 3 Weeks</span>
-                <span><i class="fa-solid fa-wrench"></i> Unity</span>
-            </div>
-        </div>
-        <div class="project-content">
-            <div class="project-title">
-                <h3>Suzume Portals</h3>
-                <i class="lucide-arrow-right"></i>
-            </div>
-            <p class="project-role">Graphics Programmer</p>
-            <p class="project-description">A re-creation of the portal effect seen in the Makoto Shinkai film Suzume. Utilizing Unity's shader graph tool and techniques involving multiple cameras, we were able to make this effect in Unity.</p>
-        </div>
-    </a>
-
-    <a href="holly-jolly-engine.html" class="project-card">
-        <div class="image-container">
-            <img class="image-main" src="/assets/holly-jolly-engine/hj-splash.png" alt="Holy Jolly Engine">
-            <img class="image-hover" src="assets/holly-jolly-engine/hj-demo.gif" alt="Holy Jolly Engine Hover">
-            <div class="project-meta-overlay">
-                <span><i class="fa-solid fa-users"></i> Team of 2</span>
-                <span><i class="fa-solid fa-clock"></i> 3 Weeks</span>
-                <span><i class="fa-solid fa-wrench"></i>C++</span>
-            </div>
-        </div>
-        <div class="project-content">
-            <div class="project-title">
-                <h3>Holy Jolly Engine</h3>
-                <i class="lucide-arrow-right"></i>
-            </div>
-            <p class="project-role">Programmer</p>
-            <p class="project-description">A custom game engine built using raylib. Focusing on 2D game development and level editor tools. Create objects and attach custom components to customize a level.</p>
-        </div>
-    </a>
-</div>
+            <section class="blog-header">
+                <h1>Dev Blog</h1>
+                <p>Explorations, tutorials, and small projects</p>
             </section>
 
-            <section class="contact">
-                <h2>Contact Me</h2>
-                <div class="contact-links">
-                    <a href="mailto:jeffreypopek@gmail.com"><i class="lucide-mail"></i> Email</a>
-                    <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank"><i class="lucide-linkedin"></i> LinkedIn</a>
-                    <a href="/assets/JeffreyPopek_Resume.pdf" target="_blank"><i class="lucide-file-text"></i> Resume</a>
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label for="sort-filter">Sort by Date</label>
+                    <select id="sort-filter">
+                        <option value="latest">Latest First</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
                 </div>
-            </section>
+                <div class="filter-group">
+                    <label for="type-filter">Filter by Type</label>
+                    <select id="type-filter">
+                        <option value="all">All Types</option>
+                        <option value="programming">Programming</option>
+                        <option value="tools">Tools</option>
+                        <option value="ui">UI</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="blog-posts">
+    <a href="blog-speech-recog.html" class="blog-post">
+        <img src="/assets/blog-posts/speech-recog/speech_thumbnail.png" alt="Blog Post" class="blog-post-image">
+        <div class="blog-post-content">
+            <div class="blog-post-meta">
+                <span class="blog-post-date">March 19, 2024</span>
+                <span class="blog-post-type programming">Programming</span>
+            </div>
+            <h3 class="blog-post-title">Speech Recognition in Unity</h3>
+            <p class="blog-post-excerpt">Exploring implementation of voice recognition as an input in Unity</p>
+            <span class="blog-post-link">Read More <i class="lucide-arrow-right"></i></span>
+        </div>
+    </a>
+
+    <a href="blog-up-tool.html" class="blog-post">
+        <img src="assets/blog-posts/upgrade-tool/uptool_thumbnail.png" alt="Blog Post" class="blog-post-image">
+        <div class="blog-post-content">
+            <div class="blog-post-meta">
+                <span class="blog-post-date">March 5, 2025</span>
+                <span class="blog-post-type tools">Tools</span>
+            </div>
+            <h3 class="blog-post-title">Upgrade Selector Tool</h3>
+            <p class="blog-post-excerpt">Creation of tool for designers to test and balance upgrade values in our indie game: Poly-Vinyl Pests!</p>
+            <span class="blog-post-link">Read More <i class="lucide-arrow-right"></i></span>
+        </div>
+    </a>
+
+    <a href="blog-grav-sim.html" class="blog-post">
+                    <img src="/assets/blog-posts/grav-sim/grav_sim_thumbnail.png" alt="Blog Post" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span class="blog-post-date">December 11, 2023</span>
+                            <span class="blog-post-type ui">UI</span>
+                        </div>
+                        <h3 class="blog-post-title">Planet Gravity Sandbox</h3>
+                        <p class="blog-post-excerpt">Small project about planet gravity and world editor UI implementation</p>
+                        <span class="blog-post-link">Read More <i class="lucide-arrow-right"></i></span>
+                    </div>
+                </a>
+
+    <!-- <a href="#" class="blog-post">
+                    <img src="/placeholder.svg?height=180&width=300" alt="Blog Post" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span class="blog-post-date">May 2, 2022</span>
+                            <span class="blog-post-type ui">UI</span>
+                        </div>
+                        <h3 class="blog-post-title">Armourer</h3>
+                        <p class="blog-post-excerpt">First solo game project. Armourer is an idle resource management game focusing on UI</p>
+                        <span class="blog-post-link">Read More <i class="lucide-arrow-right"></i></span>
+                    </div>
+                </a> -->
+
+    <a href="blog-state-machines.html" class="blog-post">
+                    <img src="/assets/blog-posts/statemachine/statemachine_thumbnail.png" alt="Blog Post" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span class="blog-post-date">December 10, 2023</span>
+                            <span class="blog-post-type programming">Programming</span>
+                        </div>
+                        <h3 class="blog-post-title">State Machines and Navmesh</h3>
+                        <p class="blog-post-excerpt">Tutorial on state machines and Unity navmesh</p>
+                        <span class="blog-post-link">Read More <i class="lucide-arrow-right"></i></span>
+                    </div>
+                </a>
+
+    <!-- <a href="#" class="blog-post">
+                    <img src="/placeholder.svg?height=180&width=300" alt="Blog Post" class="blog-post-image">
+                    <div class="blog-post-content">
+                        <div class="blog-post-meta">
+                            <span class="blog-post-date">March 24, 2023</span>
+                            <span class="blog-post-type ui">UI</span>
+                        </div>
+                        <h3 class="blog-post-title">Polynesian Seas</h3>
+                        <p class="blog-post-excerpt">Education game about Polynesia. Implemented dialogue UI with Ink integration</p>
+                        <span class="blog-post-link">Read More <i class="lucide-arrow-right"></i></span>
+                    </div>
+                </a> -->
+            </div>
         </div>
     </div>
+
+    <script>
+        // Simple filter and sort functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sortFilter = document.getElementById('sort-filter');
+            const typeFilter = document.getElementById('type-filter');
+            const blogPostsContainer = document.querySelector('.blog-posts');
+            const blogPosts = Array.from(document.querySelectorAll('.blog-post'));
+            
+            function getPostDate(post) {
+                const dateText = post.querySelector('.blog-post-date').textContent;
+                return new Date(dateText);
+            }
+            
+            function sortPosts() {
+                const sortOrder = sortFilter.value;
+                const postsArray = Array.from(blogPosts);
+                
+                postsArray.sort((a, b) => {
+                    const dateA = getPostDate(a);
+                    const dateB = getPostDate(b);
+                    
+                    if (sortOrder === 'latest') {
+                        return dateB - dateA; // Latest first (descending)
+                    } else {
+                        return dateA - dateB; // Oldest first (ascending)
+                    }
+                });
+                
+                // Remove all posts
+                blogPosts.forEach(post => post.remove());
+                
+                // Add them back in sorted order
+                postsArray.forEach(post => {
+                    blogPostsContainer.appendChild(post);
+                });
+            }
+            
+            function filterByType() {
+                const selectedType = typeFilter.value;
+                
+                blogPosts.forEach(post => {
+                    const postType = post.querySelector('.blog-post-type').classList.contains(selectedType);
+                    
+                    if (selectedType === 'all' || postType) {
+                        post.style.display = 'flex';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            }
+            
+            sortFilter.addEventListener('change', sortPosts);
+            typeFilter.addEventListener('change', filterByType);
+            
+            // Initial sort (latest first by default)
+            sortPosts();
+        });
+    </script>
 </body>
 </html>
 

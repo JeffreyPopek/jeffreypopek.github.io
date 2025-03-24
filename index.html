@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeffrey Popek - Game Programmer</title>
+    <title>Jeffrey Popek Portfolio</title>
     <link href="https://unpkg.com/lucide-css@latest" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" type="image/png" href="assets/favicon.webp">
@@ -107,6 +107,89 @@
 
         .dropdown-content a:hover {
             background: var(--purple-hover);
+        }
+
+         /* About Section */
+         .about-section {
+            padding: 4rem 2rem;
+            background-color: #0000005f;
+            color: #00000000;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--purple);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: #cccccc;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .about-cta {
+            display: inline-block;
+            margin-top: 1rem;
+            margin-right: 10px;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--purple);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .about-cta:hover {
+            background-color: var(--purple-hover);
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+                margin-bottom: 2rem;
+            }
         }
 
         /* Hero Section */
@@ -299,6 +382,21 @@
             text-shadow: 0 0 10px #ffffff00; /* Adds a glow effect */
         }
 
+        .project-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow effect */
+}
+
+
+        .project-card:hover .project-title h3 {
+    color: var(--purple-hover);
+}
+
+
         .contact h2 {
     text-align: center;
     position: relative;
@@ -313,6 +411,7 @@
     background-color: white; /* Adjust color */
     margin: 10px auto 0; /* Center the line */
 }
+
 
     
 
@@ -336,9 +435,9 @@
                         <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
                     </div>
                 </div>
-                <a href="about.html">About</a>
+                <a href="blog.html">Blog</a>
                 <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
-                <a href="https://github.com/JeffreyPopek" target="_blank">Github </a>
+                <!-- <a href="https://github.com/JeffreyPopek" target="_blank">Github </a> -->
             </div>
         </div>
     </nav>
@@ -350,6 +449,9 @@
                     <p>Generalist Game Programmer</p>
                 </div>
             </section>
+
+
+
 
             <!-- <section class="demo-reel">
                 <h2>Demo Reel</h2>
@@ -443,6 +545,23 @@
         </div>
     </a>
 </div>
+            </section>
+
+
+            <section class="about-section">
+                <div class="about-container">
+                    <div class="about-content">
+                        <h2>About Me</h2>
+                        <p>Hi, I'm Jeffrey! My passion for games began at a young age and only grew stronger over the years. In high school, I took my first steps into game development through Mission Bit, where I learned just how fun—and challenging—creating games could be. From that moment, I knew I wanted to pursue a career in game development.</p>
+                        <p>That path led me to Champlain College, where I majored in Game Programming. Over the past four years, I’ve worked on a variety of games in collaborative team environments, honing my technical skills and deepening my appreciation for teamwork and strong work ethic. I love bringing games to life with others and look forward to continuing that journey in the industry!</p>
+                        
+                        <a href="https://github.com/JeffreyPopek" target="_blank" class="about-cta">GitHub</a>
+                        <a href="https://jeffreypopek.itch.io/" target="_blank" class="about-cta">Itch.io</a>
+                    </div>
+                    <div class="about-image">
+                        <img src="/assets/me.png" alt="Jeffrey Popek">
+                    </div>
+                </div>
             </section>
 
             <section class="contact">

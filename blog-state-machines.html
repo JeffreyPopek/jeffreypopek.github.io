@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeffrey Popek Blog - State Machines &  Navmesh</title>
+    <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    <!-- Google Fonts - Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    
+    
+    <link rel="icon" type="image/png" href="assets/favicon.webp">
+
+    
+    <style>
+         /* Add to style section */
+         .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            background-color: #000000a8;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+
+            /* mask-image: radial-gradient(circle, black, black 65%, transparent 85%); */
+        }
+
+        .project-header {
+            padding-top: 40px;
+            padding-bottom: 0;
+            text-align: center;
+            background: #f8f8f8;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+        }
+
+        .project-content h2 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: xx-large;
+        }
+
+        .project-content h3 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            padding-top: 3rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: x-large;
+        }
+
+        .project-content p {
+            padding-top: 1rem; /* Adds space below "Technical Achievements" */
+            padding-bottom: 1rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            line-height: 1.6; /* Adds space between lines */
+            font-size: large;
+        }
+
+        a {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            text-decoration: none; /* Optional: removes underline from links */
+            font-size: large;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            
+
+            margin-top: 10; /* Ensure no extra spacing */
+            padding-top: 10; /* Remove any padding pushing it down */
+        }
+
+        .project-image {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-info-box {
+            background: rgba(46, 46, 46, 0.313);
+            border-radius: 8px;
+            padding: 2rem;
+            
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+
+            font-family: 'Lato', sans-serif;
+            font-weight: 300; /* Bold */
+
+            width: 400px;
+            margin: 0 auto; /* Centers it horizontally */
+            margin-top: 2rem;
+        }
+
+        /* Apply the font to individual info-items if needed */
+.project-info-box .info-item {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+/* Apply the font to the span text */
+.project-info-box .info-item span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item i {
+            color: var(--purple);
+            width: 20px;
+            height: 20px;
+        }
+
+        .project-description h2 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .project-content h2 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-description p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .info-item i {
+    color: white !important;
+}
+
+i {
+    margin-right: 8px; /* Adds space between the icon and text */
+        }
+
+        a i, .fa-github {
+    font-size: 2rem; /* Adjust size */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+a:hover i, a:hover .fa-github {
+    color: purple; /* Change color on hover */
+}
+
+a {
+    font-size: 1.2rem; /* Makes text bigger */
+    text-decoration: none; /* Removes underline */
+}
+
+
+
+
+/* pre {
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-family: Consolas, "courier new";
+        }
+        code {
+            font-family: Consolas, "courier new";
+            color: crimson;
+            background-color: #f1f1f1;
+            padding: 2px;
+            font-size: 105%;
+        } */
+
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-brand">
+                <h1>Jeffrey Popek</h1>
+                <p>Game Programmer</p>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
+                        <a href="liminal-detective.html">Liminal Detective</a>
+                        <a href="suzume-portals.html">Suzume Portals</a>
+                        <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
+                    </div>
+                </div>
+                <a href="blog.html">Blog</a>
+                <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
+                <!-- <a href="https://github.com/JeffreyPopek" target="_blank">Github </a> -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-background">
+        <div class="content-wrapper">
+
+
+            <div class="project-content">
+                <h2>State Machines & NavMesh
+                </h2>
+
+                <div class="project-info-box">
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-clock"></i> December 10, 2023</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-wrench"></i> Tools: Unity</span>
+                    </div>
+                </div>
+
+                <div class="project-description">
+                    <h2>What is a State Machine?
+                    </h2>
+                    
+                    <p>
+                        A state machine is a behavioral model. It has a finite amount of states that all do something different. State machines can streamline the process of behaviors in your game. In our project, we used state machines for two different behaviors, our towers and our enemies. Each of the topics have very different states but work the same when looking at the state machine.
+                    </p>
+
+                    <h2>
+                        How it works
+                    </h2>
+
+                    <p>
+                        A state machine will respond to different situations or events by transitioning through various states. It’s like describing the behavior of something based on its current “state” and the input it receives. 
+                        One way to think of it in a real world scenario is a traffic light. If we were to think of a traffic light as a state machine then it would have 3 total states: red light, green light, and yellow light. Each of the states, or lights, do different things and can transition between each other based on conditions.
+    
+                    </p>
+
+                    <div>
+
+                        <p>1. Red light: The light will only turn red after the light is already yellow. Red means that you need to stop.
+                        </p>
+                        <p>2. Green light: The light only turns green after the light is already red. When the light is green that means you can go.
+                        </p>
+                        <p>
+                            3. Yellow light: The light only turns yellow when the light is already green. When the light is yellow it means that it is transitioning to a red light.
+                        </p>
+                    </div>
+
+                    <img src="/assets/blog-posts/statemachine/statemachine_example.png" alt="Technical Achievements" class="project-image">
+
+                    <p>
+                        Now that we understand the theory behind state machines, let's put it into practice! Imagine this scenario: you walk up to a crosswalk and the street you want to cross has a green light. You press the button to cross the street and the traffic light transitions to being yellow from beginning green. Now that the light is yellow, it will transition to being red after a set amount of time. 
+                    </p>
+
+                    <h3>Summary</h3>
+                    <p>A state machine is like a set of rules and instructions for how something behaves based on its current state, events, or inputs it receives. 
+                    </p>
+
+
+                </div>
+
+                <div class="project-content">
+                    <h2>Code Example</h2>
+                    <p>Now that we understand the theory of state machines let’s talk about how they work in a program or game. States machines need 3 things to work: States, Events, and Transitions.
+                    </p>
+
+                    <p>
+                        1. States: States represent different modes or conditions that your program can be in. For example in a game you might have different menu states such as “playing” or “game over”.
+                    </p>
+
+                    <p>
+                        2. Events: Events are occurrences or triggers that cause the state machine to transition from one state to another. This can be triggered through a myriad of ways such as user input, system events, or anything that can influence the program’s behavior. 
+                    </p>
+
+                    <p>
+                        3. Transitions: Transitions define how the state machine moves from one state to another in response to an event. They are rules and conditions that determine which state you will move to based on the event.
+                    </p>
+                    
+                
+                    <img src="/assets/blog-posts/statemachine/statemachine_code_ex.png" alt="ex" class="project-image">
+                
+                        <p>
+                        First you want to make a class and constructor. For this example we will be using the traffic light example from above. For our different states we will start by creating a string called “state”. This string will determine which state we are currently in. In our constructor we can set our initial state to whatever we want. For this example we’ll start at a red light.
+
+                        </p>
+
+                        <img src="/assets/blog-posts/statemachine/statemachine_code_ex_2.png" alt="ex" class="project-image" style="height: 750px; width: auto;">
+
+                        <p>
+                            Next we’ll need a function to process our input. Getting our input is separate from this function but can be connected very easily. In our example we check for which state you are in and based on that the state machine will do something different. You can add as many states as you want.
+                        </p>
+                </div>
+
+                <div class="project-content">
+                    <h2>How can we use this technique?</h2>
+                    <p>State machines are simple but very effective. They are not tied down to one genre of game. They can be applied to almost any game you can think of and serve a purpose. For our project state machines were used for basic enemy and tower behavior. A state machine can be used for something very complex such as a boss fight, or something simple such as a traffic light.
+                    </p>
+                
+                </div>
+
+                <div class="project-content">
+                    <h2>How we used it in our project
+                    </h2>                  
+
+                    <p>
+                        Like I said earlier, we used state machines for our enemy and tower behaviors. The way we programmed it is different from the example because we needed to take in collisions and triggers in unity, but the core technique still stayed the same. Here’s the base state code that all the other states inherited off of:
+                    </p>
+
+                    
+                    <img src="/assets/blog-posts/statemachine/statemaachine_usage.png" alt="ex" class="project-image">
+
+                    <p>As you can see it is very similar to the example above but using unity syntax. For this state machine it has the functionality of a regular class such as start (enter state), update, and the collision functions.
+                    </p>
+
+                    <p>
+                        For our in-game functionality the state machine will have our enemy change states when it enters the range of a tower and moves to its attacking state. The enemy uses NavMesh for its pathfinding to find the objective then switches to its moving state to get to the target. In the moving state update function it will update the path if any new objects are placed in the scene. When the enemy stops moving it means it has switched to the attacking state.
+                    </p>
+
+                    <img src="/assets/blog-posts/statemachine/statemachine_demo.gif" alt="ex" class="project-image">
+
+                
+                </div>
+
+
+                 <div class="project-content">
+                    <h2>What is NavMesh?
+                    </h2>
+
+                    <p>NavMesh, short for Navigation Mesh, data structure for AI applications used to help agents in pathfinding through spaces. A NavMesh will help developers create paths for agents that can avoid obstacles in their environment. The spaces can range from simple to complex and NavMesh will still work. For this project we utilized the built-in unity feature to assist with our enemy pathfinding. 
+                    </p>
+                
+                </div>
+
+                <div class="project-content">
+                    <h2>How it works
+                    </h2>
+
+                    <p>
+                        To understand how a NavMesh works, you first need to understand the theory behind it. To get an agent to move from one place to another you need two things: A map of the environment, and a path to your destination. If you want to make your path to your desired destination then you need a path, and if you want your path to your destination then you need your map. These two things cannot work without the other. 
+                    </p>
+
+                    <p>
+                        Let’s use an example to better understand how we could utilize a NavMesh. Imagine you are playing a game that takes place in a grocery store. Your agent wants to get a certain item at the back of the store. Without the NavMesh the agent would wander around the store randomly while bumping into things, walking into walls, and maybe getting stuck. With a NavMesh it will know its surroundings and walk straight to the item. Finding where your item is includes the two things from before, let’s break them up into two steps: Making the map and finding the path.
+
+                        Let’s use this image to represent our grocery store without a NavMesh:
+
+                    </p>
+
+                    <img src="/assets/blog-posts/statemachine/statemachine_no_navmesh.jpg" alt="ex" class="project-image">
+
+                    <p>
+                        Let’s say that each tile on the ground represents a space the agent can move to. Without determining which tiles can and can’t be walked on, the agent will eventually walk into a shelf. Now if we implement our NavMesh our agent will see the store like this:
+                    </p>
+
+                    <img src="/assets/blog-posts/statemachine/statemachine_has_navmesh.jpg" alt="ex" class="project-image">
+
+
+                    <p>
+                        Now our agent can see where it can and can’t walk. This technique is applied in the same way in Unity. 
+
+                        Now that we have our map we need to find a path. A NavMesh is really only the technique to create the map, so you can use any search algorithm you want to find your path. Unity uses the A* method to find a path so we’ll also use that. 
+                    </p>
+
+                    <p>
+                        Before we find our path we need to know what the A* algorithm is. A* is a searching algorithm that will find the shortest path to your destination. The A* algorithm uses a priority queue to take in points around the starting point to find a path, it will repeat this process until it finds the destination. The A* algorithm is a loop so it will continue until it finds its destination or the whole map has been visited. Once the algorithm finds the desired destination it will go back one tile at a time back to the agent to determine the most optimal path.
+                    </p>
+
+                    <img src="/assets/blog-posts/statemachine/statemachine_a_star.png" alt="ex" class="project-image">
+
+                    <p>
+                        Now that we understand both of these techniques separately, we can combine them to create our NavMesh pathfinding. 
+                    </p>
+
+                    <p>
+                        To get NavMesh working in Unity there are a few steps. First you need to create your terrain in your scene. Next you can create an empty game object and call it NavMesh. Then you will add the “NavMesh Surface” component. This component creates a NavMesh for us. 
+                    </p>
+
+                    <img src="/assets/blog-posts/statemachine/statemachine_add_nav.gif" alt="ex" class="project-image">
+
+                </div>
+
+
+                <div class="project-content">
+                    <h2>How can we use this technique?
+                    </h2>
+                    <p>This technique can be used in many ways but the one that comes to mind is enemies. Having a basic enemy that walks towards a goal can be easily created with a NavMesh. This technique is especially useful when your environment has obstacles that entities cannot move through. This technique can be applied to a myriad of game genres since enemies are in most games. You don’t even need to use it for enemies, you can use it to control your player like in a MOBA.
+                    </p>
+                
+                </div>
+
+
+                <div class="project-content">
+                    <h2>How we used it in our project
+                    </h2>
+                    <p>
+                        NavMesh was used in tandem with state machines to get our enemies to move towards the objective. The state machine is able to set the enemy agent’s target and rebake the environment. We implemented Unity’s NavMesh system to simplify enemy movement.
+                    </p>
+                    <img src="/assets/blog-posts/statemachine/statemachine_moving.gif" alt="ex" class="project-image">
+
+            
+                </div>
+
+                <div class="project-content">
+                    <h2>Platform Suitability</h2>
+                    <p>State machines are not tied down to a single platform. The concept of a state machine can be recreated in every engine and programming language. As long as the program or game calls for it, the developer can use a state machine regardless of the engine or language (you can even create it in Scratch). 
+                    </p>
+
+                    <p>
+                        NavMesh is also a concept that can be implemented in many places. NavMesh’s use cases are more narrow than state machines since you only use NavMesh for a specific task. NavMeshes can be used on many platforms as long as you are able to recreate the two rules: making a map and finding a path.
+
+                    </p>
+                
+                </div>
+               
+
+                <div class="project-content">
+                    <h2>Genres this appears in</h2>
+                    <p>State machines can be used in a wider variety of games since its application is so broad. State machines can be implemented into basically any genre because of its versatility but here are some examples: An action adventure game boss fight switching attack patterns, tower defense game where the towers switch modes of attack, and arcade games such as pac man where the ghost change their behaviors.
+                    </p>
+                
+                    <p>
+                        NavMesh has more limited applications but can still be used in a variety of game genres. The first example that comes to mind is in MOBAs where the minions walk towards the objective. Another example is in a hack in slash where the enemies walk towards the player. Another example is in RTS games where you need to command a large number of agents to move to a point.
+                    </p>
+                </div>
+
+                <div class="project-content">
+                    <h2>Intended audience for this post
+                    </h2>
+                    <p>This post can be viewed by anyone who wants to learn about the basics of state machines and NavMeshes. I used basic examples, such as traffic lights and grocery stores, so that anyone can understand the theories behind these advanced topics. I want this blog post to be accessible to everyone with a small amount of prior knowledge of game development or programming. This would ideally be something a student like me would look at for guidance on understanding the topics. 
+                    </p>
+                
+                </div>
+
+
+                <div class="project-content">
+                    <a href="https://docs.google.com/document/d/e/2PACX-1vQuBWPzDZE5C4-q1gR4OcZwgjfq6QntfOalNdWGX3ckMEbc-Kyq6Bo2f5sFZI2RgObm5tOnLJHaKqX4/pub" target="_blank">
+                        <h3>References</h3>
+                    </a>
+                                    
+                </div>
+                <!-- DO NOT USE OR DELETE -->
+                <!-- <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p></p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div> -->
+
+                   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
