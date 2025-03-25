@@ -183,6 +183,23 @@ a {
     text-decoration: none; /* Removes underline */
 }
 
+.about-cta {
+            display: inline-block;
+            margin-top: 1rem;
+            margin-right: 10px;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--purple);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .about-cta:hover {
+            background-color: var(--purple-hover);
+        }
+
 @font-face {
     font-family: 'LiminalFont';
     src: url('assets/fonts/PlayfairDisplay.ttf') format('truetype');
@@ -262,7 +279,9 @@ h2.custom-header {
                         <iframe width="100%" height="500" src="https://www.youtube.com/embed/j9L2ufLNioI?si=RX4HzZAkcr4A_evE" frameborder="0" allowfullscreen></iframe>
                     </div>
 
-                    <p>
+
+                    <a href="https://antennasunite.itch.io/liminal-detective" target="_blank" class="about-cta">Itch.io</a>
+                    <!-- <p>
                         <span>
                             <i class="fab fa-itch-io"></i>
                             <a href="https://antennasunite.itch.io/liminal-detective" target="_blank">
@@ -270,7 +289,7 @@ h2.custom-header {
                             </a>
                         </span>
     
-                    </p>
+                    </p> -->
 
                    </div>
 

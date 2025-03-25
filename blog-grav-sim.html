@@ -197,18 +197,22 @@ a {
 
 
 
-/* pre {
-            background-color: #f1f1f1;
-            padding: 10px;
-            font-family: Consolas, "courier new";
+.about-cta {
+            display: inline-block;
+            margin-top: 1rem;
+            margin-right: 10px;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--purple);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
         }
-        code {
-            font-family: Consolas, "courier new";
-            color: crimson;
-            background-color: #f1f1f1;
-            padding: 2px;
-            font-size: 105%;
-        } */
+
+        .about-cta:hover {
+            background-color: var(--purple-hover);
+        }
 
         
     </style>
@@ -261,6 +265,8 @@ a {
                     <p>
                         This project was my final for Game Physics in my 3rd year at Champlain College. The goal of this project was to be able to spawn and edit planets that would orbit around the sun in the middle of the screen. This project includes editing planets in real time, pausing the simulation, planet collisions, and gravity.
                     </p>
+
+                    <a href="https://github.com/JeffreyPopek/Solar-System-Sandbox" target="_blank" class="about-cta">GitHub</a>
 
                 </div>
 
