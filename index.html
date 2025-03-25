@@ -350,8 +350,24 @@
             line-height: 1.5;
         }
 
-        /* Contact Section */
-        .contact {
+        
+
+        .project-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow effect */
+}
+
+
+        .project-card:hover .project-title h3 {
+    color: var(--purple-hover);
+}
+
+/* Contact Section */
+.contact {
             padding: 4rem 2rem;
             background: none;
             text-align: center;
@@ -382,20 +398,6 @@
             text-shadow: 0 0 10px #ffffff00; /* Adds a glow effect */
         }
 
-        .project-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow effect */
-}
-
-
-        .project-card:hover .project-title h3 {
-    color: var(--purple-hover);
-}
-
 
         .contact h2 {
     text-align: center;
@@ -412,6 +414,11 @@
     margin: 10px auto 0; /* Center the line */
 }
 
+.contact h3 {
+    padding-top: 0rem;
+    font-size: 25px;
+    padding-top: 0.5rem;
+}
 
     
 
@@ -566,11 +573,13 @@
 
             <section class="contact">
                 <h2>Contact Me</h2>
+                <h3>jeffreypopek@gmail.com</h3>
                 <div class="contact-links">
-                    <a href="mailto:jeffreypopek@gmail.com"><i class="lucide-mail"></i> Email</a>
-                    <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank"><i class="lucide-linkedin"></i> LinkedIn</a>
-                    <a href="/assets/JeffreyPopek_Resume.pdf" target="_blank"><i class="lucide-file-text"></i> Resume</a>
-                </div>
+                        <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank" class="about-cta">LinkedIn</a>
+                        <a href="https://github.com/JeffreyPopek" target="_blank" class="about-cta">Github</a>
+                        <a href="https://jeffreypopek.itch.io/" target="_blank" class="about-cta">Itch.io</a>
+                        <a href="/assets/JeffreyPopek_Resume.pdf" target="_blank" class="about-cta">Resume</a>
+                   </div>
             </section>
         </div>
     </div>

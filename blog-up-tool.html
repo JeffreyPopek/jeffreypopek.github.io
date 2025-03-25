@@ -197,7 +197,75 @@ a {
 .project-content h3 {
     padding-bottom: 1rem;
 }
+.about-cta {
+            display: inline-block;
+            margin-top: 1rem;
+            margin-right: 10px;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--purple);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
 
+        .about-cta:hover {
+            background-color: var(--purple-hover);
+        }
+
+/* Contact Section */
+.contact {
+            padding: 4rem 2rem;
+            background: none;
+            text-align: center;
+            color: white;
+            font-size: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            color: white;
+            font-size: 20px;
+        }
+
+        .contact-links a {
+            color: var(--purple);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+        }
+
+        .contact-links a:hover {
+            color: #b847ec; /* Changes text color on hover */
+            text-shadow: 0 0 10px #ffffff00; /* Adds a glow effect */
+        }
+        
+
+        .contact h2 {
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px; /* Space between text and line */
+}
+
+.contact h2::after {
+    content: "";
+    display: block;
+    width: 50%; /* Adjust width as needed */
+    height: 2px; /* Line thickness */
+    background-color: white; /* Adjust color */
+    margin: 10px auto 0; /* Center the line */
+}
+
+.contact h3 {
+    padding-top: 0.5rem;
+    font-size: 25px;
+}
 
 
 
@@ -312,6 +380,17 @@ a {
           
             
                     </div>
+
+                    <section class="contact">
+                        <h2>Contact Me</h2>
+                        <h3>jeffreypopek@gmail.com</h3>
+                        <div class="contact-links">
+                                <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank" class="about-cta">LinkedIn</a>
+                                <a href="https://github.com/JeffreyPopek" target="_blank" class="about-cta">Github</a>
+                                <a href="https://jeffreypopek.itch.io/" target="_blank" class="about-cta">Itch.io</a>
+                                <a href="/assets/JeffreyPopek_Resume.pdf" target="_blank" class="about-cta">Resume</a>
+                           </div>
+                    </section>
 
                 <!-- DO NOT USE OR DELETE -->
                 <!-- <div class="project-content">
