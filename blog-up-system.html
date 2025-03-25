@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeffrey Popek Blog - Speech Recognition</title>
+    <title>Jeffrey Popek Blog - Upgrade Selector Tool</title>
     <link href="https://unpkg.com/lucide-css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -194,6 +194,10 @@ a {
     text-decoration: none; /* Removes underline */
 }
 
+.project-content h3 {
+    padding-bottom: 1rem;
+}
+
 
 
 
@@ -243,15 +247,15 @@ a {
 
 
             <div class="project-content">
-                <h2>Speech Recognition in Unity</h2>
+                <h2>Upgrade System Design and Implementation</h2>
 
                 <div class="project-info-box">
                     <div class="info-item">
-                        <span><i class="fa-solid fa-clock"></i> March 19, 2024</span>
+                        <span><i class="fa-solid fa-clock"></i> March 5, 2025</span>
                     </div>
 
                     <div class="info-item">
-                        <span><i class="fa-solid fa-wrench"></i> Tools: Unity, HuggingFace</span>
+                        <span><i class="fa-solid fa-wrench"></i> Tools: Unity</span>
                     </div>
                 </div>
 
@@ -259,102 +263,54 @@ a {
                     <h2>Introduction</h2>
                     
                     <p>
-                        In this exploration I wanted to test out using my voice as an input. After a bit of research I determined that I would try two different methods of implementation: using an online ai api call to convert a voice clip to text, and using the Microsoft phrase recognizer. Both methods had their pros and cons for usage and implementation.
-                    </p>
-                    <p>
-                    The goal of this project was to have a system that used my voice command to cast a corresponding spell in game. I wanted to base this system off the many wizards and spellcasters in games and movies. I’ve always enjoyed when authors put extra effort into fleshing out their magic system and making each spell have its own unique chant/incantation.
+                        In the second half of development for Poly-Vinyl Pests! our team wanted to add in an upgrade system for the players to progressively get stronger throughout the game. The beginning of this development cycle included the introduction of 6 new developers on our team with two of them being designers. Our team, being composed of 15 developers, decided to split the team into two scrum teams one for boss fights and one for upgrades. I was the lead for the upgrades team so I helped our scrum team’s producer manage 4 designers and 2 artists to implement the base upgrade system.
                     </p>
 
                 </div>
 
                 <div class="project-content">
-                    <h2>Implementation 1</h2>
+                    <h2>Design</h2>
                     <p>
-                        The first implementation of this system used a combination of an online AI, 
-                        <a href="https://huggingface.co/" target="_blank">HuggingFace</a>, to turn a wav file into a string and Levenshtein’s distance to determine which incantation was said.
+                        The first thing I wanted to do was get the designers together and brainstorm how we wanted this system to work. In the beginning we knew that we wanted to keep all the code for our upgrades self contained, so having a base upgrade that all the other ones could inherit its attributes from would be the right approach. Below is the goals we created for our initial upgrade system in a sprint planning meeting.
                     </p>
                     
+                    <img src="/assets/blog-posts/up-system/up-system-todo.jpg" alt="a" class="project-image">
 
                     <p>
-                        The first step to setting up this system is getting a voice recording from the user and getting a string of what the user said. For this I used a HuggingFace API call to get back a string from a wav file. So the steps are: get voice recording, convert file to a .wav file, send .wav file to HuggingFace to convert to string, then return the result from HuggingFace.
+                        In the end I decided on creating a base upgrade class with multiple functions that would be called in the player script in different situations. This design helped the less technical designers program self contained upgrades that wouldn’t break the player controller if there was a small bug.
                     </p>
-                
-                    <img src="/assets/blog-posts/speech-recog/speech_code.png" alt="Technical Achievements" class="project-image">
-                
-                    <p>
-                        The next step is to determine which incantation was said with this string. With the string we got from HuggingFace we can compare it to a list of other strings with the correct incantations and pick the one that matches the most. To find a matching string we can use Levenshtein distance to check for the best match among all incantations. In short Levenshtein distance compares two strings and will return a value; the lower the value the closer the strings are to matching</p>
-
-                    <p>
-                        In this example we have the dictionary of incantations and the spell name. When we cast a spell it will get the string of what we said and compare it to this dictionary and return the spell name. Then in a separate function it will cast the spell and do its effects. 
-                    </p>
-
-                    <img src="/assets/blog-posts/speech-recog/incant.png" alt="Technical Achievements" class="speech-image">
-
-                    
-                    
-
-                    <p>
-                        To start comparing we first need to set the current spell to null so if none of the incantations match enough then we do nothing. Next we can set a threshold for the error tolerance. This threshold is used to allow some error for when the user may be slightly off in the incantations and any small errors HuggingFace may have returned. You can change the threshold to allow the said incantation to match the true incantation less. Keeping the threshold low will make it so the user doesn’t just say anything close to the incantation.
-                    </p>
-
-                    <img src="/assets/blog-posts/speech-recog/incantation_flowchart.png" alt="Technical Achievements" class="project-image">
-
-                
-                    <p>Here is a demo of the spell casting working</p>
-
-                    <div class="video-container">
-                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/8N1MoSsBJqk?si=0mXwbMFLZ-S3yT8W" frameborder="0" allowfullscreen></iframe>
-                    </div>
-
-
-
                     </div>
 
                 <div class="project-content">
-                    <h2>Implementation 2</h2>
-                    <p>The second implementation of this system used the Microsoft phrase recognizer in Unity to get audio and compare them to a list of phrases/words. </p>
+                    <h2>Implementation</h2>
                 
-
-                    <p>To set up our system we first need to define what phrases should be recognized. To do this we create and .xml file and put all our phrases into it like this:
+                    <p>
+                        I was in charge of rapidly prototyping the upgrade system in a week. The main goal for the initial implementation was to get an upgrade that gives your player stats and an upgrade that has a passive effect. The implementation involves the base class, so I got to work implementing that. This is what I created, each function was called in the player script
                     </p>
-                    <img src="/assets/blog-posts/speech-recog/xml.png" alt="a" class="project-image">
+
+                    <img src="/assets/blog-posts/up-system/up-system-base.png" alt="a" class="project-image">
                
                     <p>
-                        Next we need to reference the Microsoft speech module in our script at the top. Now we can set up our functions and grammar recognizer. First we need to create a variable at the top of the type GrammarRecognizer. Then in the start method we can initialize it. Now we need to create a function called "OnPhaseRecognized". This function will be called when a phrase that is in our XML file is said. With this function we now want to bind the event of OnPhraseRecognized in Grammar Recognizer to this event.
+                        With this image there is the “OnShoot” function which will be called each time the player shoots. Similar functions are in the base upgrade abstract class and will be called in the player script instead of the upgrade script itself.
+
                     </p>
-                    <img src="/assets/blog-posts/speech-recog/start_grammer.png" alt="a" class="project-image">
 
-               
                     <p>
-                        Now that we set up our phrases and grammar recognizers we can add some logic in the update to start listening when the user presses the button and start trying out the speech recognition.                    </p>
-                
-                        <div class="video-container">
-                            <iframe width="100%" height="500" src="https://www.youtube.com/embed/r2u9vJ7S7zU?si=XorrwDtD-1-Sfx7I" frameborder="0" allowfullscreen></iframe>
-                        </div>
+                        Some of the upgrades may need a reference to something, usually the player its being attached to, at least once. To implement this I created a “InitUpgrade” function that is called when the upgrade is instantiated in the scene and placed on the player. This function will get references to anything it needs to and is where you can add stats to the player. In this example below is getting a reference to the player and giving them stats.
 
+                    </p>
+
+                    <img src="/assets/blog-posts/up-system/up-system-initup.png" alt="a" class="project-image">
+
+
+                    <p>
+                        To make an upgrade in engine you would just need to make a new script inherit from the base upgrade class and put it on a game object, then you could just drag it into the assets folder to make it a prefab. The upgrade system uses prefabs as the upgrades and applies the script itself onto the player when they pick an upgrade. I made values of the base upgrade script serialized field so that designers could easily create a new script that inherited from base upgrade and start working immediately. This is an example of an upgrade prefab with its values filled out:
+                    </p>
+
+                
+                    <img src="/assets/blog-posts/up-system/up-system-upgrade.png" alt="a" class="project-image">
+            
                     </div>
-
-
-                <div class="project-content">
-                    <h2>Pros and Cons</h2>
-
-                    <p>
-                        For the first implementation method, HuggingFace API + Levenshtein distance, it is more flexible since we can adjust the threshold and allow more user error. The main con for the implementation is it is reliant on an API call which cannot work without an internet connection. 
-                    </p>
-                
-                    <p>
-                        The pros of the second implementation method is it is much easier to get started compared to using the other method. The cons is that you are limited to what phrases you say and the system will not tolerate it if the user says anything else. Although this voice recognition is very accurate since it is supported by Microsoft there is still room for error. This voice recognition technology is used in Microsoft features such as Cortona. 
-                    </p>
-
-                          </div>
-
-
-                <div class="project-content">
-                    <h2>What I Learned</h2>
-                    <p>In this exploration I learned more about using different inputs for Unity. In the future I would love to further explore this concept and possibly make a game with voice as the main input action. This exploration also required a lot of digging since the documentation on the Microsoft grammar recognizers was not easily accessible. I had a lot of fun stringing together multiple techniques to make the voice input work.
-                    </p>
-                
-                </div>
 
                 <!-- DO NOT USE OR DELETE -->
                 <!-- <div class="project-content">
