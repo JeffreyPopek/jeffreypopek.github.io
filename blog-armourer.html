@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeffrey Popek Blog - Planet Gravity Sandbox</title>
+    <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    <!-- Google Fonts - Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    
+    
+    <link rel="icon" type="image/png" href="assets/favicon.webp">
+
+    
+    <style>
+         /* Add to style section */
+         .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            background-color: #000000a8;
+            max-width: 1400px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+
+            /* mask-image: radial-gradient(circle, black, black 65%, transparent 85%); */
+        }
+
+        .project-header {
+            padding-top: 40px;
+            padding-bottom: 0;
+            text-align: center;
+            background: #f8f8f8;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+        }
+
+        .project-content h2 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: xx-large;
+        }
+
+        .project-content h3 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            padding-top: 3rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: x-large;
+        }
+
+        .project-content p {
+            padding-top: 1rem; /* Adds space below "Technical Achievements" */
+            padding-bottom: 1rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            line-height: 1.6; /* Adds space between lines */
+            font-size: large;
+        }
+
+        a {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            text-decoration: none; /* Optional: removes underline from links */
+            font-size: large;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            
+
+            margin-top: 10; /* Ensure no extra spacing */
+            padding-top: 10; /* Remove any padding pushing it down */
+        }
+
+        .project-image {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-info-box {
+            background: rgba(46, 46, 46, 0.313);
+            border-radius: 8px;
+            padding: 2rem;
+            
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+
+            font-family: 'Lato', sans-serif;
+            font-weight: 300; /* Bold */
+
+            width: 400px;
+            margin: 0 auto; /* Centers it horizontally */
+            margin-top: 2rem;
+        }
+
+        /* Apply the font to individual info-items if needed */
+.project-info-box .info-item {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+/* Apply the font to the span text */
+.project-info-box .info-item span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item i {
+            color: var(--purple);
+            width: 20px;
+            height: 20px;
+        }
+
+        .project-description h2 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .project-content h2 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-description p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-description h3{
+            padding-bottom: 1rem;
+        }
+
+        .info-item i {
+    color: white !important;
+}
+
+i {
+    margin-right: 8px; /* Adds space between the icon and text */
+        }
+
+        a i, .fa-github {
+    font-size: 2rem; /* Adjust size */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+a:hover i, a:hover .fa-github {
+    color: purple; /* Change color on hover */
+}
+
+a {
+    font-size: 1.2rem; /* Makes text bigger */
+    text-decoration: none; /* Removes underline */
+}
+
+
+
+
+/* pre {
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-family: Consolas, "courier new";
+        }
+        code {
+            font-family: Consolas, "courier new";
+            color: crimson;
+            background-color: #f1f1f1;
+            padding: 2px;
+            font-size: 105%;
+        } */
+
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-brand">
+                <h1>Jeffrey Popek</h1>
+                <p>Game Programmer</p>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
+                        <a href="liminal-detective.html">Liminal Detective</a>
+                        <a href="suzume-portals.html">Suzume Portals</a>
+                        <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
+                    </div>
+                </div>
+                <a href="blog.html">Blog</a>
+                <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
+                <!-- <a href="https://github.com/JeffreyPopek" target="_blank">Github </a> -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-background">
+        <div class="content-wrapper">
+
+
+            <div class="project-content">
+                <h2>Armourer</h2>
+
+                <div class="project-info-box">
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-clock"></i> May 2, 2022</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-wrench"></i> Tools: Unity</span>
+                    </div>
+                </div>
+
+                <div class="project-description">
+                    <h2>Introduction</h2>
+                    
+                    <p>
+                        In Armourer you are tasked with creating weapons for an impending war. You have no one to help you so you must do all the labor yourself including gathering resources, crafting, and smithing. In this game gather resources and craft using idle game mechanics. This game is a runescape inspired idle game where I focused on UI and systems programming. This was my first solo game project in my first year at Champlain College.
+                    </p>
+
+                        
+                    <h3>Demo for the game</h3>
+                    <div class="video-container">
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/nRRzrd-EIvI?si=BnWc0DIa7AM07hNd" frameborder="0" allowfullscreen></iframe>
+                    </div>
+          
+
+                    <a href="https://jeffreypopek.itch.io/armourer" target="_blank">
+                        <h3>Itch.io Page</h3>
+                    </a>
+
+                </div>
+
+                <div class="project-content">
+                    <h2>Skills</h2>
+                    <p>
+                    There are 2 different types of skills in Armourer, gathering skills and crafting skills. In gathering skills you are getting some type of item while crafting skills will use your items from your inventory to make new items.
+                    </p>
+
+                    <h3>
+                        Woodcutting & Mining
+                    </h3>
+                    <p>
+                        Woodcutting and Mining will get you their respective materials. The items will go into your inventory where you can use it in crafting skills or sell it in the shop. Gathering skills will automatically gather items based on your mining/cutting speed=
+                    </p>
+                    
+                    <img src="/assets/blog-posts/armourer/armourer-wood.gif" alt="a" class="project-image">
+
+
+                    <h3>
+                        Smithing & Crafting
+                    </h3>
+                    <p>
+                        In the Smithing and Crafting skills you can use items from your inventory to create new items. Creating new items only requires clicking on the item you want to craft while having the required items.                    </p>
+                    
+                    <img src="/assets/blog-posts/armourer/armourer-crafting.gif" alt="a" class="project-image">
+
+            
+                </div>
+
+               
+                <div class="project-content">
+                    <h2>Inventory</h2>
+                    <p>
+                        The inventory is a script that holds the values for each item in it. The inventory will update every time a new item is created. When you have all the items require to "Send Weapons" you can end the game.
+                    </p>
+                
+                    <img src="/assets/blog-posts/armourer/amourer-inventory.gif" alt="a" class="project-image">
+                </div>
+
+                <div class="project-content">
+                    <h2>Shop</h2>
+                    <p>
+                        The shop menu is where you can buy items, sell items, and upgrade tools. The shop script utilizes the inventory script to see how much gold you have. Some items can only be obtained in the shop.
+                    </p>
+                
+                    <img src="/assets/blog-posts/armourer/armourer-shop.gif" alt="a" class="project-image">
+                </div>
+
+                <div class="project-content">
+                    <h2>XP System</h2>
+                    <p>
+                        The XP system tracks all the XP you have gained from skills and displays them on one page. The amount of XP gained and needed to level up stays consistent.
+                    </p>
+                
+                    <img src="/assets/blog-posts/armourer/amourer-xp.gif" alt="a" class="project-image">
+                </div>
+
+                <div class="project-content">
+                    <h2>Saving & Loading</h2>
+                    <p>
+                        You can save the game switch and will save all your XP, levels, gold, and items ion your inventory. You can only have one save at a time. You can load your save in the main menu.
+                    </p>
+                
+                    <img src="/assets/blog-posts/armourer/armourer-save.gif" alt="a" class="project-image">
+                </div>
+
+                <div class="project-content">
+                    <h2>What I learned
+                    </h2>
+                    <p>
+                        Being my first solo project I got to work a lot with implementing Unity UI. Looking back I believe this project pushed me to work with UI more. To this day I still really enjoy working with UI. In this project I also got to practice my system programming. Since all the gameplay is UI menus I got to practice connecting my systems and UI.
+                    </p>
+                
+                </div>
+
+                <!-- DO NOT USE OR DELETE -->
+                <!-- <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p></p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div> -->
+
+                   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
