@@ -198,9 +198,6 @@ a {
     text-decoration: none; /* Removes underline */
 }
 
-
-
-
 .about-cta {
             display: inline-block;
             margin-top: 1rem;
@@ -288,7 +285,6 @@ a {
     padding-top: 0.5rem;
     font-size: 25px;
 }
-
         
     </style>
 </head>
@@ -322,15 +318,15 @@ a {
 
 
             <div class="project-content">
-                <h2>Armourer</h2>
+                <h2>Command Input</h2>
 
                 <div class="project-info-box">
                     <div class="info-item">
-                        <span><i class="fa-solid fa-clock"></i> May 2, 2022</span>
+                        <span><i class="fa-solid fa-clock"></i> April 4, 2023</span>
                     </div>
 
                     <div class="info-item">
-                        <span><i class="fa-solid fa-wrench"></i> Tools: Unity</span>
+                        <span><i class="fa-solid fa-wrench"></i> Tools: Unity, Drawing Tablet</span>
                     </div>
                 </div>
 
@@ -338,92 +334,131 @@ a {
                     <h2>Introduction</h2>
                     
                     <p>
-                        In Armourer you are tasked with creating weapons for an impending war. You have no one to help you so you must do all the labor yourself including gathering resources, crafting, and smithing. In this game gather resources and craft using idle game mechanics. This game is a runescape inspired idle game where I focused on UI and systems programming. This was my first solo game project in my first year at Champlain College.
+                        In Command Input you are an employee of an abusive company in the far future. Your boss tasks you with testing the company's newest drone technology. Using your drawing tablet you will draw shapes corresponding to commands to complete a number of tests all while your boss berates you with angry emails. This was my final game in my second year at Champlain College. The goal of this game was to make unique mechanics involving a controller that was not what you would usually see. My role on the project was lead programmer. I focused on creating puzzle mechanics and tools for our level and narrative designers to work with.
                     </p>
 
                         
                     <h3>Demo for the game</h3>
                     <div class="video-container">
-                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/nRRzrd-EIvI?si=BnWc0DIa7AM07hNd" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/R031J2YJNrA?si=NkZSj6g4T7_1uxV0" frameborder="0" allowfullscreen></iframe>
                     </div>
+          
 
-                    <a href="https://github.com/JeffreyPopek/Armourer" target="_blank" class="about-cta">GitHub</a>
-                    <a href="https://jeffreypopek.itch.io/armourer" target="_blank" class="about-cta">Itch.io</a>
+                    <a href="https://github.com/JeffreyPopek/Command-Input" target="_blank" class="about-cta">GitHub</a>
+                    <a href="https://jeffreypopek.itch.io/command-input" target="_blank" class="about-cta">Itch.io</a>
 
                 </div>
 
                 <div class="project-content">
-                    <h2>Skills</h2>
+                    <h2>Input</h2>
                     <p>
-                    There are 2 different types of skills in Armourer, gathering skills and crafting skills. In gathering skills you are getting some type of item while crafting skills will use your items from your inventory to make new items.
+                        For this project our team was tasked with creating a game with a unique controller. Our team agreed to use a drawing tablet because it was easily accessible at our school. To get input I had the user draw a symbol with one stroke of the pen and compare it to an array of existing symbols. If the drawn symbol matched then the player would preform that action.
                     </p>
 
-                    <h3>
-                        Woodcutting & Mining
-                    </h3>
-                    <p>
-                        Woodcutting and Mining will get you their respective materials. The items will go into your inventory where you can use it in crafting skills or sell it in the shop. Gathering skills will automatically gather items based on your mining/cutting speed=
-                    </p>
-                    
-                    <img src="/assets/blog-posts/armourer/armourer-wood.gif" alt="a" class="project-image">
+                    <img src="/assets/blog-posts/commandinput/commandinput-drawingtablet.png" alt="a" class="project-image">
 
-
-                    <h3>
-                        Smithing & Crafting
-                    </h3>
-                    <p>
-                        In the Smithing and Crafting skills you can use items from your inventory to create new items. Creating new items only requires clicking on the item you want to craft while having the required items.                    </p>
-                    
-                    <img src="/assets/blog-posts/armourer/armourer-crafting.gif" alt="a" class="project-image">
 
             
                 </div>
 
                
                 <div class="project-content">
-                    <h2>Inventory</h2>
+                    <h2>Puzzle Mechanics
+                    </h2>
+
+                    <h3>Boxes and Buttons</h3>
                     <p>
-                        The inventory is a script that holds the values for each item in it. The inventory will update every time a new item is created. When you have all the items require to "Send Weapons" you can end the game.
+                        One of the first mechanics I implemented was pushing boxes onto buttons to open and close doors. This mechanic helped add complexity when combined with other mechanics. To implement this feature I used Unity's box collider2D components to allow the player to move boxes when moving into the space they occupy.
                     </p>
                 
-                    <img src="/assets/blog-posts/armourer/amourer-inventory.gif" alt="a" class="project-image">
+                    <img src="/assets/blog-posts/commandinput/commandinput-drawingarrow.gif" alt="a" class="project-image">
+
+                    <p>
+                        I later added a button manager script which checked if button had a box on it for some action to occur. If the box was moved on or off the button it would change in the button manager.
+                    </p>
+
+                    <img src="/assets/blog-posts/commandinput/commandinput-buttonscript.avif" alt="a" class="project-image">
+
+
+                    <h3>Battery</h3>
+
+                    <p>
+                        To fit the drone theme of our game I added a battery system to the player. The player has a limited amount of moves in a level and if they use all of them up they need to restart. Each time a symbol is successfully recognized you will lose battery. I implemented this in the player script by not allowing them to move if they didn't have any moves remaining.
+                    </p>
+
+                    <img src="/assets/blog-posts/commandinput/commandinput-battery.gif" alt="a" class="project-image">
+
+
+                    <h3>Doors</h3>
+                    <p>
+                        To add more complexity to puzzles we added doors that the player can only move through after using a move (drawing a symbol). The player can switch between moving through red and blue walls. The UI will indicate which walls you can move through. To control which walls the player can move through I created a wall manager similar to the button manager.                    </p>
+
+                    <img src="/assets/blog-posts/commandinput/commandinput-walls.gif" alt="a" class="project-image">
+
                 </div>
 
                 <div class="project-content">
-                    <h2>Shop</h2>
+                    <h2>UI</h2>
                     <p>
-                        The shop menu is where you can buy items, sell items, and upgrade tools. The shop script utilizes the inventory script to see how much gold you have. Some items can only be obtained in the shop.
+                        The emails in our game are the tutorials of the game. In each level you will receive an email from your boss giving you instructions. The emails are also meant to enhance the theme of the game with your boss being rude to you.
+                    </p>
+
+                    <img src="/assets/blog-posts/commandinput/commandinput-emails.gif" alt="a" class="project-image">
+
+                    <p>
+                        The email system was created using Unity's scriptable objects feature. I made the creation of emails as easy as possible so my team could create emails in engine. The name is left blank because when you log into the game it takes your name and saves it for emails.
+
+                    </p>
+
+                    <img src="/assets/blog-posts/commandinput/commandinput-emailobjects.avif" alt="a" class="project-image">
+
+
+                    <h3>Login</h3>
+                    <p>
+                        To start the game the player needs to type in a username and password. You can type in anything and it will work. The game will save your username and use it later for emails. We thought that a unique game should have a unique way to start it.
+
+                    </p>
+
+                    <img src="/assets/blog-posts/commandinput/commandinput-login.gif" alt="a" class="project-image">
+
+
+                   </div>
+
+                <div class="project-content">
+                    <h2>Iterations</h2>
+                    <p>
+                        Since our game was created over 5 weeks we had plenty of time to readjust our idea and iterate on the ideas we liked. Our group went to QA testing 3 times to have other Champlain College students test our game and give us feedback. We would iterate our game based on feedback. This is a picture of a early version of our game
                     </p>
                 
-                    <img src="/assets/blog-posts/armourer/armourer-shop.gif" alt="a" class="project-image">
+                    <img src="/assets/blog-posts/commandinput/commandinput-iterations.avif" alt="a" class="project-image">
+
+                    <p>
+                        Here is an image of some of our feedback from the 4th week of development.
+                    </p>
+
+                    <img src="/assets/blog-posts/commandinput/commandinput-qa.avif" alt="a" class="project-image">
+
                 </div>
 
                 <div class="project-content">
-                    <h2>XP System</h2>
+                    <h2>Documentation</h2>
                     <p>
-                        The XP system tracks all the XP you have gained from skills and displays them on one page. The amount of XP gained and needed to level up stays consistent.
+                        Being a 5 week long project, a good amount of documentation is required. As the programmer I was in charge of creating and iterating the technical planning document. Below is a link to the final technical planning document I created in collaboration with the artists, producer, and designers to document the pipelines, systems, and mechanics.
                     </p>
                 
-                    <img src="/assets/blog-posts/armourer/amourer-xp.gif" alt="a" class="project-image">
+                    <a href="/assets/blog-posts/commandinput/TechnicalPlan-Sprint5-Jeffrey.pdf" target="_blank" class="about-cta">Technical Planning Document</a>
                 </div>
 
-                <div class="project-content">
-                    <h2>Saving & Loading</h2>
-                    <p>
-                        You can save the game switch and will save all your XP, levels, gold, and items ion your inventory. You can only have one save at a time. You can load your save in the main menu.
-                    </p>
-                
-                    <img src="/assets/blog-posts/armourer/armourer-save.gif" alt="a" class="project-image">
-                </div>
 
                 <div class="project-content">
                     <h2>What I learned
                     </h2>
                     <p>
-                        Being my first solo project I got to work a lot with implementing Unity UI. Looking back I believe this project pushed me to work with UI more. To this day I still really enjoy working with UI. In this project I also got to practice my system programming. Since all the gameplay is UI menus I got to practice connecting my systems and UI.
+                        This project was a very interesting one. I utilized a plugin for detecting drawing input which left me to implement all the puzzle mechanics. Working with mostly designers made me think more about what tools they would need to succeed. In this project I mainly created tools and mechanics for my designers to create levels or narratives. I also got to practice integrating my systems and UI programming together which is always fun.
                     </p>
                 
                 </div>
+
 
                 <section class="contact">
                     <h2>Contact Me</h2>
