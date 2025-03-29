@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeffrey Popek Blog - Upgrade Selector Tool</title>
+    <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    <!-- Google Fonts - Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    
+    
+    <link rel="icon" type="image/png" href="assets/favicon.webp">
+
+    
+    <style>
+         /* Add to style section */
+         .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            background-color: #000000a9;
+            max-width: 2000px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+
+            /* mask-image: radial-gradient(circle, black, black 65%, transparent 85%); */
+        }
+
+        .project-header {
+            padding-top: 40px;
+            padding-bottom: 0;
+            text-align: center;
+            background: #f8f8f8;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+        }
+
+        .project-content h2 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: xx-large;
+        }
+
+        .project-content h3 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            padding-top: 3rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: x-large;
+        }
+
+        .project-content p {
+            padding-top: 1rem; /* Adds space below "Technical Achievements" */
+            padding-bottom: 1rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            line-height: 1.6; /* Adds space between lines */
+            font-size: large;
+        }
+
+        a {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            text-decoration: none; /* Optional: removes underline from links */
+            font-size: large;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            
+
+            margin-top: 10; /* Ensure no extra spacing */
+            padding-top: 10; /* Remove any padding pushing it down */
+        }
+
+        .project-image {
+            width: 70%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-info-box {
+            background: rgba(46, 46, 46, 0.313);
+            border-radius: 8px;
+            padding: 2rem;
+            
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+
+            font-family: 'Lato', sans-serif;
+            font-weight: 300; /* Bold */
+
+            width: 400px;
+            margin: 0 auto; /* Centers it horizontally */
+            margin-top: 2rem;
+        }
+
+        /* Apply the font to individual info-items if needed */
+.project-info-box .info-item {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+/* Apply the font to the span text */
+.project-info-box .info-item span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item i {
+            color: var(--purple);
+            width: 20px;
+            height: 20px;
+        }
+
+        .project-description h2 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .project-content h2 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-description p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .info-item i {
+    color: white !important;
+}
+
+i {
+    margin-right: 8px; /* Adds space between the icon and text */
+        }
+
+        a i, .fa-github {
+    font-size: 2rem; /* Adjust size */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+a:hover i, a:hover .fa-github {
+    color: purple; /* Change color on hover */
+}
+
+a {
+    font-size: 1.2rem; /* Makes text bigger */
+    text-decoration: none; /* Removes underline */
+}
+
+.project-content h3 {
+    padding-bottom: 1rem;
+}
+
+.about-cta {
+            display: inline-block;
+            margin-top: 1rem;
+            margin-right: 10px;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--purple);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .about-cta:hover {
+            background-color: var(--purple-hover);
+        }
+
+/* Contact Section */
+.contact {
+            padding: 4rem 2rem;
+            background: none;
+            text-align: center;
+            color: white;
+            font-size: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            color: white;
+            font-size: 20px;
+        }
+
+        .contact-links a {
+            color: var(--purple);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+        }
+
+        .contact-links a:hover {
+            color: #b847ec; /* Changes text color on hover */
+            text-shadow: 0 0 10px #ffffff00; /* Adds a glow effect */
+        }
+        
+
+        .contact h2 {
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px; /* Space between text and line */
+}
+
+.contact h2::after {
+    content: "";
+    display: block;
+    width: 50%; /* Adjust width as needed */
+    height: 2px; /* Line thickness */
+    background-color: white; /* Adjust color */
+    margin: 10px auto 0; /* Center the line */
+}
+
+.contact h3 {
+    padding-top: 0.5rem;
+    font-size: 25px;
+}
+
+
+
+
+/* pre {
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-family: Consolas, "courier new";
+        }
+        code {
+            font-family: Consolas, "courier new";
+            color: crimson;
+            background-color: #f1f1f1;
+            padding: 2px;
+            font-size: 105%;
+        } */
+
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-brand">
+                <h1>Jeffrey Popek</h1>
+                <p>Game Programmer</p>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
+                        <a href="liminal-detective.html">Liminal Detective</a>
+                        <a href="suzume-portals.html">Suzume Portals</a>
+                        <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
+                        <a href="scam-the-ai.html">Scam the AI</a>
+                    </div>
+                </div>
+                <a href="blog.html">Blog</a>
+                <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
+                <!-- <a href="https://github.com/JeffreyPopek" target="_blank">Github </a> -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-background">
+        <div class="content-wrapper">
+
+
+            <div class="project-content">
+                <h2>Character Bark Tool</h2>
+
+                <div class="project-info-box">
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-clock"></i>October 22, 2024</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-wrench"></i> Tools: Unity</span>
+                    </div>
+                </div>
+
+                <div class="project-description">
+                    <h2>Introduction</h2>
+                    
+                    <p>
+                        During the development of Poly-Vinyl Pests! We wanted to add character to our player and boss characters. Since our game had little narrative we wanted to add small narrative details that wouldn’t intrude on gameplay. We decided to add little speech bubbles near the character’s icons to show something they were saying. To do this I collaborated with one of our team’s narrative designers to create this system.                    </p>
+
+                </div>
+
+                <div class="project-content">
+                    <h2>Design</h2>
+                    <p>
+                        Funny story of how I came up with the design of this system: one day one of our team’s narrative designers, Trace, asked me to make a bark system to let the characters in our game say things to add character. I agreed and thought about it for a bit during the day. Later that night when I was asleep I actually had a dream of how the system would work and it made sense to me. When I woke up I immediately wrote down how I envisioned the system working and later that day implemented it. When I told Trace that I got the system in engine they asked “How did you know exactly what I wanted in engine?” TLDR: I dreamed of the exact system design that my narrative designer wanted for our game.
+                    </p>
+
+                    <p>
+                        The design of the system involved UI elements that would be tied to 3 different speakers: player 1, player 2, and the boss. Each speech bubble would have functions to show the speech bubble with the text you wanted to show. You could create conversations between players and bosses in a list of these data types and the system would play your conversation in engine. Below is a basic design of what we wanted the barks to look like in game:
+                    </p>
+                    
+                    <img src="/assets/blog-posts/bark-system/blogbark-mockup.png" alt="a" class="project-image">
+                    </div>
+
+                <div class="project-content">
+                    <h2>Implementation</h2>
+                
+                    <p>
+                        To get this system working I needed to first make a struct that held the data that the speaker would say. I wanted this tool to use no code so everything had to be in the unity inspector. First I created an enum with all the possible speakers and a struct of the conversation contents.
+                    </p>
+
+                    <img src="/assets/blog-posts/bark-system/blogbark-struct.png" alt="a" class="project-image">
+               
+                    <p>
+                        Next I needed to let designers create a conversation in the inspector. I did this by creating a list of “BarkData” which allowed for a speaking order. 
+                    </p>
+
+                    <img src="/assets/blog-posts/bark-system/blogbark-inspector.png" alt="a" class="project-image">
+
+
+                    <p>
+                        After getting the list of things that needed to be said I needed to set up the UI. All there was to this was creating 3 speech bubbles with text fields in them around the character’s icons. In the script I bound all the speech bubble game objects to their corresponding speakers and created a function for showing and hiding a speech bubble. Now that I had this function I just needed to call it multiple times in a row for each index in the list.
+                    </p>
+
+                
+                    <img src="/assets/blog-posts/bark-system/blogbark-speakcode.png" alt="a" class="project-image">
+
+                    <p>
+                        Finally putting everything together we were able to create basic dialogue that required no code. Our team had 3 narrative designers at the time, so adding this feature that required no technical experience massively boosted the efficiency of getting narrative into our game.
+                    </p>
+
+                    <img src="/assets/blog-posts/bark-system/blogbark-demo.gif" alt="a" class="project-image">
+
+            
+                    </div>
+
+
+                    <div class="project-content">
+                    <h2>What I Learned</h2>
+                    <p>
+                        The creation of this tool helped me learn what was important for the narrative of our game. This tool also helped make implementing little barks into our game much easier for anyone since it only required Unity and no coding. I also got to work more on creating tools based on the requests of other teammates. Improving my tool making skills will benefit me in the future since making the development environment more convenient for people would speed up development time.
+
+                    </p>
+                                </div>
+
+                    <section class="contact">
+                        <h2>Contact Me</h2>
+                        <h3>jeffreypopek@gmail.com</h3>
+                        <div class="contact-links">
+                                <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank" class="about-cta">LinkedIn</a>
+                                <a href="https://github.com/JeffreyPopek" target="_blank" class="about-cta">Github</a>
+                                <a href="https://jeffreypopek.itch.io/" target="_blank" class="about-cta">Itch.io</a>
+                                <a href="/assets/JeffreyPopek_Resume.pdf" target="_blank" class="about-cta">Resume</a>
+                           </div>
+                    </section>
+
+                <!-- DO NOT USE OR DELETE -->
+                <!-- <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p></p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div> -->
+
+                   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
