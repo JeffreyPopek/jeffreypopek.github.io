@@ -320,7 +320,7 @@ a {
                 <div class="project-description">
                     <h2>Introduction</h2>
                     <p>
-                        This project is the implementation of the GOAP (Goal-Oriented Action Planning) algorithm and to showcase the capabilities of the technique. The Objective of this project was to research the technique, breakdown the steps and processes, and create a short demo of basic GOAP working in Unity.
+                       This project is the implementation of the GOAP (Goal-Oriented Action Planning) algorithm. The goal of this project was to research the technique, breakdown the steps and processes, and create a short demo of basic GOAP working in Unity. I did this project to showcase the applications of the technique in multiple different situations.
 
                         </p>
 <!-- 
@@ -329,7 +329,7 @@ a {
                     </div> -->
 
                     
-                    <a href="https://github.com/Holly-Jolly-Studios/Holly-Jolly-Engine" target="_blank" class="about-cta">GitHub</a>
+                    <!-- <a href="https://github.com/Holly-Jolly-Studios/Holly-Jolly-Engine" target="_blank" class="about-cta">GitHub</a> -->
 
                     <!-- <p>
                         <span>
@@ -362,13 +362,13 @@ a {
                 <div class="project-content">
                     <h2>Implementation</h2>
                     <p>
-                        The first step to setting up GOAP is creating a world state class. These world states are what our world manager will be holding. A state will have a name, which is the key, and a value which is the value. The key will be the name of the state we want our agent to be in or move towards and the value is a corresponding value to link states together in scripts.
+                        The first step to setting up GOAP is creating a world state class. These world states are what our world manager will be holding. A state will have a name, which is the key, and a value. The key will be the name of the state we want our agent to be in or move towards and the value is a corresponding value to link states together in scripts.
                     </p>
                 
                     <img src="/assets/goap/goap-worldstate.png" alt="a" class="project-image">
 
                     <p>
-                        The next step is to create your world class. We need a world manager that will store the world information that our agent can read from. To do this we need to create a singleton class that will store our info. For our example we can store how much food our agent has:
+                        The next step is to create the world class. We need a world manager that will store the world information that our agent can read from. To do this we need to create a singleton class that will store our info that the agent can access at any time. For our example we can store how much food our agent has:
                     </p>
 
                     <img src="/assets/goap/goap-world.png" alt="a" class="project-image">
@@ -387,7 +387,7 @@ a {
                     <img src="/assets/goap/goap-action2.png" alt="a" class="project-image">
 
                     <p>
-                        Now that we have our actions we can make our planner. A GOAP planner figures out the best sequence of actions to reach a goal while keeping costs as low as possible. It starts with the current world state and looks at what actions are available based on their requirements. Every time it picks an action, it updates the world state and runs the planner again with the new conditions, keeping track of the total cost. If it reaches a state that satisfies the goal, it stops and backtracks to build the final plan. Out of all the valid options, it picks the one with the lowest cost and throws out anything that wouldn’t work. Below is a bit of the implementation of searching for the best action using A*.
+                        Now that we have our actions we can make our planner. A GOAP planner figures out the best sequence of actions to reach a goal while keeping costs as low as possible. It starts with the current world state and looks at what actions are available based on their requirements. Every time it picks an action, it updates the world state and runs the planner again with the new conditions, keeping track of the total cost. If it reaches a state that satisfies the goal, it stops and backtracks to build the final plan. Out of all the valid options, it picks the one with the lowest cost and throws out anything that wouldn’t work. Below is a bit of the implementation of searching for the best action.
 
                     </p>
 
@@ -396,13 +396,13 @@ a {
 
 
                     <p>
-                        Now that we finished making everything else we can make our GOAP agent. The agent will use the GOAP planner, a list of possible actions, and a goal. With these 3 things it can determine the best path to its goal and execute each action. Here is what some of the GOAP agent class looks like. See that it has a list of actions and the planner. The planner will return a queue of actions to go through until the goal is met or a new plan is created.
+                        Now that we finished making everything else we can make our GOAP agent. The agent will use the GOAP planner, a list of possible actions, and a goal. With these 3 things it can determine the best path to its goal and execute each action in order. Here is what some of the GOAP agent class looks like. The planner will return a queue of actions to go through until the goal is met or a new plan is created.
                     </p>
 
                     <img src="/assets/goap/goap-agent.png" alt="a" class="project-image">
 
                     <p>
-                        Finally I can show how GOAP can be applied to an agent to find the best path to its goal. In this example the agent’s goal is to not be hungry and its actions include: find food, eat food, and rest. When the agent spawns in it immediately starts to execute its plan. The first action would be to find food, then after that it needs to wait until it gets below 50 hunger then it will go rest at the checkpoint. After resting more food will spawn and the agent will continue to get the food.
+                        Finally I can show how GOAP can be applied to an agent to find the best path to its goal. In this example the agent’s goal is to not be hungry and its actions include: find food, eat food, and rest. When the agent spawns in it immediately starts to execute its plan. The first action would be to find food, then after that it needs to wait until it gets below 80 hunger then it will go rest at the checkpoint. After resting more food will spawn and the agent will continue to execute its plan.
 
                     </p>
 
@@ -416,7 +416,7 @@ a {
                     <h2>What I Learned</h2>
 
                     <p>
-                        Implementing GOAP I learned a lot during the research phase of this project. GOAP was first created for F.E.A.R. released in 2005. Since then it has been used countless times by many different games in very different contexts. Although GOAP is not used as often as it used to be, it is still a powerful AI behavior technique. While researching this project I got to learn about the thought process of the great minds behind F.E.A.R., especially Jeff Orkin the creator of GOAP. I also got to learn more about implementing a more advanced AI technique into Unity which will help me in AI and Gameplay programming in the future.
+                        During this project I learned a lot during the research phase. GOAP was first created for F.E.A.R. released in 2005. Since then it has been used countless times by many different games in varying contexts. Although GOAP is not used as often as it used to be, it is still a powerful AI behavior technique. While researching this project I got to learn about the thought process of the great minds behind F.E.A.R., especially Jeff Orkin the creator of GOAP. I also got to learn more about implementing a more advanced AI technique into Unity which will help me in AI and Gameplay programming in the future.
 
                     </p>
 
