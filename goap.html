@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeffrey Popek Portfolio - Holly Jolly Engine</title>
+    <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    <!-- Google Fonts - Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    
+    
+    <link rel="icon" type="image/png" href="assets/favicon.webp">
+
+    
+    <style>
+         /* Add to style section */
+         .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            background-color: #000000a9;
+            max-width: 2000px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+
+            /* mask-image: radial-gradient(circle, black, black 65%, transparent 85%); */
+        }
+
+        .project-header {
+            padding-top: 40px;
+            padding-bottom: 0;
+            text-align: center;
+            background: #f8f8f8;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+        }
+
+        .project-content h2 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: xx-large;
+        }
+
+        .project-content h3 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            padding-top: 3rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: x-large;
+        }
+
+        .project-content p {
+            padding-top: 1rem; /* Adds space below "Technical Achievements" */
+            padding-bottom: 1rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            line-height: 1.6; /* Adds space between lines */
+            font-size: large;
+        }
+
+        a {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            text-decoration: none; /* Optional: removes underline from links */
+            font-size: large;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            
+
+            margin-top: 10; /* Ensure no extra spacing */
+            padding-top: 10; /* Remove any padding pushing it down */
+        }
+
+        .project-image {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .project-info-box {
+            background: rgba(36, 36, 36, 0.473);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+
+            font-family: 'Lato', sans-serif;
+            font-weight: 300; /* Bold */
+        }
+
+        /* Apply the font to individual info-items if needed */
+.project-info-box .info-item {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+/* Apply the font to the span text */
+.project-info-box .info-item span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item i {
+            color: var(--purple);
+            width: 20px;
+            height: 20px;
+        }
+
+        .project-description h2 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .project-description p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .info-item i {
+    color: white !important;
+}
+
+i {
+    margin-right: 8px; /* Adds space between the icon and text */
+        }
+
+        a i, .fa-github {
+    font-size: 2rem; /* Adjust size */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+a:hover i, a:hover .fa-github {
+    color: purple; /* Change color on hover */
+}
+
+a {
+    font-size: 1.2rem; /* Makes text bigger */
+    text-decoration: none; /* Removes underline */
+}
+
+.about-cta {
+            display: inline-block;
+            margin-top: 1rem;
+            margin-right: 10px;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--purple);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .about-cta:hover {
+            background-color: var(--purple-hover);
+        }
+
+
+        /* Contact Section */
+.contact {
+            padding: 4rem 2rem;
+            background: none;
+            text-align: center;
+            color: white;
+            font-size: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            color: white;
+            font-size: 20px;
+        }
+
+        .contact-links a {
+            color: var(--purple);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+        }
+
+        .contact-links a:hover {
+            color: #b847ec; /* Changes text color on hover */
+            text-shadow: 0 0 10px #ffffff00; /* Adds a glow effect */
+        }
+        
+
+        .contact h2 {
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px; /* Space between text and line */
+}
+
+.contact h2::after {
+    content: "";
+    display: block;
+    width: 50%; /* Adjust width as needed */
+    height: 2px; /* Line thickness */
+    background-color: white; /* Adjust color */
+    margin: 10px auto 0; /* Center the line */
+}
+
+.contact h3 {
+    padding-top: 0.5rem;
+    font-size: 25px;
+}
+
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-brand">
+                <h1>Jeffrey Popek</h1>
+                <p>Game Programmer</p>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a href="#">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
+                        <a href="liminal-detective.html">Liminal Detective</a>
+                        <a href="suzume-portals.html">Suzume Portals</a>
+                        <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
+                        <a href="scam-the-ai.html">Scam the AI</a>
+                        <a href="goap.html">GOAP</a>
+                    </div>
+                </div>
+                <a href="blog.html">Blog</a>
+                <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
+                <!-- <a href="https://github.com/JeffreyPopek" target="_blank">Github </a> -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-background">
+        <div class="content-wrapper">
+            <!-- <section class="project-header">
+                <h1>Poly-Vinyl Pests!</h1>
+            </section> -->
+
+            <div class="project-content">
+                <img src="/assets/goap/goap-demo.gif" alt="Poly-Vinyl Pests" class="project-image">
+                <div class="project-info-box">
+                    <div>
+                        <h2>Goal-Oriented Action Planning (GOAP)</h2>
+                    </div>
+
+                    <div class="info-item">
+                        
+                        <span><i class="fa-solid fa-user"></i> Role: Programmer</span>
+                    </div>
+
+                    
+                    
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-clock"></i> Project Length: 3 Weeks</span>
+                    </div>
+
+                    <div class="info-item">
+                        
+                        <span><i class="fa-solid fa-users"></i> Team Size: 1</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-wrench"></i> Engine: Unity</span>
+                    </div>
+                </div>
+
+                <div class="project-description">
+                    <h2>Introduction</h2>
+                    <p>
+                        This project is the implementation of the GOAP (Goal-Oriented Action Planning) algorithm and to showcase the capabilities of the technique. The Objective of this project was to research the technique, breakdown the steps and processes, and create a short demo of basic GOAP working in Unity.
+
+                        </p>
+<!-- 
+                    <div class="video-container">
+                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/psUynFL7BK8?si=3X_nD0jEOa66NzLu" frameborder="0" allowfullscreen></iframe>
+                    </div> -->
+
+                    
+                    <a href="https://github.com/Holly-Jolly-Studios/Holly-Jolly-Engine" target="_blank" class="about-cta">GitHub</a>
+
+                    <!-- <p>
+                        <span>
+                            <i class="fa-brands fa-github"></i>
+                            <a href="https://github.com/Holly-Jolly-Studios/Holly-Jolly-Engine" target="_blank">
+                                <i class="lucide-file-text"></i> Github
+                            </a>
+                        </span>
+    
+                    </p> -->
+                   </div>
+
+
+                   <div class="project-content">
+                    <h2>Technique Breakdown</h2>
+                    <p>
+                        Goal-Oriented Action Planning (GOAP) is a way to make AI characters in games behave more intelligently by having them figure out what actions to take based on their goals. Instead of scripting every step an NPC takes, GOAP lets the AI dynamically decide what to do based on the situation. It works by giving the AI a set of possible actions, each with conditions (what needs to be true before the action can happen) and effects (what happens after the action is taken). The AI looks at its current state, figures out what goal it wants to achieve (like eating food if it's hungry), and then plans out a sequence of actions to get there in the most efficient way. 
+                    </p>
+                
+                    <img src="/assets/goap/GOAP Flowchart.png" alt="a" class="project-image">
+                
+                
+                
+                    <p>
+                        In Unity, GOAP is often combined with NavMesh for movement so that NPCs can not only decide what to do but also navigate the world intelligently. Each action in a GOAP system has a cost, which helps the AI decide between different options—like whether it should grab food that’s closer or one that’s further away but more nutritious. The AI constantly reassesses its plan, so if something changes (like the food disappearing), it can adapt instead of getting stuck. This makes NPCs feel more lifelike because they respond to their environment in a logical way rather than just following a rigid script.
+                    </p>
+                </div>
+
+
+                <div class="project-content">
+                    <h2>Implementation</h2>
+                    <p>
+                        The first step to setting up GOAP is creating a world state class. These world states are what our world manager will be holding. A state will have a name, which is the key, and a value which is the value. The key will be the name of the state we want our agent to be in or move towards and the value is a corresponding value to link states together in scripts.
+                    </p>
+                
+                    <img src="/assets/goap/goap-worldstate.png" alt="a" class="project-image">
+
+                    <p>
+                        The next step is to create your world class. We need a world manager that will store the world information that our agent can read from. To do this we need to create a singleton class that will store our info. For our example we can store how much food our agent has:
+                    </p>
+
+                    <img src="/assets/goap/goap-world.png" alt="a" class="project-image">
+
+                    <p>
+                        Now that we have our world we can start working on the actions that the agent will execute. The actions class will be abstract so other actions can inherit its functions. To start we want to have some basic field that each action can have such as duration, name, cost, etc. Now any new action we make can inherit from “GoapAction” and set their own variables.
+
+                    </p>
+
+                    <img src="/assets/goap/goap-action1.png" alt="a" class="project-image">
+
+                    <p>
+                        With these actions they also need to have functions that can be inherited. One of the most important functions is checking if the goal is achievable. If the goal cannot be reached then we need to tell the planner that we need a new plan. In the code snippet below we check in the preconditions dictionary, which is holding the current world state, if we are able to do this action.
+                    </p>
+
+                    <img src="/assets/goap/goap-action2.png" alt="a" class="project-image">
+
+                    <p>
+                        Now that we have our actions we can make our planner. A GOAP planner figures out the best sequence of actions to reach a goal while keeping costs as low as possible. It starts with the current world state and looks at what actions are available based on their requirements. Every time it picks an action, it updates the world state and runs the planner again with the new conditions, keeping track of the total cost. If it reaches a state that satisfies the goal, it stops and backtracks to build the final plan. Out of all the valid options, it picks the one with the lowest cost and throws out anything that wouldn’t work. Below is a bit of the implementation of searching for the best action using A*.
+
+                    </p>
+
+
+                    <img src="/assets/goap/goap-buildgraph.png" alt="a" class="project-image">
+
+
+                    <p>
+                        Now that we finished making everything else we can make our GOAP agent. The agent will use the GOAP planner, a list of possible actions, and a goal. With these 3 things it can determine the best path to its goal and execute each action. Here is what some of the GOAP agent class looks like. See that it has a list of actions and the planner. The planner will return a queue of actions to go through until the goal is met or a new plan is created.
+                    </p>
+
+                    <img src="/assets/goap/goap-agent.png" alt="a" class="project-image">
+
+                    <p>
+                        Finally I can show how GOAP can be applied to an agent to find the best path to its goal. In this example the agent’s goal is to not be hungry and its actions include: find food, eat food, and rest. When the agent spawns in it immediately starts to execute its plan. The first action would be to find food, then after that it needs to wait until it gets below 50 hunger then it will go rest at the checkpoint. After resting more food will spawn and the agent will continue to get the food.
+
+                    </p>
+
+                    <img src="/assets/goap/goap-demo.gif" alt="a" class="project-image">
+
+
+
+                </div>
+
+                <div class="project-content">
+                    <h2>What I Learned</h2>
+
+                    <p>
+                        Implementing GOAP I learned a lot during the research phase of this project. GOAP was first created for F.E.A.R. released in 2005. Since then it has been used countless times by many different games in very different contexts. Although GOAP is not used as often as it used to be, it is still a powerful AI behavior technique. While researching this project I got to learn about the thought process of the great minds behind F.E.A.R., especially Jeff Orkin the creator of GOAP. I also got to learn more about implementing a more advanced AI technique into Unity which will help me in AI and Gameplay programming in the future.
+
+                    </p>
+
+
+                </div>
+
+                <section class="contact">
+                    <h2>Contact Me</h2>
+                    <h3>jeffreypopek@gmail.com</h3>
+                    <div class="contact-links">
+                            <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank" class="about-cta">LinkedIn</a>
+                            <a href="https://github.com/JeffreyPopek" target="_blank" class="about-cta">Github</a>
+                            <a href="https://jeffreypopek.itch.io/" target="_blank" class="about-cta">Itch.io</a>
+                            <a href="/assets/JeffreyPopek_Resume.pdf" target="_blank" class="about-cta">Resume</a>
+                       </div>
+                </section>
+
+                <!-- DO NOT USE OR DELETE -->
+                <!-- <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p></p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div> -->
+
+                   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
