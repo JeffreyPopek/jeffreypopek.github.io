@@ -168,6 +168,16 @@
             color: #cc99ff;
         }
 
+        .blog-post-type.game {
+            background-color: #00c6b5;
+            color: #ffffff;
+        }
+
+        .badge-wrapper {
+    display: flex;
+    gap: 0.25rem; /* Adjust spacing as needed */
+}
+
         .blog-post-title {
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
@@ -333,6 +343,7 @@
                         <option value="programming">Programming</option>
                         <option value="tools">Tools</option>
                         <option value="ui">UI</option>
+                        <option value="game">Game</option>
                     </select>
                 </div>
             </div>
@@ -398,7 +409,10 @@
                     <div class="blog-post-content">
                         <div class="blog-post-meta">
                             <span class="blog-post-date">May 2, 2022</span>
-                            <span class="blog-post-type ui">UI</span>
+                            <div class="badge-wrapper">
+                                <span class="blog-post-type ui">UI</span>
+                                <span class="blog-post-type game">Game</span>
+                            </div>
                         </div>
                         <h3 class="blog-post-title">Armourer</h3>
                         <p class="blog-post-excerpt">First solo game project. Armourer is an idle resource management game where the main focus was UI programming</p>
@@ -438,7 +452,10 @@
                     <div class="blog-post-content">
                         <div class="blog-post-meta">
                             <span class="blog-post-date">February 16, 2023</span>
-                            <span class="blog-post-type ui">UI</span>
+                            <div class="badge-wrapper">
+                                <span class="blog-post-type ui">UI</span>
+                                <span class="blog-post-type game">Game</span>
+                            </div>
                         </div>
                         <h3 class="blog-post-title">Polynesian Seas</h3>
                         <p class="blog-post-excerpt">Educational game I helped developed. My work focused on UI programming with Ink dialogue integration</p>
@@ -451,7 +468,10 @@
                     <div class="blog-post-content">
                         <div class="blog-post-meta">
                             <span class="blog-post-date">April 4, 2023</span>
-                            <span class="blog-post-type programming">Programming</span>
+                            <div class="badge-wrapper">
+                                <span class="blog-post-type ui">UI</span>
+                                <span class="blog-post-type game">Game</span>
+                            </div>
                         </div>
                         <h3 class="blog-post-title">Command Input</h3>
                         <p class="blog-post-excerpt">Puzzle game that uses a drawing tablet to draw shapes as the input. My work focused on puzzle mechanics and UI tools programming</p>
@@ -532,19 +552,22 @@
                 });
             }
             
+
             function filterByType() {
-                const selectedType = typeFilter.value;
-                
-                blogPosts.forEach(post => {
-                    const postType = post.querySelector('.blog-post-type').classList.contains(selectedType);
-                    
-                    if (selectedType === 'all' || postType) {
-                        post.style.display = 'flex';
-                    } else {
-                        post.style.display = 'none';
-                    }
-                });
-            }
+    const selectedType = typeFilter.value;
+
+    blogPosts.forEach(post => {
+        const postTypes = post.querySelectorAll('.blog-post-type');
+        const hasType = Array.from(postTypes).some(typeEl => typeEl.classList.contains(selectedType));
+
+        if (selectedType === 'all' || hasType) {
+            post.style.display = 'flex';
+        } else {
+            post.style.display = 'none';
+        }
+    });
+}
+
             
             sortFilter.addEventListener('change', sortPosts);
             typeFilter.addEventListener('change', filterByType);
