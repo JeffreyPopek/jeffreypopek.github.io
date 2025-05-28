@@ -257,31 +257,17 @@ a {
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <div class="nav-brand">
-                <h1>Jeffrey Popek</h1>
-                <p>Game Programmer</p>
-            </div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <div class="dropdown">
-                    <a href="#">Projects</a>
-                    <div class="dropdown-content">
-                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
-                        <a href="liminal-detective.html">Liminal Detective</a>
-                        <a href="suzume-portals.html">Suzume Portals</a>
-                        <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
-                        <a href="scam-the-ai.html">Scam the AI</a>
-                        <a href="goap.html">GOAP</a>
-                    </div>
-                </div>
-                <a href="blog.html">Blog</a>
-                <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
-                <!-- <a href="https://github.com/JeffreyPopek" target="_blank">Github </a> -->
-            </div>
-        </div>
-    </nav>
+                <!-- Where you want the header to go -->
+                <div id="header-placeholder"></div>
+
+                <!-- This script loads the header -->
+                <script>
+                fetch('header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    });
+                </script>
 
     <div class="page-background">
         <div class="content-wrapper">
@@ -317,7 +303,7 @@ a {
                     </div>
                 </div>
 
-                <div class="project-description">
+                <div class="project-content">
                     <h2>Introduction</h2>
                     <p>
                        This project is the implementation of the GOAP (Goal-Oriented Action Planning) algorithm. The goal of this project was to research the technique, breakdown the steps and processes, and create a short demo of basic GOAP working in Unity. I did this project to showcase the applications of the technique in multiple different situations.

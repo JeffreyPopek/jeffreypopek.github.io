@@ -257,32 +257,17 @@ a {
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <div class="nav-brand">
-                <h1>Jeffrey Popek</h1>
-                <p>Game Programmer</p>
-            </div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <div class="dropdown">
-                    <a href="#">Projects</a>
-                    <div class="dropdown-content">
-                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
-                        <a href="liminal-detective.html">Liminal Detective</a>
-                        <a href="suzume-portals.html">Suzume Portals</a>
-                        <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
-                        <a href="scam-the-ai.html">Scam the AI</a>
-                        <a href="goap.html">GOAP</a>
+                <!-- Where you want the header to go -->
+                <div id="header-placeholder"></div>
 
-                    </div>
-                </div>
-                <a href="blog.html">Blog</a>
-                <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
-                <!-- <a href="https://github.com/JeffreyPopek" target="_blank">Github </a> -->
-            </div>
-        </div>
-    </nav>
+                <!-- This script loads the header -->
+                <script>
+                fetch('header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    });
+                </script>
 
     <div class="page-background">
         <div class="content-wrapper">
@@ -314,7 +299,7 @@ a {
                     </div>
 
                     <div class="info-item">
-                        <span><i class="fa-solid fa-wrench"></i> Engine: Raylib library & C++</span>
+                        <span><i class="fa-solid fa-wrench"></i> Engine: Raylib & C++</span>
                     </div>
                 </div>
 

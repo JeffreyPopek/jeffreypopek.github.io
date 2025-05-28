@@ -10,7 +10,7 @@
     <style>
         :root {
             --purple: #2A0944;
-            --purple-hover: #3B0C5F;
+            --purple-hover: #901ee6;
         }
 
         * {
@@ -425,32 +425,18 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <div class="nav-brand">
-                <h1>Jeffrey Popek</h1>
-                <p>Game Programmer</p>
-            </div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <div class="dropdown">
-                    <a href="#">Projects</a>
-                    <div class="dropdown-content">
-                        <a href="poly-vinyl-pests.html">Poly-Vinyl Pests!</a>
-                        <a href="liminal-detective.html">Liminal Detective</a>
-                        <a href="suzume-portals.html">Suzume Portals</a>
-                        <a href="holly-jolly-engine.html">Holy Jolly Engine</a>
-                        <a href="scam-the-ai.html">Scam the AI</a>
-                        <a href="goap.html">GOAP</a>
+                <!-- Where you want the header to go -->
+                <div id="header-placeholder"></div>
 
-                    </div>
-                </div>
-                <a href="blog.html">Blog</a>
-                <a href="assets/JeffreyPopek_Resume.pdf" target="_blank">Resume</a>
-                <!-- <a href="https://github.com/JeffreyPopek" target="_blank">Github </a> -->
-            </div>
-        </div>
-    </nav>
+                <!-- This script loads the header -->
+                <script>
+                fetch('header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                    });
+                </script>
+                
     <div class="page-background">
         <div class="content-wrapper">
             <section class="hero">
@@ -471,7 +457,7 @@
             </section>
 
             <section class="projects">
-                <h2>Featured Projects</h2>
+                <h2>Projects</h2>
                 <div class="project-grid">
     <a href="poly-vinyl-pests.html" class="project-card">
         <div class="image-container">
@@ -574,14 +560,6 @@
             <p class="project-role">Programmer</p>
             <p class="project-description">Scam the AI is about role-playing as a scammer trying to convince a gullible AI to send you money. Built in Unity using the OpenAI API, it features ChatGPT-powered dialogue, text-to-speech, and speech-to-text integration for an immersive and reactive experience.
 
-
-
-
-
-
-
-
-
             </p>
         </div>
     </a>
@@ -605,6 +583,30 @@
             </div>
             <p class="project-role">Programmer</p>
             <p class="project-description"> My implementation of the GOAP (Goal-Oriented Action Planning) algorithm. In this project I research the algorithm, breakdown the technique, and create a short demo of basic GOAP working in Unity.
+
+            </p>
+        </div>
+    </a>
+
+
+    <a href="connect4.html" class="project-card">
+        <div class="image-container">
+            <img class="image-main" src="/assets/connect4/cf-thumbnail.PNG" alt="Holy Jolly Engine">
+            <img class="image-hover" src="assets/connect4/cf-placing.gif" alt="Holy Jolly Engine Hover">
+            <div class="project-meta-overlay">
+                <span><i class="fa-solid fa-users"></i> Team of 2</span>
+                <span><i class="fa-solid fa-clock"></i> 1 Week</span>
+                <span><i class="fa-solid fa-wrench"></i>C++</span>
+            </div>
+        </div>
+        <div class="project-content">
+            <div class="project-title">
+                <h3>Networked Connect 4</h3>
+                <i class="lucide-arrow-right"></i>
+            </div>
+            <p class="project-role">Network Programmer</p>
+            <p class="project-description"> 
+                My implementation of a networked Connect 4 game using C++ and Raylib. In this project, I built a custom client-server architecture with TCP sockets to allow two players to play Connect 4 over a local network.
 
             </p>
         </div>
