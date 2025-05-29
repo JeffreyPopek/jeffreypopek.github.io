@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeffrey Popek Portfolio - Holly Jolly Engine</title>
+    <link href="https://unpkg.com/lucide-css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    <!-- Google Fonts - Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+    
+    
+    <link rel="icon" type="image/png" href="assets/favicon.webp">
+
+    
+    <style>
+         /* Add to style section */
+         .page-background {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
+            background-color: #2c2c2c;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .content-wrapper {
+            background-color: #000000a9;
+            max-width: 2000px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+
+            /* mask-image: radial-gradient(circle, black, black 65%, transparent 85%); */
+        }
+
+        .project-header {
+            padding-top: 40px;
+            padding-bottom: 0;
+            text-align: center;
+            background: #f8f8f8;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+        }
+
+        .project-content h2 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: xx-large;
+        }
+
+        .project-content h3 {
+            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
+            padding-top: 3rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;  /* Bold */
+            font-size: x-large;
+        }
+
+        .project-content p {
+            padding-top: 1rem; /* Adds space below "Technical Achievements" */
+            padding-bottom: 1rem; /* Adds space below "Technical Achievements" */
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            line-height: 1.6; /* Adds space between lines */
+            font-size: large;
+        }
+
+        a {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;  /* Regular */
+            text-decoration: none; /* Optional: removes underline from links */
+            font-size: large;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .project-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            
+
+            margin-top: 10; /* Ensure no extra spacing */
+            padding-top: 10; /* Remove any padding pushing it down */
+        }
+
+        .project-image {
+    max-width: 70%;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+}
+
+.project-image-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+
+        .project-info-box {
+            background: rgba(36, 36, 36, 0.473);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+
+            font-family: 'Lato', sans-serif;
+            font-weight: 300; /* Bold */
+        }
+
+        /* Apply the font to individual info-items if needed */
+.project-info-box .info-item {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+/* Apply the font to the span text */
+.project-info-box .info-item span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-item i {
+            color: var(--purple);
+            width: 20px;
+            height: 20px;
+        }
+
+        .project-description h2 {
+            color: var(--purple);
+            margin-bottom: 1rem;
+        }
+
+        .project-description p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .info-item i {
+    color: white !important;
+}
+
+i {
+    margin-right: 8px; /* Adds space between the icon and text */
+        }
+
+        a i, .fa-github {
+    font-size: 2rem; /* Adjust size */
+    margin-right: 5px; /* Space between icon and text */
+}
+
+a:hover i, a:hover .fa-github {
+    color: purple; /* Change color on hover */
+}
+
+a {
+    font-size: 1.2rem; /* Makes text bigger */
+    text-decoration: none; /* Removes underline */
+}
+
+.about-cta {
+            display: inline-block;
+            margin-top: 1rem;
+            margin-right: 10px;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--purple);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .about-cta:hover {
+            background-color: var(--purple-hover);
+        }
+
+
+        /* Contact Section */
+.contact {
+            padding: 4rem 2rem;
+            background: none;
+            text-align: center;
+            color: white;
+            font-size: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            color: white;
+            font-size: 20px;
+        }
+
+        .contact-links a {
+            color: var(--purple);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+        }
+
+        .contact-links a:hover {
+            color: #b847ec; /* Changes text color on hover */
+            text-shadow: 0 0 10px #ffffff00; /* Adds a glow effect */
+        }
+        
+
+        .contact h2 {
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px; /* Space between text and line */
+}
+
+.contact h2::after {
+    content: "";
+    display: block;
+    width: 50%; /* Adjust width as needed */
+    height: 2px; /* Line thickness */
+    background-color: white; /* Adjust color */
+    margin: 10px auto 0; /* Center the line */
+}
+
+.contact h3 {
+    padding-top: 0.5rem;
+    font-size: 25px;
+}
+
+        
+    </style>
+</head>
+<body>
+            <!-- Where you want the header to go -->
+        <div id="header-placeholder"></div>
+
+        <!-- This script loads the header -->
+        <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            });
+        </script>
+
+    <div class="page-background">
+        <div class="content-wrapper">
+            <!-- <section class="project-header">
+                <h1>Poly-Vinyl Pests!</h1>
+            </section> -->
+
+            <div class="project-content">
+                <img src="/assets/chessbot/chessbot-thumbnail.PNG" alt="thumbnail" class="project-image-thumbnail">
+                <div class="project-info-box">
+                    <div>
+                        <h2>Min-Max Chess Bot</h2>
+                    </div>
+
+                    <div class="info-item">
+                        
+                        <span><i class="fa-solid fa-user"></i> Role: AI Programmer</span>
+                    </div>
+
+                    
+                    
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-clock"></i> Project Length: 1 Week</span>
+                    </div>
+
+                    <div class="info-item">
+                        
+                        <span><i class="fa-solid fa-users"></i> Team Size: 1</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span><i class="fa-solid fa-wrench"></i> Engine: C++, Disservin Library</span>
+                    </div>
+                </div>
+
+                <div class="project-description">
+                     <p>
+                    This project is a straightforward chess engine implemented in C++, designed to make intelligent move decisions using the Min-max algorithm. 
+                    It utilizes 
+                    <a href="https://github.com/Disservin/chess-library" target="_blank" rel="noopener noreferrer">
+                    Disservin’s open-source chess library
+                    </a>
+                    for board logic, including move generation, FEN parsing, and rule enforcement. 
+                    The goal here isn’t to build a world-class chess AI, but to demonstrate how tree search and evaluation logic can work together to make competent chess decisions.
+                    </p>
+
+                    <p>
+                    The engine provides one primary interface: a function that accepts a FEN string and returns the best legal move in UCI format. 
+                    When called, it generates all legal moves for the current player and evaluates each one using Min-max search. 
+                    The move that leads to the most favorable outcome, based on a simple material evaluation, is chosen and returned.
+                </p>
+
+
+                   <div class="video-container">
+                        <video width="100%" height="500" controls>
+                            <source src="/assets/chessbot/chessbot-gameplay.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        </div>
+
+                    <a href="https://github.com/JeffreyPopek/chess-competition" target="_blank" class="about-cta">GitHub</a>
+                </div>
+
+                
+
+
+                               <div class="project-content">
+                <h2>Moving: Evaluating All Legal Options</h2>
+                <p>
+                    This function serves as the main decision-making point for the engine. It starts by setting up a board from the given FEN string. 
+                    All legal moves are generated using the chess library. For each possible move, the engine simulates the move on the board, 
+                    evaluates the resulting position using a recursive Min-max function, and then reverts the board back to its previous state. 
+                    After comparing the scores of all possible moves, it picks the best one based on whether it's White’s or Black’s turn.
+                </p>
+
+                <img src="/assets/chessbot/chessbot-move.PNG" alt="a" class="project-image">
+            </div>
+
+            <div class="project-content">
+                <h2>Min-Max: Recursive Tree Evaluation</h2>
+                <p>
+                    The core of the decision-making is handled by a recursive Min-max algorithm. If the depth limit is reached or there are no legal moves left, 
+                    the function evaluates the board statically. Otherwise, it generates all legal moves, tries each one, evaluates the outcome recursively, 
+                    and chooses the best result depending on whether the current function call is trying to maximize or minimize the score. 
+                    This back-and-forth between maximizing and minimizing mimics how two players would try to outplay each other in an actual chess game.
+                </p>
+
+                <img src="/assets/chessbot/chessbot-minmax.PNG" alt="a" class="project-image">
+
+            </div>
+
+            <div class="project-content">
+                <h2>Evaluating the Board</h2>
+                <p>
+                    The evaluation function gives a score to a board state based on material value alone. Each piece type has a predefined numeric value, 
+                    such as 1 for pawns, 3 for knights and bishops, 5 for rooks, 9 for queens, and a high value for the king. 
+                    The function loops through every tile on the board, checks for a piece, and adjusts the score based on the piece’s type and color. 
+                    White pieces increase the score and black pieces decrease it. A positive score means White is ahead, and a negative score means Black has the advantage.
+                </p>
+
+                <img src="/assets/chessbot/chessbot-evalboard.PNG" alt="a" class="project-image">
+
+            </div>
+
+            <div class="project-content">
+                <h2>Constants and Configuration</h2>
+                <p>
+                    The engine uses a fixed depth of 4 for the Min-max search. This value determines how many moves ahead the engine will look when making a decision. 
+                    Increasing this number leads to better decisions but increases computation time. I kept the depth value low to keep computation time under 5 seconds due to the competition rules. Piece values are defined as constants, making it easy to tweak or balance if needed.
+                </p>
+
+                <img src="/assets/chessbot/chessbot-values.PNG" alt="a" class="project-image">
+
+            </div>
+
+            <div class="project-content">
+                <h2>What I Learned</h2>
+                <p>
+                    This project is a simple yet functional example of how a chess engine can be built using recursive decision logic and basic evaluation. 
+                    It combines a third-party library for board rules with custom logic for searching and scoring positions. 
+                    While simple, it forms a solid foundation for learning how chess AIs work. At the end of the competition I placed 3rd in the competition but still achieved the 1st place spot on the leaderboards. This competition showed me that a simple and efficient AI can consistently beat more complicated and complex AIs if they don't have strong foundations.
+                </p>
+
+
+                <img src="/assets/chessbot/chessbot-rankings.jpg" alt="a" class="project-image">
+
+            </div>
+
+
+            
+                
+
+
+                <section class="contact">
+                    <h2>Contact Me</h2>
+                    <h3>jeffreypopek@gmail.com</h3>
+                    <div class="contact-links">
+                            <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank" class="about-cta">LinkedIn</a>
+                            <a href="https://github.com/JeffreyPopek" target="_blank" class="about-cta">Github</a>
+                            <a href="https://jeffreypopek.itch.io/" target="_blank" class="about-cta">Itch.io</a>
+                            <a href="/assets/JeffreyPopek_Resume.pdf" target="_blank" class="about-cta">Resume</a>
+                       </div>
+                </section>
+
+                <!-- DO NOT USE OR DELETE -->
+                <!-- <div class="project-content">
+                    <h2>Contributions</h2>
+                    <p></p>
+                
+                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                </div> -->
+
+                   
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
