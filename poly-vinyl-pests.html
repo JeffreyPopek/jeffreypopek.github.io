@@ -679,7 +679,23 @@ The other UI that we created to show the upgrades is the pause menu. When we wou
                         The main menu of our game serves to pick a gamemode and allow for another play to join. The main menu design is simple yet straightforward. We had little issues with people not understanding how the menu worked. For our Steam release we had the player to press a button/key first be player 1. Then player 1 would control the menus until they picked a gamemode and let player 2 join. I also added a toggleable tutorial so that more experienced players could skip straight to the game.
                     </p>
                 
-                    <img src="/assets/pvp/pvp_mainmenu.gif" alt="Technical Achievements" class="project-image">
+                    <img src="/assets/pvp/pvp_mainmenu.gif" alt="" class="project-image">
+                </div>
+
+
+
+                <div class="project-content">
+                    <h2>Optimizations</h2>
+                    <p>
+                        The main optimization I did for our game was to optimize all the bullets and projectiles characters would shoot. By using object pooling to reuse game objects we were able to stop instantiating new objects each time a boss or player would shoot. Another small optimization was doing the same thing for all VFX in the game. Each VFX is pre-instantiated and will only be active if necessary.
+                    </p>
+                
+                    <img src="/assets/pvp/pvp_pooling.png" alt="" class="project-image-code">
+
+                    <p>fix I did was fix our game’s cutscenes with the help of another designer. We used the Unity timeline system to create cutscenes to introduce each boss fight, but the timeline tool used a ton of memory and would crash some people’s games/editors. I utilized the Unity profiler to find out what was using so much memory and work with our designer to minimize memory usage. After those changes and adding occlusion culling our cutscenes ran much smoother and didn't crash the game.
+                    </p>
+
+                    <img src="/assets/pvp/pvp_memprofiler.png" alt="" class="project-image-code">
                 </div>
 
 
@@ -720,13 +736,53 @@ The other UI that we created to show the upgrades is the pause menu. When we wou
 
 
 
-                    <img src="/assets/pvp/pvp_upgradebalanceform.png" alt="Technical Achievements" class="project-image-code">
+                    <img src="/assets/pvp/pvp_upgradebalanceform.png" alt="" class="project-image-code">
                     <p>
 
                     Another factor that helped was a tool I created for tracking upgrade pick rates. I go more in depth in <a href="https://jeffreypopek.dev/blog-uptracking" target="_blank">this blog post here</a>
                     , but in short it would tell us which upgrades were being picked more often than others which usually indicated that it was too strong.
 
                     </p>
+
+                </div>
+
+                  <div class="project-content">
+                    <h2>Steam Release</h2>
+                    <p>
+                        When one of our producers got the steam page setup I was in charge of managing the steam builds. I also added achievements to our game using FacePunch’s API. Through this process I got familiar with Steam’s API, uploading builds, and editing store pages.
+                    </p>
+
+                    <p>
+                    To add achievements I utilized FacePunch’s API to call a Steam function to trigger achievements. One big bug I ran into while implementing achievements was that if you didn’t have Steam connected when you got an achievement it would break the game. This was a good lesson to learn and I added safeguards for when a player got an achievement. When implementing achievements I collaborated with designers to get 47 unique achievements in the game for its launch. I collaborated with one of our artists to reuse icons from our game with a bit of edits to save time and reduce scope with having this many achievements.                    </p>
+
+                    <img src="/assets/pvp/pvp_achievementdoc.png" alt="" class="project-image">
+                    
+
+
+
+
+                </div>
+
+
+                <div class="project-content">
+                    <h2>Onboarding</h2>
+                    <p>
+                        In the second semester of development our team recruited 6 new members. This is where I took a leadership role in the group on the technical side of the project. I helped the new members get into our repo, get used to documentation and coding standards. We also created documents specifically for new members to read to get used to the project. One of these documents was the “Area of Expertise” document where a new member could go to any of the listed members for help with that subject.
+                    </p>
+
+                    <img src="/assets/pvp/pvp_areaofexper.png" alt="" class="project-image-code">
+
+                    <p>
+                        Although our team was technically very prepared to onboard new people, it is hard to get used to working on a brand new project just like that. Our newly expanded team had the entirety of winter break, about a month, to get used to talking to each other. What really helped our team click was doing group activities together online over break such as playing games or watching movies. I feel that this was the most important part of onboarding since a team where no one is having fun is not going to be as productive. 
+                    </p>
+
+                    <img src="/assets/pvp/pvp_webfishing.jpg" alt="" class="project-image-code">
+                    <p>
+                        We played a lot of webfishing :)
+                    </p>
+                
+                    
+                    
 
 
 
