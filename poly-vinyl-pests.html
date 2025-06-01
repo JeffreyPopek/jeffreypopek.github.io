@@ -600,18 +600,30 @@ The third arena is after the wax wyrm fight and takes place in the same arena. T
                     </p>
                 </div>
 
-                <!-- <div class="project-content">
+                <div class="project-content">
                     <h3>Upgrades</h3>
                     <p>
                         One of the new big systems in our second semester of development was upgrades. Upgrades would play a big role in the game and would need to be shown at almost all points of the game. I worked with our UI designer to design the upgrade selection UI along with showing upgrades in the pause menu for easy access during gameplay.
                     </p>
                 
-                    <p>
-                        The upgrade selection UI was the most important part of the implmentation. I created a system that checked for the winner of the last PvE round to pick their upgrades first
-                    </p>
+                <p>
+                    The upgrade selection UI was the most important part of the implementation. I created a system that checked for the winner of the last PvE round to pick their upgrades first. An upgrade sequence will let the winning player pick first, then the other player, then finally show the upgrades that both players have. Players can view their upgrades until they both confirm to leave for the next scene.                   
+                 </p>
 
-                    
-                </div> -->
+                 <img src="/assets/pvp/pvp_upgradeseq.gif" alt="" class="project-image">
+
+                 <p>
+The other UI that we created to show the upgrades is the pause menu. When we would test our game players would have a hard time knowing which upgrades they picked after they picked them. We remedied this by allowing players to see their upgrades at any time. When a player pauses both players can switch between their upgrades.
+                 </p>
+
+                 <img src="/assets/pvp/pvp_pauseupgrades.gif" alt="" class="project-image">
+
+                 <p>
+                    Another way we show what upgrades players have is displaying the upgrade icons above the health bar of each player. 
+                 </p>
+
+                 <img src="/assets/pvp/pvp_upgradesonbar.png" alt="" class="project-image">
+                </div>
 
 
 
@@ -620,13 +632,13 @@ The third arena is after the wax wyrm fight and takes place in the same arena. T
                     <p>One big thing our game is currently lacking is a narrative, so our team made the decision to give the players and bosses unique barks that would play before, during, and after combat rounds. These barks are meant to give more character to each of the bosses and players. To implement the barks I would need two things, the UI itself (speech bubbles and icons) and a UI manager that could play the barks. To accomplish this I created a structure that takes in a speaker and bark that will allow our designers to easily add barks with no programming needed. This approach allowed for rapid prototyping and testing to find out which barks suited our game the best.
                     </p>
                 
-                    <img src="/assets/pvp/pvp_barkManager.PNG" alt="Technical Achievements" class="project-image">
+                    <img src="/assets/pvp/pvp_barkManager.PNG" alt="" class="project-image">
 
                     <p>
                         We also added small barks before each PvP fight to add more character. The ants are working together but not necessarily being friendly. This fun banter helped players become attached to our characters. The player ants will banter like this every chance they get, in the scoreboard, before fights, and even after the game ends in the final scoreboard.
                     </p>
 
-                    <img src="/assets/pvp/pvp_trashtalk.gif" alt="Technical Achievements" class="project-image">
+                    <img src="/assets/pvp/pvp_trashtalk.gif" alt="" class="project-image">
                 </div>
 
 
@@ -634,7 +646,7 @@ The third arena is after the wax wyrm fight and takes place in the same arena. T
                     <h3>Boss Fight</h3>
                     <p>During an intense boss fight the last thing you want is something in the corner distracting you from the action. To combat this issue our UI designer and I were very deliberate with what information is shown during gameplay. We wanted to show the bare minimum but still convey all the information the players would need to know.</p>
                 
-                    <img src="/assets/pvp/pvp_bossUI.PNG" alt="Technical Achievements" class="project-image">
+                    <img src="/assets/pvp/pvp_bossUI.PNG" alt="" class="project-image">
 
                     <p>In this example the only information that is shown is the boss’s health bar and the player’s info. The player’s info contains their health and score. All this UI is updated by a boss UI manager and a player UI manager during gameplay.
                     </p>
