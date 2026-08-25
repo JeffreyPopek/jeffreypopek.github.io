@@ -4,310 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeffrey Popek Portfolio - Liminal Detective</title>
-    <link href="https://unpkg.com/lucide-css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    
-    <!-- Google Fonts - Kanit -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link href="styles.css" rel="stylesheet">
-    
+
+
+
+
     <link rel="icon" type="image/png" href="assets/favicon.webp">
-
-    
-    
-    <style>
-         /* Add to style section */
-         .page-background {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/ds_background.png');
-            background-color: #2c2c2c;
-            min-height: 100vh;
-            padding-top: 60px;
-        }
-
-        .content-wrapper {
-            background-color: #000000a9;
-            max-width: 2000px;
-            margin: 0 auto;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            min-height: 100vh;
-
-            /* mask-image: radial-gradient(circle, black, black 65%, transparent 85%); */
-        }
-
-        .project-header {
-            padding-top: 40px;
-            padding-bottom: 0;
-            text-align: center;
-            background: #f8f8f8;
-        }
-
-        .project-header h1 {
-            font-size: 3rem;
-            margin-bottom: 0rem;
-            font-family: 'Lato', sans-serif;
-            font-weight: 700;  /* Bold */
-        }
-
-        .project-content h2 {
-            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
-            font-family: 'Lato', sans-serif;
-            font-weight: 700;  /* Bold */
-            font-size: xx-large;
-        }
-
-        .project-content h3 {
-            padding-bottom: 0rem; /* Adds space below "Technical Achievements" */
-            padding-top: 3rem;
-            font-family: 'Lato', sans-serif;
-            font-weight: 700;  /* Bold */
-            font-size: x-large;
-        }
-
-        .project-content p {
-            padding-top: 1rem; /* Adds space below "Technical Achievements" */
-            padding-bottom: 1rem; /* Adds space below "Technical Achievements" */
-            font-family: 'Lato', sans-serif;
-            font-weight: 400;  /* Regular */
-            line-height: 1.6; /* Adds space between lines */
-            font-size: large;
-        }
-
-        a {
-            font-family: 'Lato', sans-serif;
-            font-weight: 400;  /* Regular */
-            text-decoration: none; /* Optional: removes underline from links */
-            font-size: large;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-        }
-
-
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: white;
-        }
-
-        .info-item i {
-    color: white !important;
-}
-
-        .project-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            text-align: center;
-            
-
-            margin-top: 10; /* Ensure no extra spacing */
-            padding-top: 10; /* Remove any padding pushing it down */
-        }
-
-        .project-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-
-        .project-info-box {
-            background: rgba(36, 36, 36, 0.473);
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            align-items: center;
-
-            font-family: 'Lato', sans-serif;
-            font-weight: 300; /* Bold */
-        }
-
-        /* Apply the font to individual info-items if needed */
-.project-info-box .info-item {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-}
-
-/* Apply the font to the span text */
-.project-info-box .info-item span {
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-}
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .info-item i {
-            color: var(--purple);
-            width: 20px;
-            height: 20px;
-        }
-
-        .project-description h2 {
-            color: var(--purple);
-            margin-bottom: 1rem;
-        }
-
-        .project-description p {
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-
-        i {
-    margin-right: 8px; /* Adds space between the icon and text */
-        }
-
-        a i, .fa-itch-io {
-    font-size: 2rem; /* Adjust size */
-    margin-right: 5px; /* Space between icon and text */
-}
-
-a:hover i, a:hover .fa-itch-io {
-    color: purple; /* Change color on hover */
-}
-
-a {
-    font-size: 1.2rem; /* Makes text bigger */
-    text-decoration: none; /* Removes underline */
-}
-
-.about-cta {
-            display: inline-block;
-            margin-top: 1rem;
-            margin-right: 10px;
-            padding: 0.75rem 1.5rem;
-            background-color: var(--purple);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 500;
-            transition: background-color 0.2s ease;
-        }
-
-        .about-cta:hover {
-            background-color: var(--purple-hover);
-        }
-
-@font-face {
-    font-family: 'LiminalFont';
-    src: url('assets/fonts/PlayfairDisplay.ttf') format('truetype');
-}
-
-h2.custom-header {
-    font-family: 'LiminalFont', sans-serif;
-}
-
-/* Contact Section */
-.contact {
-            padding: 4rem 2rem;
-            background: none;
-            text-align: center;
-            color: white;
-            font-size: 30px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            color: white;
-            font-size: 20px;
-        }
-
-        .contact-links a {
-            color: var(--purple);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: white;
-        }
-
-        .contact-links a:hover {
-            color: #b847ec; /* Changes text color on hover */
-            text-shadow: 0 0 10px #ffffff00; /* Adds a glow effect */
-        }
-        
-
-        .contact h2 {
-    text-align: center;
-    position: relative;
-    padding-bottom: 0px; /* Space between text and line */
-}
-
-.contact h2::after {
-    content: "";
-    display: block;
-    width: 50%; /* Adjust width as needed */
-    height: 2px; /* Line thickness */
-    background-color: white; /* Adjust color */
-    margin: 10px auto 0; /* Center the line */
-}
-
-.contact h3 {
-    padding-top: 0.5rem;
-    font-size: 25px;
-}
-
-    </style>
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="project.css">
+    <script src="site.js" defer></script>
 </head>
-<body>
+<body class="project-page">
+    <a class="skip-link" href="#project-main">Skip to project content</a>
                <!-- Where you want the header to go -->
                <div id="header-placeholder"></div>
 
                <!-- This script loads the header -->
                <script>
-               fetch('header.html')
+               fetch('project-header.html')
                    .then(response => response.text())
                    .then(data => {
                    document.getElementById('header-placeholder').innerHTML = data;
                    });
                </script>
 
-    <div class="page-background">
+    <div class="page-background" id="project-main" tabindex="-1" role="main">
         <div class="content-wrapper">
-            <!-- <section class="project-header">
-                <h1>Poly-Vinyl Pests!</h1>
-            </section> -->
 
             <div class="project-content">
-                <img src="/assets/liminalDetective/liminalDetectiveSplashArt.gif" alt="Poly-Vinyl Pests" class="project-image">
+                <img decoding="async" fetchpriority="high" src="assets/liminalDetective/liminalDetectiveSplashArt.gif" alt="LiminalDetectiveSplashArt — Liminal Detective" class="project-image">
                 <div class="project-info-box">
                     <div>
-                        <h2 class = "custom-header">Liminal Detective</h2>
+                        <h1>Liminal Detective</h1>
                     </div>
 
                     <div class="info-item">
                         
-                        <span><i class="fa-solid fa-user"></i> Role: Gameplay Programmer</span>
+                        <span>Role: Gameplay Programmer</span>
                     </div>
 
                     
                     
                     <div class="info-item">
-                        <span><i class="fa-solid fa-clock"></i> Project Length: 12 Weeks</span>
+                        <span>Project Length: 12 Weeks</span>
                     </div>
 
                     <div class="info-item">
                         
-                        <span><i class="fa-solid fa-users"></i> Team Size: 10</span>
+                        <span>Team Size: 10</span>
                     </div>
 
                     <div class="info-item">
-                        <span><i class="fa-solid fa-wrench"></i> Engine: Unreal 5.3</span>
+                        <span>Engine: Unreal 5.3</span>
                     </div>
                 </div>
 
@@ -317,16 +65,15 @@ h2.custom-header {
 
 
                     <div class="video-container">
-                        <iframe width="100%" height="500" src="https://www.youtube.com/embed/j9L2ufLNioI?si=RX4HzZAkcr4A_evE" frameborder="0" allowfullscreen></iframe>
+                        <iframe loading="lazy" title="Liminal Detective video" width="100%" height="500" src="https://www.youtube.com/embed/j9L2ufLNioI?si=RX4HzZAkcr4A_evE" allowfullscreen></iframe>
                     </div>
 
 
-                    <a href="https://antennasunite.itch.io/liminal-detective" target="_blank" class="about-cta">Itch.io</a>
+                    <a href="https://antennasunite.itch.io/liminal-detective" target="_blank" rel="noopener noreferrer" class="about-cta">Itch.io</a>
                     <!-- <p>
                         <span>
-                            <i class="fab fa-itch-io"></i>
-                            <a href="https://antennasunite.itch.io/liminal-detective" target="_blank">
-                                <i class="lucide-file-text"></i> Itch.io
+                            <a href="https://antennasunite.itch.io/liminal-detective" target="_blank" rel="noopener noreferrer">
+                                Itch.io
                             </a>
                         </span>
     
@@ -351,13 +98,13 @@ h2.custom-header {
                     <h3>Ranged Attack</h3>
                     <p>The ranged attack consists of the shooting, marking enemies, and recalling projectiles. The full order of the attack allows the player to shoot 3 projectiles marking any enemies hit. After the player has fired 3 projectiles they need to press the shoot button to recall projectiles from the marked enemies. Doing this will deal additional damage to marked enemies and spawn projectiles from the marked enemies that fly towards the player dealing damage to any enemies hit.</p>
                 
-                    <img src="/assets/liminalDetective/LD-shoot.gif" alt="Technical Achievements" class="project-image">
+                    <img loading="lazy" decoding="async" src="assets/liminalDetective/LD-shoot.gif" alt="LD shoot — Liminal Detective" class="project-image">
 
                     <h3>Grab and Throw</h3>
                     <p>The grab and throw allows the player to pick up enemies and furniture to throw around. To grab an object the player first needs to be within a certain range of it. When the player is in range they can pick up that object, if the object is an enemy then the enemy is stunning and cannot move or attack. The player can only hold the object if they have stamina and will drop the held object when they run out.
                     </p>
 
-                    <img src="/assets/liminalDetective/LD-grab.gif" alt="Technical Achievements" class="project-image">
+                    <img loading="lazy" decoding="async" src="assets/liminalDetective/LD-grab.gif" alt="LD grab — Liminal Detective" class="project-image">
 
                     <h3>Player Ability Challenges</h3>
 
@@ -370,13 +117,13 @@ h2.custom-header {
                     <h2>Enemy AI</h2>
                     <p>The enemy AI was built using Unreal Engine’s blackboards. The AI has 3 simple behaviors that allow it to wander around, chase the player, and attack the player. Although it may seem simple, enemies with just these 3 behaviors can be challenging to fight. The AI will wander around until they spot the player or take damage, when either of these happen the enemy will start chasing the player. When the enemy is within range of the player it will transition to the attack state and deal damage to the player. The attack and chase state will run simultaneously to allow the enemies to move while attacking.</p>
                 
-                    <img src="/assets/liminalDetective/LD-BT.png" alt="Technical Achievements" class="project-image">
+                    <img loading="lazy" decoding="async" src="assets/liminalDetective/LD-BT.png" alt="LD BT — Liminal Detective" class="project-image">
 
 
                     <h3>Boss</h3>
                     <p>At the end of the game you fight your brother’s killer who takes the form of a giant demon. This boss was created with the base enemy and has all the characteristics of the regular enemy with more abilities. The boss can periodically spawn in more minions/enemies to aid it in its battle against Maira. The boss cannot spawn more than 12 additional enemies to avoid cluttering the battle and making the fight too hard.</p>
                 
-                    <img src="/assets/liminalDetective/LD-boss.avif" alt="Technical Achievements" class="project-image">
+                    <img loading="lazy" decoding="async" src="assets/liminalDetective/LD-boss.avif" alt="LD boss — Liminal Detective" class="project-image">
 
                 </div>
 
@@ -384,7 +131,7 @@ h2.custom-header {
                     <h2>Combat UI</h2>
                     <p>In addition to combat programming I also implemented the UI needed for all combat features. This includes the player’s HUD, enemy health bars, and tutorial popups. The final UI implementation was greatly influenced by testing feedback from the GTL that allowed us to create a visually pleasing and readable UI.</p>
                 
-                    <img src="/assets/liminalDetective/LD-combatUI.png" alt="Technical Achievements" class="project-image">
+                    <img loading="lazy" decoding="async" src="assets/liminalDetective/LD-combatUI.png" alt="LD combatUI — Liminal Detective" class="project-image">
                 </div>
 
 
@@ -393,7 +140,7 @@ h2.custom-header {
                     <h2>Balancing</h2>
                     <p>For our project we wanted to hit a sweet spot of challenging and engaging for our combat. To achieve this goal our team went to the game testing lab (GTL), twice a week starting in sprint/week 5. At the GTL we were able to have other students playtest and give feedback on our game build. With this feedback me and our other combat designers were able to iterate on player and enemy stats, enemy ai behaviors, visual clarity, and much more.</p>
                 
-                    <img src="/assets/liminalDetective/LD-testing.png" alt="Technical Achievements" class="project-image">
+                    <img loading="lazy" decoding="async" src="assets/liminalDetective/LD-testing.png" alt="LD testing — Liminal Detective" class="project-image">
                 </div>
 
 
@@ -403,7 +150,7 @@ h2.custom-header {
                     <h2>Documentation</h2>
                     <p>Every good game needs a lot of documentation to stay organized. Our team stayed on top of things by making sure each necessary document was updated each sprint. The main document I managed, along with another programmer, is the technical planning document. This document contains all the information a new developer would need to be onboarded onto our project.</p>
                 
-                    <a href="/assets/liminalDetective/Liminal Detective Technical Plan Document.pdf" target="_blank"><i class="lucide-file-text"></i> Technical Plan Document</a>
+                    <a href="assets/liminalDetective/Liminal Detective Technical Plan Document.pdf" target="_blank" rel="noopener noreferrer">Technical Plan Document</a>
                 </div>
 
                 <!-- DO NOT USE OR DELETE -->
@@ -411,24 +158,24 @@ h2.custom-header {
                     <h2>Contributions</h2>
                     <p></p>
                 
-                    <img src="/assets/pvp/pvpGameLoopDiagram.png" alt="Technical Achievements" class="project-image">
+                    <img loading="lazy" decoding="async" src="assets/pvp/pvpGameLoopDiagram.png" alt="PvpGameLoopDiagram — Liminal Detective" class="project-image">
                 </div> -->
 
 
                 <section class="contact">
                     <h2>Contact Me</h2>
-                    <h3>jeffreypopek@gmail.com</h3>
+                    <h3><a href="mailto:jeffreypopek@gmail.com">jeffreypopek@gmail.com</a></h3>
                     <div class="contact-links">
-                            <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank" class="about-cta">LinkedIn</a>
-                            <a href="https://github.com/JeffreyPopek" target="_blank" class="about-cta">Github</a>
-                            <a href="https://jeffreypopek.itch.io/" target="_blank" class="about-cta">Itch.io</a>
-                            <a href="/assets/JeffreyPopek_Resume.pdf" target="_blank" class="about-cta">Resume</a>
+                            <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank" rel="noopener noreferrer" class="about-cta">LinkedIn</a>
+                            <a href="https://github.com/JeffreyPopek" target="_blank" rel="noopener noreferrer" class="about-cta">Github</a>
+                            <a href="https://jeffreypopek.itch.io/" target="_blank" rel="noopener noreferrer" class="about-cta">Itch.io</a>
+                            <a href="assets/JeffreyPopek_Resume.pdf" target="_blank" rel="noopener noreferrer" class="about-cta">Resume</a>
                        </div>
                 </section>
                    
             </div>
         </div>
     </div>
+<footer><div class="shell"><p>© <span data-year>2026</span> Jeffrey Popek</p><a href="index.html">Return home ←</a></div></footer>
 </body>
 </html>
-
