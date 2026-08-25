@@ -1,252 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeffrey Popek Portfolio - Scam the AI</title>
-
-
-
-
-
-    <link rel="icon" type="image/png" href="assets/favicon.webp">
-    <link rel="stylesheet" href="homepage.css">
-    <link rel="stylesheet" href="project.css">
-    <script src="site.js" defer></script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A Unity case study on building a conversational AI NPC with speech recognition, text-to-speech, deterministic gameplay logic, and a reusable desktop interface.">
+  <meta name="theme-color" content="#090d12"><title>Scam the AI — Jeffrey Popek</title>
+  <link rel="icon" type="image/webp" href="assets/favicon.webp">
+  <link rel="stylesheet" href="homepage.css"><link rel="stylesheet" href="project.css"><link rel="stylesheet" href="pvp-case-study.css"><link rel="stylesheet" href="scam-case-study.css">
+  <script src="site.js" defer></script><script src="pvp-case-study.js" defer></script>
 </head>
-<body class="project-page">
-    <a class="skip-link" href="#project-main">Skip to project content</a>
-                <!-- Where you want the header to go -->
-                <div id="header-placeholder"></div>
-
-                <!-- This script loads the header -->
-                <script>
-                fetch('project-header.html')
-                    .then(response => response.text())
-                    .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                    });
-                </script>
-
-    <div class="page-background" id="project-main" tabindex="-1" role="main">
-        <div class="content-wrapper">
-
-            <div class="project-content">
-                <img decoding="async" fetchpriority="high" src="assets/scam-the-ai/thumbnail.png" alt="Thumbnail — Scam the AI" class="project-image">
-                <div class="project-info-box">
-                    <div>
-                        <h1>Scam the AI</h1>
-                    </div>
-
-                    <div class="info-item">
-                        
-                        <span>Role: Programmer</span>
-                    </div>
-
-                    
-                    
-                    <div class="info-item">
-                        <span>Project Length: 1 Week</span>
-                    </div>
-
-                    <div class="info-item">
-                        
-                        <span>Team Size: 1</span>
-                    </div>
-
-                    <div class="info-item">
-                        <span>Engine: Unity</span>
-                    </div>
-                </div>
-
-                <div class="project-description">
-                    <!-- <h2>Introduction</h2> -->
-                     <p>
-                        Drowning in debt, you hear a rumor about an absurdly wealthy man desperate for conversation—and vulnerable to a good scam. Can you convince this AI to send you money? This short game features dynamic dialogue with an AI-powered NPC, blending deception, persuasion, and improvisation. A passion project, it allowed me to explore two of my favorite programming fields: AI and UI development.
-                     </p>
-
-                     <p>
-                        The goal of this project was to create a short game where you are trying to convince an AI NPC to give you money. I had this concept in the back of my mind for around 2 years now, so finally seeing it come to life was very satisfying. You are able to type or talk to the AI and it will respond to you. Use any method to convince the AI to send you some money, but be careful because his ego is fragile and he might hang up if he is unhappy with you.
-
-                     </p>
-
-
-
-
-                    <!-- <div class="video-container">
-                        <video preload="metadata" width="100%" height="500" controls>
-                            <source src="assets/scam-the-ai/Scam the AI Full Gameplay.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        </div> -->
-
-                    <div class="video-container">
-                        <iframe loading="lazy" title="Scam the AI video" width="100%" height="500" src="https://www.youtube.com/embed/Ghq64boXZws?si=jHqJfNn7xmuLWQMG" allowfullscreen></iframe>
-                    </div>
-
-                    
-                    <!-- <a href="https://github.com/Holly-Jolly-Studilly-Engine" target="_blank" rel="noopener noreferrer" class="about-cta">Itch.io</a> -->
-
-                   </div>
-
-
-                   <div class="project-content">
-                    <h2>Technique Breakdown</h2>
-                    <p>
-                        To get an AI NPC working in unity I had to utilize the OpenAI api to start a ChatGPT chat in engine. Starting a chat covered the texting base, but to get my voice recorded and sent in the chat I used Whisper, which is another api service offered by OpenAI. Whisper is used to transcribe and translate speech. I used Whisper to transcribe my voice to text then sent it in the chat. 
-
-                    </p>
-                </div>
-
-
-                <div class="project-content">
-                    <h2>ChatGPT Integration</h2>
-                    <p>
-                        To get ChatGPT working in Unity I utilized 3 different API calls: Speech to text (Whisper), Text to Speech, and starting a chatGPT chat in Unity. To use these I used OpenAI’s api calls and unity scripting to allow the calls to all happen in the correct order. Below is a flowchart of how all the calls are working together.
-
-                    </p>
-                
-                    <img loading="lazy" decoding="async" src="assets/scam-the-ai/API Calls.png" alt="API Calls — Scam the AI" class="project-image">
-
-                </div>
-
-                <div class="project-content">
-                    <h2>AI NPC</h2>
-                    <p>
-                        To get a consistent ai NPC I need to have the right prompt to start the conversation each time. To engineer a prompt I used chatGPT to help me iterate on a prompt that would allow for certain words to trigger certain events, things the npc likes, dislikes, and a win/lose state. Below is a snippet of code starting the conversation with ChatGPT using a custom prompt:
-
-                    </p>                
-                    <img loading="lazy" decoding="async" src="assets/scam-the-ai/scamai-startingconvo.png" alt="Scamai startingconvo — Scam the AI" class="project-image">
-
-                    <p>
-                        Next we need to send a message to the npc, to do that we do another api call with our message to ChatGPT. Here is where we can customize the model and “creativity” of the AI response with the temperature variable. For our response we want the AI to be pretty grounded with its answers, so I set its temperature to 0.3.
-
-                        </p>
-
-                        <img loading="lazy" decoding="async" src="assets/scam-the-ai/scamai-sendchat.png" alt="Scamai sendchat — Scam the AI" class="project-image">
-
-                    <p>
-                        If you noticed this only works for sending text to the chat, what if we want to actually talk to it? To do this we need to use a different method. We first need to get our speech in a recording and then send an api call to transcribe it. When we get our response back we can then plug the string it gives us into the ChatGPT conversation. I did a blog post about exploring speech to text around a year ago that you can check out<a href="blog-speech-recog.html"> here</a>
-
-
-                    </p>
-
-                    <div class="video-container">
-                        <video preload="metadata" width="100%" height="500" controls>
-                            <source src="assets/scam-the-ai/speech to text Demo.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        </div>
-
-                    <p>
-                        Finally we get our response in string form. We want to turn this string into speech so we won’t display the text yet. First we want to send another api call to OpenAI asking them to turn our string, ChatGPT’s response to our response, into speech. After we get our TTS back we can then show the text ChatGPT gave us originally to show the text and play the speech at the same time.
-
-                    </p>
-
-                    <div class="video-container">
-                        <video preload="metadata" width="100%" height="500" controls>
-                            <source src="assets/scam-the-ai/TTS demo.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        </div>
-
-                    <p>
-                        Now to check for win and lose states we need a certain thing to be said to trigger an event. For winning I engineered the prompt to make sure that the AI added the phrase “I sent the money” at the end of his sentence if he was satisfied with you. I did the same with the lose state by making the AI end their sentence with “Goodbye.” if they were unhappy with you. Below is some of the code checking for keywords/phrases in the AI’s responses to trigger certain events.
-
-                    </p>
-
-                    <img loading="lazy" decoding="async" src="assets/scam-the-ai/scamai-winlose.png" alt="Scamai winlose — Scam the AI" class="project-image">
-
-                    <p>
-                        Finally putting all of this together we are able to have a full conversation with an AI NPC.
-                    </p>
-
-                    <div class="video-container">
-                        <video preload="metadata" width="100%" height="500" controls>
-                            <source src="assets/scam-the-ai/Scam the AI Demo.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        </div>
-
-
-                </div>
-
-
-                <div class="project-content">
-                    <h2>UI</h2>
-
-                    <h3>Theme</h3>
-                    <p>
-                        The theme of this game is early windows. I didn’t actually use windows when this was the standard so I am basing all the layouts on practical implementation. I also wanted people to easily know the controls and since everyone playing would be on a computer they would (hopefully) already know how to operate one.
-                    </p>           
-
-
-                    <h3>Chat Window</h3>
-                    <p>
-                        The chat window consists of a text entry box, 3 buttons, and text for the AI NPC’s responses. The first button will send the message in the text entry box, and the other two are used to send your speech to the AI NPC.
-
-                    </p>
-
-                    <img loading="lazy" decoding="async" src="assets/scam-the-ai/scamai-chatUI.png" alt="Scamai chatUI — Scam the AI" class="project-image">
-
-                    <h3>Windows</h3>
-
-                    <p>
-                        Every computer has windows with applications on them. I wrote a script that would apply to all the windows in the game since they all needed to do the same thing. The windows only needed to do 3 things: close from the X button, open from the taskbar, and be dragged around. 
-
-                    </p>
-
-                    <h3>Settings</h3>
-                
-                    <p>
-                        I wanted to add a few fun things into the game so I added a settings tab that allowed you to change the wallpaper. The settings tab is also a window that has all the same attributes as the other windows. The settings window also has a dropdown that allows you to change which audio input you are using for the speech to text input.
-
-                    </p>
-                    <img loading="lazy" decoding="async" src="assets/scam-the-ai/scamai-wallpaper.gif" alt="Scamai wallpaper — Scam the AI" class="project-image">
-                </div>
-
-
-
-                <div class="project-content">
-                    <h2>Documentation</h2>
-                    <p>
-                        Since this was a solo project I didn’t need to make too much documentation. The documents I made were the prompt engineering doc, which just kept the giant prompt I would be sending to ChatGPT each time and a code design document for the UI. Below is the document with the giant prompt that sends each time the game starts.
-                    </p>
-                    <a href="assets//scam-the-ai/Scam the AI Prompt.pdf" target="_blank" rel="noopener noreferrer" class="about-cta">Prompt Document</a>
-
-                </div>
-
-                <div class="project-content">
-                    <h2>What I Learned</h2>
-                    <p>
-                        In this project I learned a lot about sending api calls in Unity. I previously explored it a bit when I tried to get speech to text working but never too deep like this project. This project was good practice for anytime I would need to use 3rd party apps/sources in a project. I also got to work on my UI programming skills, which I am always happy to do. Besides talking to the AI NPC for the first time, the coolest part of this project was getting all the art assets in and seeing the project look great.
-                    </p>
-
-                </div>
-
-                <section class="contact">
-                    <h2>Contact Me</h2>
-                    <h3><a href="mailto:jeffreypopek@gmail.com">jeffreypopek@gmail.com</a></h3>
-                    <div class="contact-links">
-                            <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank" rel="noopener noreferrer" class="about-cta">LinkedIn</a>
-                            <a href="https://github.com/JeffreyPopek" target="_blank" rel="noopener noreferrer" class="about-cta">Github</a>
-                            <a href="https://jeffreypopek.itch.io/" target="_blank" rel="noopener noreferrer" class="about-cta">Itch.io</a>
-                            <a href="assets/JeffreyPopek_Resume.pdf" target="_blank" rel="noopener noreferrer" class="about-cta">Resume</a>
-                       </div>
-                </section>
-
-                <!-- DO NOT USE OR DELETE -->
-                <!-- <div class="project-content">
-                    <h2>Contributions</h2>
-                    <p></p>
-                
-                    <img loading="lazy" decoding="async" src="assets/pvp/pvpGameLoopDiagram.png" alt="PvpGameLoopDiagram — Scam the AI" class="project-image">
-                </div> -->
-
-                   
-            </div>
-        </div>
-    </div>
-<footer><div class="shell"><p>© <span data-year>2026</span> Jeffrey Popek</p><a href="index.html">Return home ←</a></div></footer>
-</body>
-</html>
+<body class="project-page case-study-page scam-case-study">
+<a class="skip-link" href="#project-main">Skip to project content</a><div id="header-placeholder"></div>
+<script>fetch('project-header.html').then(response=>response.text()).then(html=>document.querySelector('#header-placeholder').innerHTML=html);</script>
+<main id="project-main" tabindex="-1">
+<section class="case-hero shell" aria-labelledby="project-title"><div class="case-hero-copy">
+  <a class="back-link" href="index.html#work">← SELECTED WORK</a><p class="eyebrow">GAMEPLAY &amp; AI PROGRAMMER · SOLO PROJECT</p><h1 id="project-title">Scam the <em>AI</em></h1>
+  <p class="case-subtitle">GAMEPLAY &amp; AI PROGRAMMER · UNITY / C# · SOLO PROJECT · 1 WEEK</p>
+  <p>Scam the AI is a short conversational game about persuading a wealthy but temperamental AI character to send the player money. Players can type or speak naturally, then adapt their approach as the character reacts to their choices.</p>
+  <p>I built the project as a solo developer to explore how speech recognition, conversational AI, and text-to-speech could operate as one responsive gameplay system. The result combines multiple external services, deterministic outcome logic, and a reusable desktop-style interface.</p>
+  <div class="case-actions"><a class="button button-primary" href="#gameplay-demo">Watch gameplay ↓</a><a class="button" href="https://github.com/JeffreyPopek/Scam-the-AI" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
+</div><figure class="case-hero-media"><img src="assets/scam-the-ai/thumbnail.png" width="1920" height="1080" decoding="async" fetchpriority="high" alt="Scam the AI chat and banking windows in the desktop-style interface"><figcaption>A conversational game presented through a draggable, early-desktop-inspired interface.</figcaption></figure></section>
+
+<nav class="case-jump" aria-label="Explore this project"><div class="shell"><span>EXPLORE THIS PROJECT</span><button type="button" aria-expanded="false" aria-controls="case-jump-links">Jump to section <b aria-hidden="true">⌄</b></button><div id="case-jump-links"><a href="#overview">Overview</a><a href="#gameplay-demo">Gameplay</a><a href="#ai-pipeline">AI Pipeline</a><a href="#npc-logic">NPC Logic</a><a href="#ui-system">UI System</a><a href="#challenges">Challenges</a><a href="#takeaways">Takeaways</a></div></div></nav>
+
+<section class="case-section shell" id="overview" aria-labelledby="overview-title"><header class="case-heading"><p class="eyebrow">01 / OVERVIEW</p><h2 id="overview-title">Turning AI services into gameplay.</h2><p>The central challenge was not simply getting an AI response into Unity. The project needed to accept two forms of input, coordinate several asynchronous services in the correct order, translate unpredictable responses into reliable game states, and return control to the player without breaking the conversational flow.</p></header><div class="contribution-grid">
+  <article><span>01</span><h3>AI Interaction Pipeline</h3><p>Connected speech-to-text, conversational AI, and text-to-speech in a single ordered workflow.</p></article>
+  <article><span>02</span><h3>Speech &amp; Text Input</h3><p>Supported typed messages and recorded speech while allowing players to choose their active microphone.</p></article>
+  <article><span>03</span><h3>Prompt-Driven NPC</h3><p>Defined the character’s personality, preferences, boundaries, and required outcome phrases through a reusable starting prompt.</p></article>
+  <article><span>04</span><h3>Gameplay State Detection</h3><p>Parsed the AI’s responses for exact phrases that triggered continued conversation, victory, or failure.</p></article>
+  <article><span>05</span><h3>Reusable Window System</h3><p>Built shared drag, open, and close behavior for the desktop-style chat, settings, and supporting windows.</p></article>
+  <article><span>06</span><h3>Interface &amp; Settings</h3><p>Created chat controls, taskbar interactions, wallpaper selection, and configurable audio input.</p></article>
+</div></section>
+
+<div class="case-band"><section class="case-section shell" id="gameplay-demo" aria-labelledby="gameplay-title"><header class="case-heading"><p class="eyebrow">02 / GAMEPLAY</p><h2 id="gameplay-title">A conversation with consequences.</h2><p>The player calls the AI character while posing as a technical-support representative. Success depends on maintaining a convincing story, responding to the character’s shifting attitude, and eventually earning enough trust to trigger the win condition. If the character becomes sufficiently frustrated, the call ends in failure.</p></header><figure class="case-media"><div class="case-video"><iframe loading="lazy" title="Scam the AI gameplay demonstration" src="https://www.youtube.com/embed/Ghq64boXZws?si=jHqJfNn7xmuLWQMG" allowfullscreen></iframe></div><figcaption>Players can type or speak to the AI character while trying to build trust without triggering the failure condition.</figcaption></figure></section></div>
+
+<section class="case-section shell" id="ai-pipeline" aria-labelledby="pipeline-title"><header class="case-heading"><p class="eyebrow">03 / SYSTEM ARCHITECTURE</p><h2 id="pipeline-title">One conversation, multiple services.</h2><p>Each interaction passes through a controlled sequence so that recording, transcription, response generation, outcome checks, and audio playback never compete with one another. Typed messages enter the same conversation path after bypassing transcription.</p></header>
+<div class="system-diagram pipeline-diagram" role="img" aria-label="Player input branches by input type. Voice input passes through speech-to-text while text input becomes a player message directly. The player message moves through AI conversation, outcome parser, text-to-speech, and finally UI and audio response."><div class="diagram-node">Player input</div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node decision">Input type</div><span class="diagram-arrow" aria-hidden="true">→</span><div class="input-paths"><div><span>Voice</span><div class="diagram-node">Speech-to-text</div><span class="diagram-arrow down" aria-hidden="true">↓</span></div><div><span>Text</span><div class="diagram-node">Player message</div></div></div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node accent-node">AI conversation</div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node">Outcome parser</div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node">Text-to-speech</div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node">UI and audio response</div></div>
+<p class="diagram-note">After receiving the AI response as text, the system first checks for gameplay triggers. It then requests synthesized speech and reveals the written response while the matching audio plays. Only after this sequence completes does the interface return to an input-ready state.</p>
+<div class="sequence-block"><h3>Ordered request sequence</h3><ol class="sequence-rail">
+  <li><span>01</span><div><h4>Capture Input</h4><p>Read typed text or record the selected microphone.</p></div></li><li><span>02</span><div><h4>Transcribe</h4><p>Convert recorded speech into text when voice input is used.</p></div></li>
+  <li><span>03</span><div><h4>Send Message</h4><p>Append the player’s message to the current AI conversation.</p></div></li><li><span>04</span><div><h4>Receive Response</h4><p>Wait for the character’s generated reply.</p></div></li>
+  <li><span>05</span><div><h4>Evaluate Outcome</h4><p>Check the reply for victory or failure phrases.</p></div></li><li><span>06</span><div><h4>Generate Speech</h4><p>Convert the response text into spoken audio.</p></div></li>
+  <li><span>07</span><div><h4>Present Response</h4><p>Display the text and play its audio together.</p></div></li><li><span>08</span><div><h4>Restore Control</h4><p>Return the interface to its input-ready state.</p></div></li>
+</ol></div></section>
+
+<div class="case-band"><section class="case-section shell" id="npc-logic" aria-labelledby="npc-title"><header class="case-heading"><p class="eyebrow">04 / NPC LOGIC</p><h2 id="npc-title">Making an unpredictable NPC playable.</h2><p>A custom starting prompt establishes the character’s identity, ego, interests, conversational boundaries, and the phrases used to communicate game outcomes. I iterated on this prompt so the character could respond freely while still producing results the game could interpret reliably.</p></header>
+<div class="prompt-grid" aria-label="Six-part prompt architecture"><article><span>01</span><h3>Character Identity</h3><p>Defines who the NPC is and why the player is calling.</p></article><article><span>02</span><h3>Personality &amp; Ego</h3><p>Shapes the character’s tone, skepticism, and sensitivity.</p></article><article><span>03</span><h3>Likes &amp; Dislikes</h3><p>Creates conversational openings and potential risks.</p></article><article><span>04</span><h3>Conversation Rules</h3><p>Keeps responses consistent with the game’s scenario.</p></article><article class="outcome-prompt"><span>05</span><h3>Win Phrase</h3><p>“I sent the money” signals a successful conversation.</p></article><article class="outcome-prompt"><span>06</span><h3>Failure Phrase</h3><p>“Goodbye.” signals the end of the call.</p></article></div>
+<p class="diagram-note">The conversational model was configured for relatively grounded responses. Each player message was added to the same conversation so the NPC could react to earlier statements and inconsistencies.</p>
+<div class="system-diagram outcome-diagram" role="img" aria-label="An AI response is checked for an outcome phrase. With no phrase the conversation continues. I sent the money triggers the win state. Goodbye triggers the failure state."><div class="diagram-node">AI response</div><span class="diagram-arrow" aria-hidden="true">→</span><div class="diagram-node decision">Outcome phrase detected?</div><span class="diagram-arrow" aria-hidden="true">→</span><div class="outcome-paths"><div><span>No phrase</span><div class="diagram-node">Continue conversation</div></div><div><span>I sent the money</span><div class="diagram-node accent-node">Win state</div></div><div><span>Goodbye.</span><div class="diagram-node">Failure state</div></div></div></div>
+<p class="diagram-note">This parser gave the project a deterministic layer around generative output. The dialogue could remain flexible, but the game still knew exactly when to continue, reward the player, or end the interaction.</p></section></div>
+
+<section class="case-section shell" id="ui-system" aria-labelledby="ui-title"><header class="case-heading"><p class="eyebrow">05 / INTERFACE SYSTEMS</p><h2 id="ui-title">A reusable desktop instead of a fixed game menu.</h2><p>The game is presented as a simplified early-desktop environment. That familiar structure makes typing, recording speech, opening applications, and changing settings understandable without requiring a separate tutorial.</p></header>
+<div class="system-diagram ui-diagram" role="img" aria-label="The reusable window component supports chat, settings, banking, supporting applications, and shared drag, open, and close behavior."><div class="diagram-node accent-node">Reusable window component</div><span class="diagram-arrow" aria-hidden="true">→</span><div class="window-paths"><div class="diagram-node">Chat window</div><div class="diagram-node">Settings window</div><div class="diagram-node">Banking window</div><div class="diagram-node">Supporting applications</div><div class="shared-branch"><div class="diagram-node shared-node">Shared behavior</div><span class="diagram-arrow down" aria-hidden="true">↓</span><div class="behavior-paths"><div class="diagram-node">Drag</div><div class="diagram-node">Open</div><div class="diagram-node">Close</div></div></div></div></div>
+<p class="diagram-note">Rather than scripting every application independently, I created shared window behavior for dragging, taskbar activation, and close controls. Individual windows could then focus on their own content while retaining consistent interaction.</p>
+<div class="interface-features"><article><div><h3>Chat Window</h3><p>The chat window combines a text-entry field, a send control, voice-recording controls, and the NPC response display. Both text and speech ultimately feed the same conversation system.</p></div><figure><img src="assets/scam-the-ai/scamai-chatUI.png" loading="lazy" decoding="async" alt="Scam the AI chat window with text input and voice controls"><figcaption>The chat interface supports typed messages, voice recording, and synchronized AI responses.</figcaption></figure></article><article class="reverse"><div><h3>Settings and Input</h3><p>The settings window reuses the same base behavior while adding wallpaper selection and an audio-input dropdown. Allowing players to choose a microphone made the speech workflow usable across different hardware configurations.</p></div><figure><img src="assets/scam-the-ai/scamai-wallpaper.gif" loading="lazy" decoding="async" alt="Scam the AI settings window changing the desktop wallpaper"><figcaption>The settings window provides wallpaper customization and runtime microphone selection.</figcaption></figure></article></div></section>
+
+<div class="case-band"><section class="case-section shell" id="challenges" aria-labelledby="challenges-title"><header class="case-heading"><p class="eyebrow">06 / ENGINEERING CHALLENGES</p><h2 id="challenges-title">Keeping an AI-driven interaction reliable.</h2></header><div class="challenge-grid"><article><h3>Coordinating Asynchronous Services</h3><p>Speech recognition, conversation generation, and audio synthesis had to finish in a specific order. I structured the interaction as a controlled pipeline so each stage passed a complete result to the next.</p></article><article><h3>Connecting AI Output to Gameplay</h3><p>Generative dialogue is flexible, but game states must be predictable. Exact response phrases created a reliable bridge between freeform conversation and win or failure events.</p></article><article><h3>Supporting Player Hardware</h3><p>Speech input depends on the player’s available devices. I exposed microphone selection in the settings window so the active recording source could be configured at runtime.</p></article></div>
+<div class="documentation"><h3>Documentation</h3><p>I maintained a prompt-engineering document containing the complete starting prompt and a code-design document for the UI system. These references kept the AI behavior rules and interface architecture explicit while I iterated.</p><div class="case-actions"><a class="button" href="assets/scam-the-ai/Scam the AI Prompt.pdf" target="_blank" rel="noopener noreferrer">View prompt document ↗</a><a class="button" href="blog-speech-recog.html">Read the speech-recognition article ↗</a></div></div></section></div>
+
+<section class="case-section shell" id="takeaways" aria-labelledby="takeaways-title"><header class="case-heading"><p class="eyebrow">07 / TAKEAWAYS</p><h2 id="takeaways-title">What this project taught me.</h2></header><div class="takeaway-copy"><p>Scam the AI gave me practical experience integrating several third-party services into Unity rather than treating each API as an isolated experiment. I learned to coordinate asynchronous requests, move data cleanly between systems, and design the interface around delays that are unavoidable in networked interactions.</p><p>It also reinforced the importance of wrapping unpredictable AI output in deterministic gameplay rules. The most valuable result was not simply making an NPC speak—it was building a complete interaction loop that could listen, respond, change game state, and remain understandable to the player.</p></div></section>
+
+<section class="contact shell"><p class="eyebrow">LET’S WORK TOGETHER</p><h2>Let’s build systems<br><em>that connect.</em></h2><p class="contact-support">I’m interested in gameplay, tools, AI, and technical opportunities where reusable systems improve both the player experience and the development process.</p><h3><a href="mailto:jeffreypopek@gmail.com">jeffreypopek@gmail.com</a></h3><div class="contact-links"><a class="about-cta" href="https://www.linkedin.com/in/jeffreypopek/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="about-cta" href="https://github.com/JeffreyPopek" target="_blank" rel="noopener noreferrer">GitHub</a><a class="about-cta" href="https://jeffreypopek.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a><a class="about-cta" href="assets/JeffreyPopek_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></div></section>
+</main><footer><div class="shell"><p>© <span data-year>2026</span> Jeffrey Popek</p><a href="index.html">Return home ←</a></div></footer>
+</body></html>
