@@ -1,159 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeffrey Popek Portfolio - Holly Jolly Engine</title>
-
-
-
-
-
-    <link rel="icon" type="image/png" href="assets/favicon.webp">
-    <link rel="stylesheet" href="homepage.css">
-    <link rel="stylesheet" href="project.css">
-    <script src="site.js" defer></script>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A technical case study of Holly Jolly Engine, a C++ level-editor prototype built with raylib and Dear ImGui by a two-programmer team in one week.">
+  <meta name="theme-color" content="#090d12"><title>Holly Jolly Engine — Jeffrey Popek</title>
+  <link rel="icon" type="image/webp" href="assets/favicon.webp">
+  <link rel="stylesheet" href="homepage.css"><link rel="stylesheet" href="pvp-case-study.css"><link rel="stylesheet" href="holly-jolly-case-study.css">
+  <script src="site.js" defer></script><script src="pvp-case-study.js" defer></script>
 </head>
-<body class="project-page">
-    <a class="skip-link" href="#project-main">Skip to project content</a>
-                <!-- Where you want the header to go -->
-                <div id="header-placeholder"></div>
+<body class="case-study-page holly-case-study">
+<a class="skip-link" href="#project-main">Skip to project content</a>
+<header class="site-header"><nav class="nav shell" aria-label="Primary navigation"><a class="brand" href="index.html" aria-label="Jeffrey Popek, home"><span class="brand-mark" aria-hidden="true">JP</span><span><strong>Jeffrey Popek</strong><small>Gameplay · AI · Tools</small></span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="sr-only">Open navigation</span><span></span><span></span></button><div class="nav-links" id="nav-links"><a href="index.html#work">Work</a><a href="index.html#reel">Reel</a><a href="index.html#technical-writing">Writing</a><a href="index.html#about">About</a><a class="nav-resume" href="assets/JeffreyPopek_Resume.pdf" target="_blank" rel="noopener">Resume ↗</a></div></nav></header>
 
-                <!-- This script loads the header -->
-                <script>
-                fetch('project-header.html')
-                    .then(response => response.text())
-                    .then(data => {
-                    document.getElementById('header-placeholder').innerHTML = data;
-                    });
-                </script>
+<main id="project-main" tabindex="-1">
+<section class="case-hero shell" aria-labelledby="project-title"><div class="case-hero-copy">
+  <a class="back-link" href="index.html#work">← SELECTED WORK</a><p class="eyebrow">ENGINE PROGRAMMER · TOOLS &amp; SYSTEMS</p><h1 id="project-title">Holly Jolly <em>Engine</em></h1>
+  <p class="case-subtitle">C++ / RAYLIB / IMGUI · 2-PERSON TEAM · 1 WEEK</p>
+  <p>Holly Jolly Engine is a focused C++ level-editor prototype built with raylib and Dear ImGui. In one week, our two-programmer team created a complete authoring loop: spawn 2D game objects, select them in the scene, edit their properties, attach gameplay behavior, save a level to text, and load it back into the engine.</p>
+  <p>I contributed across the editor interface, component model, serialization, memory utilities, rendering, input, and scene runtime. Most systems were designed and implemented collaboratively, so this case study describes the architecture we built together and the areas I worked on directly.</p>
+  <div class="case-actions"><a class="button button-primary" href="#demo">Watch the demo ↓</a><a class="button" href="https://github.com/Holly-Jolly-Studios/Holly-Jolly-Engine" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
+</div><figure class="case-hero-media"><div class="media-chrome"><span>SCENE_EDITOR / RUNTIME</span><span>01</span></div><img src="assets/holly-jolly-engine/hj-splash.png" width="883" height="525" decoding="async" fetchpriority="high" alt="Holly Jolly Engine scene editor showing a rectangle-built Christmas tree and the ImGui world editor"><figcaption>A runtime level editor for creating, modifying, testing, saving, and loading component-based objects.</figcaption></figure></section>
 
-    <div class="page-background" id="project-main" tabindex="-1" role="main">
-        <div class="content-wrapper">
+<nav class="case-jump" aria-label="Explore this project"><div class="shell"><span>PROJECT MAP</span><div id="case-jump-links"><a href="#overview">Overview</a><a href="#editor">Editor</a><a href="#components">Components</a><a href="#runtime">Runtime</a><a href="#persistence">Persistence</a><a href="#takeaways">Takeaways</a></div></div></nav>
 
-            <div class="project-content">
-                <img decoding="async" fetchpriority="high" src="assets/holly-jolly-engine/hj-splash.png" alt="Hj splash — Holly Jolly Engine" class="project-image">
-                <div class="project-info-box">
-                    <div>
-                        <h1>Holly Jolly Engine</h1>
-                    </div>
+<section class="case-section shell" id="overview" aria-labelledby="overview-title"><header class="case-heading"><p class="eyebrow">00 / OVERVIEW</p><h2 id="overview-title">A complete level-editing loop in one week.</h2><div class="section-copy"><p>We built Holly Jolly Engine to understand what happens behind a scene editor rather than relying on an existing game engine. The result is a focused 2D tool that connects authoring and runtime behavior inside the same application.</p><p>Users can spawn rectangles into the scene, select them by clicking their rendered bounds, move them with the mouse, edit position, size, and color through ImGui, add player movement behavior, clear the world, save a level, and load it again. Behind the editor, the WorldManager connects the object registry, component storage, input, collision checks, rendering, and persistence.</p></div></header>
+<div class="contribution-intro"><h3 class="eyebrow">My contribution</h3><p>I worked across every major area of the prototype: the ImGui editor, GameObject and component structure, level serialization, component pools, stack allocation, raylib rendering, player input, and runtime coordination. Because this was a two-person project built collaboratively, the final architecture and implementation were shared work.</p></div>
+<div class="contribution-grid contribution-grid-four">
+  <article><span>01</span><h3>Editor Tooling</h3><p>Scene spawning, selection, dragging, property editing, world controls, and save/load controls through ImGui.</p></article>
+  <article><span>02</span><h3>Component Model</h3><p>GameObjects composed from focused transform, renderer, collider, controller, and collision-response components.</p></article>
+  <article><span>03</span><h3>Runtime Systems</h3><p>Object registration, component updates, input, rectangle collision checks, and raylib rendering.</p></article>
+  <article><span>04</span><h3>Memory and Persistence</h3><p>Reusable component pools, temporary stack allocation, and a readable component-based level format.</p></article>
+</div>
+<figure class="overview-map" aria-labelledby="overview-map-caption"><figcaption id="overview-map-caption"><span>SYS.00</span> SYSTEM OVERVIEW</figcaption><div class="map-grid" role="img" aria-label="Raylib input and the ImGui editor feed WorldManager. WorldManager coordinates the object registry, component pools, and save and load system. The registry contains GameObjects, which reference components also held by the pools. Components drive updates, collision, and rendering. Save and load writes a readable level file.">
+  <div class="map-node map-input">Raylib Input</div><span class="map-arrow arrow-input" aria-hidden="true">↘</span><div class="map-node map-editor">ImGui Editor</div><span class="map-arrow arrow-editor" aria-hidden="true">↗</span>
+  <div class="map-node map-core"><small>COORDINATOR</small>WorldManager</div>
+  <span class="map-arrow arrow-registry" aria-hidden="true">↙</span><div class="map-node map-registry">Object Registry</div><span class="map-arrow arrow-pools" aria-hidden="true">↓</span><div class="map-node map-pools">Component Pools</div><span class="map-arrow arrow-save" aria-hidden="true">↘</span><div class="map-node map-save">Save and Load</div>
+  <span class="map-arrow arrow-objects" aria-hidden="true">↓</span><div class="map-node map-objects">GameObjects</div><span class="map-arrow arrow-refs" aria-hidden="true">↘</span><span class="map-arrow arrow-poolrefs" aria-hidden="true">↓</span><div class="map-node map-components">Component References</div><span class="map-arrow arrow-file" aria-hidden="true">↓</span><div class="map-node map-file">Readable Level File</div>
+  <span class="map-arrow arrow-runtime" aria-hidden="true">↓</span><div class="map-node map-runtime">Update, Collision, and Rendering</div>
+</div></figure></section>
 
-                    <div class="info-item">
-                        
-                        <span>Role: Engine Programmer</span>
-                    </div>
+<div class="case-band"><section class="case-section shell" id="editor" aria-labelledby="editor-title"><header class="case-heading"><p class="eyebrow">01 / EDITOR</p><h2 id="editor-title">Author and test in the same window.</h2><div class="section-copy"><p>The editor is embedded directly into the raylib application through Dear ImGui. World controls handle background color, clearing, filenames, and save/load actions; a separate object panel exposes the selected rectangle’s transform, dimensions, color, and optional player behavior.</p><p>Selection begins with the rendered bounds. A left click checks the mouse point against each object rectangle, opens the object editor, and copies the current values into its controls. Holding the right mouse button then moves the selected object by updating its transform around the cursor.</p></div></header>
+<div class="editor-layout"><div class="workflow-panel"><p class="eyebrow">AUTHORING LOOP</p><ol><li><span>01</span><div><strong>Spawn</strong><small>Create a rectangle at the mouse position.</small></div></li><li><span>02</span><div><strong>Select</strong><small>Test the pointer against rendered bounds.</small></div></li><li><span>03</span><div><strong>Edit</strong><small>Change transform, size, color, or player behavior.</small></div></li><li><span>04</span><div><strong>Test</strong><small>Use the same application as the scene runtime.</small></div></li><li><span>05</span><div><strong>Persist</strong><small>Save the world and load it back by filename.</small></div></li></ol></div><figure class="editor-media"><img src="assets/holly-jolly-engine/hj-editing.webp" loading="lazy" decoding="async" alt="Holly Jolly Engine editor spawning and modifying rectangles"><figcaption>ImGui exposes scene actions while raylib remains responsible for the world view and pointer input.</figcaption></figure></div>
+<figure class="demo-block" id="demo"><div class="demo-label"><span>PROJECT DEMONSTRATION</span><span>RAYLIB + IMGUI</span></div><div class="case-video"><iframe loading="lazy" title="Holly Jolly Engine project demonstration" src="https://www.youtube-nocookie.com/embed/psUynFL7BK8?si=3X_nD0jEOa66NzLu" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><figcaption>The prototype’s complete authoring loop: build, edit, test, save, clear, and reload a scene.</figcaption></figure></section></div>
 
-                    
-                    
-                    <div class="info-item">
-                        <span>Project Length: 1 Week</span>
-                    </div>
+<section class="case-section shell" id="components" aria-labelledby="components-title"><header class="case-heading"><p class="eyebrow">02 / COMPONENTS</p><h2 id="components-title">A component-based object model.</h2><div class="section-copy"><p>Each GameObject owns an ID and holds direct references to the focused components that give it data or behavior. This is a compact component-based object model—not a full data-oriented ECS. The WorldManager also keeps type-specific component lists so it can update controllers, test colliders, and render rectangles without asking every object to run every system.</p><p>BaseComponent connects a component back to its GameObject ID. That shared identifier lets runtime systems find the related transform, renderer, or collider through the object registry when one component needs data held by another.</p></div></header>
+<div class="component-board" aria-label="GameObject and component relationship"><div class="object-node"><span>OBJECT / ID</span><strong>GameObject</strong><small>holds component references</small></div><div class="component-rail" aria-hidden="true"></div><div class="component-list">
+  <article><span>00</span><div><h3>NewTransform</h3><p>Stores the object’s x and y position.</p></div></article><article><span>01</span><div><h3>RectangleRenderer</h3><p>Stores width, height, offsets, and color for raylib drawing.</p></div></article><article><span>02</span><div><h3>RectangleCollider</h3><p>Tracks overlap state from rectangle collision checks.</p></div></article><article><span>03</span><div><h3>PlayerController</h3><p>Moves the transform from WASD or arrow-key input.</p></div></article><article><span>04</span><div><h3>CollisionColorChanger</h3><p>Switches the renderer between default and collision colors.</p></div></article>
+</div></div>
+<div class="storage-layout"><figure><img src="assets/holly-jolly-engine/hj-go.avif" loading="lazy" decoding="async" alt="Holly Jolly Engine object editor showing an object with component-driven properties"><figcaption>Editor-facing properties map back to the object’s focused components.</figcaption></figure><div class="storage-copy"><p class="eyebrow">COMPONENT STORAGE</p><h3>Reusable slots by type.</h3><p>Each component type has its own templated ComponentPool. The pool reserves a set of typed slots, tracks which slots are in use, constructs a component in the next available slot, and returns that address to both the GameObject and the type-specific runtime list.</p><p>Deleting a component marks its slot available and invokes its destructor. The design is intended to recycle known storage; the project did not record performance benchmarks.</p><div class="pool-strip" aria-label="Component allocation path"><span>Type-specific pool</span><b aria-hidden="true">→</b><span>Available slot</span><b aria-hidden="true">→</b><span>Placement construction</span><b aria-hidden="true">→</b><span>Object reference</span></div></div></div>
+<aside class="allocator-note"><span>MEM.01 / TEMPORARY STORAGE</span><div><h3>Frame-lifetime allocation</h3><p>A separate StackAllocator provides linear temporary storage, reports its current head, can clear back to a saved frame, and resets after the frame’s timing and collision bookkeeping. It is a small memory utility with an explicit lifetime model, not a measured optimization claim.</p></div></aside></section>
 
-                    <div class="info-item">
-                        
-                        <span>Team Size: 2</span>
-                    </div>
+<div class="case-band"><section class="case-section shell" id="runtime" aria-labelledby="runtime-title"><header class="case-heading"><p class="eyebrow">03 / RUNTIME</p><h2 id="runtime-title">One coordinator connects the frame.</h2><div class="section-copy"><p>WorldManager is the central coordinator. It owns the object registry, component pools and update lists, current selection, object IDs, editor state, and save/load entry points. The main program creates this manager after opening the raylib window, hands it the game loop, and destroys it during shutdown.</p><p>During a frame, editor and direct input can change the world before the runtime updates player controllers, evaluates rectangle overlaps, applies collision-driven color changes, and renders every stored rectangle. Rendering resolves each renderer’s GameObject ID back through the registry to read its transform.</p></div></header>
+<div class="runtime-sequence" role="img" aria-label="Frame sequence: input and editor, controller updates, pairwise collider checks, collision color response, rectangle rendering, temporary storage reset."><div class="sequence-head"><span>FRAME / ORDERED COORDINATION</span><span>WorldManager::GameLoop</span></div><ol><li><span>01</span><strong>Input + editor</strong><small>Spawn, select, drag, and modify world state.</small></li><li><span>02</span><strong>Controllers</strong><small>Read raylib keys and update transforms.</small></li><li><span>03</span><strong>Collisions</strong><small>Compare component rectangles through raylib.</small></li><li><span>04</span><strong>Responses</strong><small>Change renderer color from collision state.</small></li><li><span>05</span><strong>Rendering</strong><small>Draw rectangles at their resolved transforms.</small></li><li><span>06</span><strong>Frame reset</strong><small>Release temporary stack space together.</small></li></ol></div>
+<div class="runtime-media"><figure><img src="assets/holly-jolly-engine/hj-demo.gif" width="1920" height="1080" loading="lazy" decoding="async" alt="Holly Jolly Engine runtime demonstrating component-driven rectangle behavior"><figcaption>The editor and runtime share one application loop, keeping authored values immediately visible in the scene.</figcaption></figure><div class="runtime-facts"><article><span>INPUT</span><p>PlayerController supports WASD and arrow keys by changing the attached transform.</p></article><article><span>COLLISION</span><p>RectangleCollider delegates overlap tests to raylib’s rectangle collision function.</p></article><article><span>RESPONSE</span><p>CollisionColorChanger updates renderer color only when collision state changes.</p></article><article><span>DRAW</span><p>RectangleRenderer supplies dimensions and color while the registry supplies position.</p></article></div></div></section></div>
 
-                    <div class="info-item">
-                        <span>Engine: Raylib & C++</span>
-                    </div>
-                </div>
+<section class="case-section shell" id="persistence" aria-labelledby="persistence-title"><header class="case-heading"><p class="eyebrow">04 / PERSISTENCE</p><h2 id="persistence-title">The level file mirrors composition.</h2><div class="section-copy"><p>Saving walks the object registry and writes one readable block per GameObject. Component IDs identify which parts belong to the object; compact key-value pairs hold transform, renderer, and color data, while behavior-only components can be represented by an empty block.</p><p>Loading clears the current world, reads the same markers, creates a new GameObject for each block, acquires components from their pools, and assigns parsed values. This closes the editor loop without introducing a separate asset format or external serializer.</p></div></header>
+<div class="format-key"><span>COMPONENT KEY</span><dl><div><dt>00</dt><dd>Transform</dd></div><div><dt>01</dt><dd>Renderer</dd></div><div><dt>02</dt><dd>Collider</dd></div><div><dt>03</dt><dd>Player Controller</dd></div><div><dt>04</dt><dd>Collision Color</dd></div></dl></div>
+<div class="persistence-flow"><div class="flow-copy"><p class="eyebrow">ROUND TRIP</p><h3>Runtime state becomes reconstructable text.</h3><ol><li><span>01</span>Walk registered objects</li><li><span>02</span>Write each attached component</li><li><span>03</span>Save a readable text file</li><li><span>04</span>Parse object and component markers</li><li><span>05</span>Rebuild objects from pooled components</li></ol></div><figure><img src="assets/holly-jolly-engine/hj-saving.gif" width="504" height="375" loading="lazy" decoding="async" alt="Holly Jolly Engine saving, clearing, and loading a level"><figcaption>Save and load controls make persistence part of the same editor workflow.</figcaption></figure></div>
+<figure class="level-file"><div><span>LEVEL.TXT / READABLE OUTPUT</span><span>COMPONENT BLOCKS</span></div><img src="assets/holly-jolly-engine/hj-level.png" width="540" height="557" loading="lazy" decoding="async" alt="A Holly Jolly Engine level text file listing GameObjects and their numbered component values"><figcaption>The example file records object composition and serializable values without hiding the structure behind a binary format.</figcaption></figure></section>
 
-                <div class="project-description">
-                    <!-- <h2>Introduction</h2> -->
-                    <p>In this project I created a program that mimics what scene editors in game engines do. The goal of this project was to get basic functionality of game objects and be able to attach working components onto them. This project uses C++, the raylib library, and ImGui.
-                    </p>
+<div class="case-band"><section class="case-section shell" id="takeaways" aria-labelledby="takeaways-title"><header class="case-heading"><p class="eyebrow">05 / TAKEAWAYS</p><h2 id="takeaways-title">A small engine made the seams visible.</h2></header><div class="takeaway-layout"><div class="takeaway-copy"><p>Building the editor and runtime together made the boundaries between tools, stored data, and frame logic concrete. A change in ImGui had to flow through GameObject references and component storage, then remain correct during input, collision, rendering, and serialization.</p><p>The one-week scope also made tradeoffs visible. The architecture is intentionally narrow: rectangles, a fixed set of component types, direct coordination through WorldManager, and a readable custom format. Within that scope, our two-person team completed an end-to-end authoring loop and gained practical experience designing the systems that established engines normally provide.</p></div><aside><span>WHAT I CARRIED FORWARD</span><ul><li>Design tools around the complete authoring loop.</li><li>Keep object composition explicit and inspectable.</li><li>Give temporary and persistent data clear lifetimes.</li><li>Document intended design separately from measured results.</li><li>Describe shared architecture with collaborative ownership.</li></ul></aside></div></section></div>
 
-
-                    <!-- <pre>
-                        <code>
-                            function helloWorld() {
-                                console.log("Hello, World!");
-                            }
-                        </code>
-                    </pre> -->
-
-
-                    <div class="video-container">
-                        <iframe loading="lazy" title="Holly Jolly Engine video" width="100%" height="500" src="https://www.youtube.com/embed/psUynFL7BK8?si=3X_nD0jEOa66NzLu" allowfullscreen></iframe>
-                    </div>
-
-                    
-                    <a href="https://github.com/Holly-Jolly-Studios/Holly-Jolly-Engine" target="_blank" rel="noopener noreferrer" class="about-cta">GitHub</a>
-
-                    <!-- <p>
-                        <span>
-                            <a href="https://github.com/Holly-Jolly-Studios/Holly-Jolly-Engine" target="_blank" rel="noopener noreferrer">
-                                Github
-                            </a>
-                        </span>
-    
-                    </p> -->
-                   </div>
-
-
-                   <div class="project-content">
-                    <h2>Objects and Components</h2>
-                    <p>In the scene we are spawning in gameobjects, but just an empty gameobject won’t do anything. That's why we need to add components onto the game object. Game Objects always need a renderer and a transform (position) to exist in a scene, but there are other components for additional functionality such as a player controller and colliders.
-                    </p>
-                
-                    <img loading="lazy" decoding="async" src="assets/holly-jolly-engine/hj-go.avif" alt="Hj go — Holly Jolly Engine" class="project-image">
-                </div>
-
-
-                <div class="project-content">
-                    <h2>Editing Game Objects</h2>
-                    <p>To edit our game objects we need to be able to select them. For this to function we need to get the mouse’s position and compared it to the colliders of our game objects to select which game object is the one we are clicking on.
-                    </p>
-                
-                    <img loading="lazy" decoding="async" src="assets/holly-jolly-engine/hj-editCode.png" alt="Hj editCode — Holly Jolly Engine" class="project-image">
-
-                    <p>Combining this with ImGui UI and our components we are able to create a menu that can edit all aspects of our game objects.
-                    </p>
-
-                    <img loading="lazy" decoding="async" src="assets/holly-jolly-engine/hj-editing.webp" alt="Hj editing — Holly Jolly Engine" class="project-image">
-
-                </div>
-
-                <div class="project-content">
-                    <h2>Save and Load</h2>
-                    <p>After we create our levels we want to be able to save them for later. Using a text file we are able to convert all game objects and components into text that can be read by our program to create the exact same scene as when we saved it. The text file needs to use a specific format.</p>
-                
-                    <img loading="lazy" decoding="async" src="assets/holly-jolly-engine/hj-saving.gif" alt="Hj saving — Holly Jolly Engine" class="project-image">
-
-                    <p>After we create our levels we want to be able to save them for later. Using a text file we are able to convert all game objects and components into text that can be read by our program to create the exact same scene as when we saved it. These functions will read in and output the text into a specific format. This is an example of a file that the code will create and can read to save and load levels.
-                    </p>
-
-                    <img loading="lazy" decoding="async" src="assets/holly-jolly-engine/hj-level.png" alt="Hj level — Holly Jolly Engine" class="project-image">
-
-                    <p>Component 0 is the transform, or the position of the game object. Component 1 is the renderer which contains the size and color of the game object. Component 2 is the player controller and will allow you to move this game object around the level. Component 3 is the collider component which will detects collision with other game objects with this same component. Finally is component 4 which will change the color of the game object when it detects a collision.
-                    </p>
-
-                </div>
-
-                <section class="contact">
-                    <h2>Contact Me</h2>
-                    <h3><a href="mailto:jeffreypopek@gmail.com">jeffreypopek@gmail.com</a></h3>
-                    <div class="contact-links">
-                            <a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank" rel="noopener noreferrer" class="about-cta">LinkedIn</a>
-                            <a href="https://github.com/JeffreyPopek" target="_blank" rel="noopener noreferrer" class="about-cta">Github</a>
-                            <a href="https://jeffreypopek.itch.io/" target="_blank" rel="noopener noreferrer" class="about-cta">Itch.io</a>
-                            <a href="assets/JeffreyPopek_Resume.pdf" target="_blank" rel="noopener noreferrer" class="about-cta">Resume</a>
-                       </div>
-                </section>
-
-                <!-- DO NOT USE OR DELETE -->
-                <!-- <div class="project-content">
-                    <h2>Contributions</h2>
-                    <p></p>
-                
-                    <img loading="lazy" decoding="async" src="assets/pvp/pvpGameLoopDiagram.png" alt="PvpGameLoopDiagram — Holly Jolly Engine" class="project-image">
-                </div> -->
-
-                   
-            </div>
-        </div>
-    </div>
-<footer><div class="shell"><p>© <span data-year>2026</span> Jeffrey Popek</p><a href="index.html">Return home ←</a></div></footer>
-</body>
-</html>
+<section class="contact section shell reveal" id="contact" aria-labelledby="contact-title"><p class="eyebrow">04 / Contact</p><h2 id="contact-title">Let’s work<br><span class="contact-accent">together.</span></h2><p class="contact-note">Open to gameplay, tools, and technical opportunities.</p><a class="contact-email" href="mailto:jeffreypopek@gmail.com">jeffreypopek@gmail.com ↗</a><div class="contact-links"><a href="https://www.linkedin.com/in/jeffreypopek/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/JeffreyPopek" target="_blank" rel="noopener">GitHub</a><a href="https://jeffreypopek.itch.io/" target="_blank" rel="noopener">Itch.io</a><a href="assets/JeffreyPopek_Resume.pdf" target="_blank" rel="noopener">Resume</a></div></section>
+</main><footer><div class="shell"><p>© <span data-year>2026</span> Jeffrey Popek</p><a href="#project-main">Back to top ↑</a></div></footer>
+</body></html>
